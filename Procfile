@@ -1,1 +1,1 @@
-web: python dealscraper/untitled1.py 
+web: gunicorn app:app 
