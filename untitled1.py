@@ -8,7 +8,7 @@ app.logger.setLevel(logging.ERROR)
 
 @app.route('/')
 def hello_world():
-    render_template('base.html')
+    return render_template('base.html')
 
 
 if __name__ == '__main__':
