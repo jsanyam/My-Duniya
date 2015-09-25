@@ -83,6 +83,8 @@ def articles(article_id=None):
                 queryset = Article.query.limit(10)
                 # never return the whole set! As it would be very slow
                 # print "hello"
+                if queryset is None:
+                    return jsonify({"msgs": ["the articles you're looking for could not be found"]}), 404
                 result = articles_schema.dump(queryset)
                 print "you"
                 # jsonify serializes our dict into a proper flask response
