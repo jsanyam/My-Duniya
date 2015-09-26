@@ -80,9 +80,9 @@ def articles(article_id=None):
             #     # if article is None:
             #     # abort(404)
             #
-            #     return render_template('articles.html')
+            # return render_template('articles.html')
         else:
-            #if request.is_xhr:
+            if request.is_xhr:
                 queryset = Article.query.limit(10)
                 # never return the whole set! As it would be very slow
                 # print "hello"
@@ -90,18 +90,15 @@ def articles(article_id=None):
                 #print "you"
                 # jsonify serializes our dict into a proper flask response
                 return jsonify({"articles": result.data})
-            # else:
+            else:
+                jsonify({"msgs:" ["no data"]}), 404
             #     return render_template('articles.html')
 
     elif request.method == "POST":# and request.is_xhr:
-        # print "456"
         #val1 = (request.get_json(force=True))
         #val1 = request.args.get('Name', 0, str)
         val1 = "" + request.form.get('Name')
         val2 = "" + request.form.get('Desc')
-        #print "123"
-        #print val1.Name
-        print val2
         return jsonify({'name': val1, 'desc': val2})
         #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
