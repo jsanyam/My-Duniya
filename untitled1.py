@@ -82,7 +82,7 @@ def articles(article_id=None):
             # return render_template('articles.html')
         else:
                 #if request.is_xhr:
-                queryset = Article.query.order_by(Article.id.desc()).limit(10)
+                queryset = Article.query.limit(10)
                 # never return the whole set! As it would be very slow
                 result = articles_schema.dump(queryset)
                 # jsonify serializes our dict into a proper flask response
