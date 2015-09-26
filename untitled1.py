@@ -68,7 +68,6 @@ def news():
 def articles(article_id=None):
     if request.method == "GET":
         if article_id:
-            # article = Article.query.get(article_id)
 
             #if request.is_xhr:
                 article = Article.query.get(article_id)
@@ -82,17 +81,15 @@ def articles(article_id=None):
             #
             # return render_template('articles.html')
         else:
-            if request.is_xhr:
+            #if request.is_xhr:
                 queryset = Article.query.limit(10)
                 # never return the whole set! As it would be very slow
-                # print "hello"
                 result = articles_schema.dump(queryset)
-                #print "you"
                 # jsonify serializes our dict into a proper flask response
                 return jsonify({"articles": result.data})
-            else:
-                jsonify({"msgs:": ["no data"]}), 404
-            #     return render_template('articles.html')
+            # else:
+            #     return jsonify({"msgs:": ["no data"]}), 404
+            # #     return render_template('articles.html')
 
     elif request.method == "POST":# and request.is_xhr:
         #val1 = (request.get_json(force=True))
@@ -138,7 +135,7 @@ db.create_all()
 #    #print news_a.title
 #    db.session.commit()
 
-#print "wohooo"
+
 #a = Article.query.get(1)
 #print a
 
