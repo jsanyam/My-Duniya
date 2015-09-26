@@ -8,7 +8,7 @@ $(document).ready(function(){
         $.ajax({
             type: 'GET',
             //url:"{{ url_for('.articles') }}",
-            url:"/news/",
+            url:"/news.json/",
             success: function(data, textStatus, xhr) {
                 console.log(data);
                 $.each(data['articles'], function(i, el){
@@ -28,7 +28,7 @@ $(document).ready(function(){
             console.log(user.Name);
             $.ajax({
                 type: 'POST',
-                url: "/news/",
+                url: "/news.json/",
                 data: user,
                 success: function(newUser){
                     //$article.append("<li>" + newUser.name + "</li><li>" + newUser.desc + "</li><b r><br>");

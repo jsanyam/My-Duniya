@@ -4,38 +4,13 @@
     <title>Articles</title>
 </head>
 <body>
-<ul id="articles">
-</ul>
-<form method="post" onsubmit = "return false">
-    <input id="name">Enter Name
-    <input id="desc">Description
-    <button id="Add">Submit</button>
-</form>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-{#<script type="text/javascript">#}
-{#    // only execute after loading the whole HTML#}
-{#    $(document).ready(function(){#}
-{#        $.ajax({#}
-{#            url:"{{ url_for('.articles') }}",#}
-{#            success: function(data, textStatus, xhr){#}
-{#                $(data['articles']).each(function(i, el){#}
-{#                    var link = "<a href='"+ el['url'] +"'>" + el['title'] + "</a>";#}
-{#                    $("#articles").append("<li>" + link + "</li>");#}
-{#                });}});}); // don't do this in live code#}
-{#</script>#}
-<script type="text/javascript" src={{ url_for('static', filename = 'main.js') }}>
-{#    $(document).ready(function(){#}
-{#        var $article = $("#articles");#}
-{#        $.ajax({#}
-{#            type: 'GET',#}
-{#            url:"{{ url_for('.articles') }}",#}
-{#            success: function(data, textStatus, xhr) {#}
-{#                $.each(data['articles'], function(i, el){#}
-{#                    $article.append("<li>Title: " +el.title+ "</li>");#}
-{#                });#}
-{#            }#}
-{#        });#}
-{# }); #}
-</script>
+    <ul id="articles"></ul>
+    <form method="post" onsubmit = "return false">
+        <input id="name">Enter Name
+        <input id="desc">Description
+        <button id="Add">Submit</button>
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src={{ url_for('static', filename = 'main.js') }}></script>
 </body>
 </html>
