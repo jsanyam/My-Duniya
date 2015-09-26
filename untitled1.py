@@ -91,7 +91,7 @@ def articles(article_id=None):
                 # jsonify serializes our dict into a proper flask response
                 return jsonify({"articles": result.data})
             else:
-                jsonify({"msgs:" ["no data"]}), 404
+                jsonify({"msgs:": ["no data"]}), 404
             #     return render_template('articles.html')
 
     elif request.method == "POST":# and request.is_xhr:
