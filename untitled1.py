@@ -9,7 +9,8 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
-from sqlalchemy.exc import IntegrityError
+#from sqlalchemy.exc import IntegrityError
+from psycopg2._psycopg import IntegrityError
 
 
 app = Flask(__name__)
