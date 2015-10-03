@@ -182,7 +182,7 @@ def upload():
 
 
             except Exception as e:
-                #print e
+                print e
                 continue
 
     return jsonify({"database": ["Updated Database version"]})
