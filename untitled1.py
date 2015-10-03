@@ -1,7 +1,7 @@
 # coding:utf-8
 import logging
 import os
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, Session
 from flask.ext.sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
@@ -9,6 +9,7 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
+from sqlalchemy.exc import IntegrityError
 
 
 app = Flask(__name__)
@@ -23,7 +24,7 @@ class Article(db.Model):
     __tablename__ = 'articles'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(300), primary_key=True)#unique=True, nullable=False)
+    title = db.Column(db.String(300), unique=True, nullable=True)
     full_story = db.Column(db.Text(), nullable=True)
     image = db.Column(db.String(100), nullable=True)
     category = db.Column(db.String(100), nullable=True)
@@ -105,15 +106,15 @@ def articles(article_id=None):
 
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
-    toi_rss={#'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories',
-        # 'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent',
-        # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
-        # 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
-        # 'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
-        # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
-        # 'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
-        #'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
-        #'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
+    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories',
+        'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent',
+        'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
+        'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
+        'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
+        'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
+        'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
+        'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
+        'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
         'http://timesofindia.feedsportal.com/c/33039/f/533925/index.rss':'Environment',
         'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
         'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
@@ -156,7 +157,7 @@ def upload():
                     #print("story was none")
                 description=bsObj.find("meta",{'name':'description'})['content']
 
-                # print('title :'+title+"\n")
+                #print('title :'+title+"\n")
                 # print(post.link)
                 # print('category :'+category+"\n")
                 # print('description :'+description+"\n")
@@ -172,18 +173,24 @@ def upload():
                 save_full_story=story_list.get_text()
                 save_image=images
                 save_date=dated
+                try:
+                    article_a = Article(title=save_title, full_story=save_full_story, image=save_image, category=save_category,
+                    description=save_description, pubdate=save_date)
+                    #print "Hello"
+                    db.session.add(article_a)
+                    db.session.commit()
+                    print article_a.id
 
-                article_a = Article(title=""+save_title, full_story=""+save_full_story, image=""+save_image, category=""+save_category,
-                description=""+save_description, pubdate=""+save_date)
-                #print "Hello"
-                db.session.add(article_a)
-                db.session.commit()
-                #print article_a.id
+                except IntegrityError as ie:
+                    print ie
+                    db.session.rollback()
+                    #break
+                    #continue
 
 
             except Exception as e:
                 print e
-                continue
+                #continue
 
     return jsonify({"database": ["Updated Database version"]})
 
