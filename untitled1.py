@@ -23,7 +23,7 @@ class Article(db.Model):
     __tablename__ = 'articles'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(300), unique=True)
+    title = db.Column(db.String(300), unique=True, nullable=False)
     full_story = db.Column(db.Text(), nullable=True)
     image = db.Column(db.String(100), nullable=True)
     category = db.Column(db.String(100), nullable=True)
