@@ -182,8 +182,8 @@ def upload():
                     db.session.commit()
                     print article_a.id
 
-                except IntegrityError as ie:
-                    print ie
+                except IntegrityError:# as ie:
+                    #print ie
                     print"\nCaught"
                     db.session.rollback()
                     #break
@@ -265,7 +265,7 @@ if __name__ == '__main__':
     # we define the debug environment only if running through command
     app.config['SQLALCHEMY_ECHO'] = True
     #app.debug = True
-    app.run()
+    app.run(debug=False)
 
 
 
