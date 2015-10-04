@@ -10,8 +10,8 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
 #from sqlalchemy.exc import IntegrityError
-from psycopg2._psycopg import IntegrityError
-
+#from psycopg2._psycopg import IntegrityError
+import psycopg2
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
@@ -182,7 +182,7 @@ def upload():
                     db.session.commit()
                     print article_a.id
 
-                except IntegrityError:# as ie:
+                except psycopg2.IntegrityError:# as ie:
                     #print ie
                     print"\nCaught"
                     db.session.rollback()
