@@ -194,6 +194,16 @@ def upload():
 
     return jsonify({"database": ["Updated Database version"]})
 
+@app.route("/news.json/<category>", methods=["GET"])
+def tags(category):
+    if request.method == 'GET':
+        tag = Article.query.filter(Article.category == category).limit(50)
+        if tag is None:
+                    return jsonify({"msgs": ["the tag you're looking for could not be found"]}), 404
+        result = article_schema.dump(tag)
+        return jsonify({'tag': result})
+
+
 #
 # @app.route("/update-db/", methods=["GET", "POST"])
 # def upload():
