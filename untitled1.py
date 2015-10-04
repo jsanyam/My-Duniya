@@ -9,7 +9,7 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
-# from sqlalchemy.exc import IntegrityError
+#from sqlalchemy.exc import IntegrityError
 from psycopg2._psycopg import IntegrityError
 
 
@@ -107,11 +107,11 @@ def articles(article_id=None):
 
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
-    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories',
-        'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent',
-        'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
-        'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
-        'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business'}#,
+    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories'}#,
+        #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent',
+        #'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
+        #'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
+        #'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business'}#,
         # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
         # 'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
         # 'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
@@ -184,7 +184,7 @@ def upload():
 
                 except IntegrityError as ie:
                     print ie
-                    print"\nHello"
+                    print"\nCaught"
                     db.session.rollback()
                     #break
                     #continue
