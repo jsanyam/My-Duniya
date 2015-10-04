@@ -105,6 +105,16 @@ def articles(article_id=None):
         return jsonify({'name': val1, 'desc': val2})
         #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
+
+@app.route('/<category>', methods=["GET"])
+def tags(category):
+    if request.method == 'GET':
+        tag = Article.query.filter(Article.category == category).limit(50)
+        if tag is None:
+                    return jsonify({"msgs": ["the tag you're looking for could not be found"]}), 404
+        result = articles_schema.dump(tag)
+        return jsonify({'tag': result})
+
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
     toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories',
@@ -187,21 +197,12 @@ def upload():
                     # break
                     # continue
 
-
             except Exception as e:
                 print e
                 # continue
 
     return jsonify({"database": ["Updated Database version"]})
 
-@app.route("/news.json/<category>", methods=["GET"])
-def tags(category):
-    if request.method == 'GET':
-        tag = Article.query.filter(Article.category == str(category)).limit(50)
-        if tag is None:
-                    return jsonify({"msgs": ["the tag you're looking for could not be found"]}), 404
-        result = article_schema.dump(tag)
-        return jsonify({'tag': result})
 
 
 #
