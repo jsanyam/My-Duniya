@@ -9,7 +9,7 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
-from sqlalchemy.exc import IntegrityError
+# from sqlalchemy.exc import IntegrityError
 from psycopg2._psycopg import IntegrityError
 
 
@@ -184,6 +184,7 @@ def upload():
 
                 except IntegrityError as ie:
                     print ie
+                    print"\nHello"
                     db.session.rollback()
                     #break
                     #continue
