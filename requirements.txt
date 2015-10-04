@@ -23,7 +23,6 @@ itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
 marshmallow==1.2.6
-MySQL-Connector-Python==1.1.7
 oauth==1.0.1
 oauth2==1.9.0.post1
 passlib==1.6.5
