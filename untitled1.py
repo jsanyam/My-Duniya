@@ -1,7 +1,7 @@
 # coding:utf-8
 import logging
 import os
-from flask import Flask, jsonify, request, render_template, Session
+from flask import Flask, jsonify, request, render_template, Session, session
 from flask.ext.sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
@@ -172,12 +172,13 @@ def upload():
                 save_image=images
                 save_date=dated
                 try:
-                    article_a = Article(title=save_title, full_story=save_full_story, image=save_image, category=save_category,
-                    description=save_description, pubdate=save_date)
-                    # print "Hello"
-                    db.session.add(article_a)
-                    db.session.commit()
-                    print article_a.id
+                    if not db.session.query(Article).filter(Article.title == save_title).count():
+                        article_a = Article(title=save_title, full_story=save_full_story, image=save_image, category=save_category,
+                        description=save_description, pubdate=save_date)
+                        # print "Hello"
+                        db.session.add(article_a)
+                        db.session.commit()
+                        print article_a.id
 
                 except psycopg2.IntegrityError:  # as ie:
                     # print ie
