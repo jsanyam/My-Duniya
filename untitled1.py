@@ -107,11 +107,11 @@ def articles(article_id=None):
 
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
-    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories'}#,
-        #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent',
-        #'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
-        #'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
-        #'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business'}#,
+    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms':'Top stories',
+        'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms':'Most Recent'}  # ,
+        # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss':'India',
+        # 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss':'World',
+        # 'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business'}#,
         # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
         # 'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
         # 'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
@@ -124,18 +124,15 @@ def upload():
 
 
     for key, value in toi_rss.iteritems():
-        #print key
+        # print key
         d = feedparser.parse(key)
 
-
-        category=value
+        category = value
         for post in d.entries:
             try:
-                title=post.title
+                title = post.title
 
-
-
-                dated=post.published
+                dated = post.published
 
                 if "photo" in post.link:
                     continue
@@ -147,16 +144,16 @@ def upload():
                     continue
 
                 html = urlopen(post.link)
-                bsObj = BeautifulSoup(html,"html.parser")
+                bsObj = BeautifulSoup(html, "html.parser")
 
                 images = bsObj.find("link", attrs={"rel":"image_src"})
                 if images is not None:
                     images=images['href']
-                story_list=bsObj.find("div",attrs={"class":"content"})
+                story_list=bsObj.find("div", attrs={"class":"content"})
                 if story_list is None:
-                    story_list=bsObj.find("div",attrs={"class":"Normal"})
+                    story_list=bsObj.find("div", attrs={"class":"Normal"})
                     #print("story was none")
-                description=bsObj.find("meta",{'name':'description'})['content']
+                description=bsObj.find("meta", {'name':'description'})['content']
 
                 #print('title :'+title+"\n")
                 # print(post.link)
@@ -177,22 +174,22 @@ def upload():
                 try:
                     article_a = Article(title=save_title, full_story=save_full_story, image=save_image, category=save_category,
                     description=save_description, pubdate=save_date)
-                    #print "Hello"
+                    # print "Hello"
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
 
-                except psycopg2.IntegrityError:# as ie:
-                    #print ie
-                    print"\nCaught"
+                except psycopg2.IntegrityError:  # as ie:
+                    # print ie
+                    print"Caught"
                     db.session.rollback()
-                    #break
-                    #continue
+                    # break
+                    # continue
 
 
             except Exception as e:
                 print e
-                #continue
+                # continue
 
     return jsonify({"database": ["Updated Database version"]})
 
