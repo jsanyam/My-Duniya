@@ -9,17 +9,19 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
-#from sqlalchemy.exc import IntegrityError
-#from psycopg2._psycopg import IntegrityError
 import psycopg2
+# from sqlalchemy.exc import IntegrityError
+# from psycopg2._psycopg import IntegrityError
+
+import tweepy
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite'  #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite'  #os.environ['DATABASE_URL']  #
 db = SQLAlchemy(app)
-
+json_response = {}
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -206,8 +208,49 @@ def upload():
     return jsonify({"database": ["Updated Database version"]})
 
 
+@app.route('/trends/<handles>')
+def trend_search(handles):
+    hash_list = handles.split('_')
+    consumer_key = 'orVBG7irMKWuPZVE3EjzVMHmF'
+    consumer_secret = 'iuujp0hKDAYNkK60C7FjxnAA7l5cn4z34lNyGiX686l2BvVtOA'
+    access_token = '986776236-0S9XqKSH5mtXq9oRxwpy4IbSM6sVnDP63ifbUEKu'
+    access_token_secret = 'JkWIrlvCgpomr1hIcntKFMQ1OiAcxuOGuIw3xCDZmJcIq'
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+    json_response.clear()
+    for hash in hash_list:
+        q = "#"+hash+" -RT"
+        alltweets = api.search(q,count=5)
+        list=[]
+        for tweets in alltweets:
+            list.append(api.get_oembed(tweets.id))
 
-#
+        json_response[hash] = list
+
+    # print json.dumps(json_response)
+    return jsonify({"Tweets": ["Updated Trending Tweets"]})
+
+
+@app.route('/get_tweets')
+def trending():
+    return jsonify(json_response)
+
+
+db.create_all()
+#db.drop_all()
+
+if __name__ == '__main__':
+    # we define the debug environment only if running through command
+    app.config['SQLALCHEMY_ECHO'] = True
+    #app.debug = True
+    app.run(debug=False)
+
+
+
+
+
+
 # @app.route("/update-db/", methods=["GET", "POST"])
 # def upload():
 #     #let's populate our database with some data; empty examples are not that cool
@@ -267,17 +310,6 @@ def upload():
 #                     continue
 #
 #         return jsonify({"database": ["Updated Database version"]})
-#
-
-db.create_all()
-#db.drop_all()
-
-if __name__ == '__main__':
-    # we define the debug environment only if running through command
-    app.config['SQLALCHEMY_ECHO'] = True
-    #app.debug = True
-    app.run(debug=False)
-
 
 
 
