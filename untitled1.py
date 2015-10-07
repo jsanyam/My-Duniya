@@ -237,6 +237,7 @@ def trend_search(handles):
 
 @app.route('/get_tweets')
 def trending():
+    global json_response
     return jsonify(json_response)
 
 
