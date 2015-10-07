@@ -72,6 +72,10 @@ def hello_world():
 def news():
     return render_template("base.html")
 
+@app.route("/tagnews/")
+def tag():
+    return render_template("index.html")
+
 @app.route("/news.json/", methods=["GET", "POST"])
 @app.route("/news.json/<article_id>", methods=["GET"])
 def articles(article_id=None):
