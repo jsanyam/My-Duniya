@@ -220,8 +220,8 @@ def trend_search(handles):
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
     global json_response
-    json_response = {}
-    #json_response.clear()
+    #json_response = {}
+    json_response.clear()
     for hash in hash_list:
         q = "#"+hash+" -RT"
         alltweets = api.search(q,count=5)
