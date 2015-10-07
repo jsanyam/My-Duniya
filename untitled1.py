@@ -19,7 +19,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite'  #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite'  #os.environ['DATABASE_URL']  #
 db = SQLAlchemy(app)
 
 json_response = {}
@@ -65,8 +65,8 @@ articles_schema = ArticleSchema(many=True)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def main():
+    return render_template("basee.html")
 
 @app.route("/news/", methods=["GET"])
 def news():

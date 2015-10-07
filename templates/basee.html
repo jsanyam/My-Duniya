@@ -1,0 +1,953 @@
+<!--<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Articles</title>
+</head>
+<body>
+    <ul id="articles"></ul>
+    <form method="post" onsubmit = "return false">
+        <input id="name">Enter Name
+        <input id="desc">Description
+        <button id="Add">Submit</button>
+    </form>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src={{ url_for('static', filename = 'main.js') }}></script>
+</body>
+</html>
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		#cf {
+  width:100%;
+  height:700px;
+
+}
+
+
+
+	#cf img {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+		z-index: -1;
+		opacity: 1;
+		}
+
+@keyframes cfFadeInOut {
+  			0% {
+  			opacity:1;
+				}
+			40% {
+			opacity:1;
+				}
+			60% {
+			opacity:0;
+				}
+			100%{
+		opacity:0;
+			   }
+		}
+
+
+
+#cf img.top {
+animation-name: cfFadeInOut;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+animation-duration: 4s;
+animation-direction: alternate;
+}
+
+#logo{
+		height:25%;
+		width:25%;
+		//background-color:red;
+		float:left;
+}
+
+
+#hlogo{
+
+	position: fixed;
+	height:13%;
+	width: 7%;
+	//background-color: white;
+	border-style: solid;
+	border-color: white;
+}
+
+
+
+#heading{
+
+	//position: absolute;
+	height:100%;
+	width:50%;
+	//text-align: center;
+	//background-color: red;
+	//color:white;
+	//font-family:"Lucida Grande",sans-serif;
+	//position: relative;
+	//top:100px;
+	float:left;
+}
+
+#description{
+
+		//position: absolute;
+				height:25%;
+		width:100%;
+		float:left;
+		//background-color: white;
+		text-align: center;
+		color: white;
+		margin-top: 100px;
+		font-family:"Lucida Grande",sans-serif;
+}
+
+
+#sguform{
+	//position: absolute;
+	height:75%;
+	width:100%;
+	float:left;
+	//z-index: -1;
+	//background-color:black;
+}
+
+
+#sgnform{
+	position: absolute;
+	height:57%;
+	width:40%;
+	float:left;
+	margin-left: 50px;
+	margin-top: 250px;
+	background-color: transparent;
+	z-index: 100;
+	display:none;
+
+}
+
+#sgnform ul{
+		list-style:none;
+}
+
+#sgnform ul li{
+		width:80%;
+		height:40px;
+		text-align:center;
+		margin-left: 30px;
+		padding-top: 20px;
+
+}
+
+
+#sgnbtn{
+//
+		//width:160px;
+		height:40px;
+//		left:200px;
+		border-color: red;
+		border-style: solid;
+		background-color: red;
+		color:white;
+		margin-left:215px;
+		margin-top: 40px;
+		padding-left: 25px;
+		padding-right: 25px;
+}
+
+#sgnbtn:hover{
+
+	border-color:black;
+}
+
+
+#sgn{
+		//position:absolute;
+		//left:1100px;
+		//bottom:50px;
+		font-family:"Lucida Grande",sans-serif;
+		width:25%;
+		height:25%;
+		float:left;
+		//background-color:green;
+
+}
+
+#sgndesc{
+
+	padding-left: 90px;
+}
+
+
+
+#sgnbt{
+
+		margin-left: 155px;
+		background-color: transparent;
+		border-style: solid;
+		border-color: white;
+		color:white;
+		height:40px;
+		width: 80px;
+
+}
+
+#sgnbt:hover{
+
+		background-color: white;
+		border-color: black;
+		border-style: solid;
+		color:black;
+}
+
+
+
+#sguform ul{
+		list-style:none;
+}
+
+#sguform ul li{
+		width:80%;
+		height:40px;
+		text-align:center;
+		margin-left: 30px;
+}
+
+.txt{
+		margin-top:1px;
+		border:1px solid grey;
+		width:100%;
+		height:40px;
+		padding-left:10px;
+}
+
+.sgu{
+
+		color:white;
+//		width:400px;
+//		height:30px;
+//		padding-top:35px;
+		text-align:center;
+        font-family:"Lucida Grande",sans-serif;
+}
+
+.lg{
+		float:left;
+		height:100%;
+		width:33.33%;
+		background-color:red;
+}
+
+#fb{
+
+			background-image:url("../static/fb-logo.png");
+			background-size:100% 100%;
+}
+
+#tw{
+
+	background-image: url("../static/Twitter.png");
+	background-size:100% 100%;
+}
+#gl{
+		background-image: url("../static/Google.png");
+		background-size: 100% 120%;
+}
+
+
+#sgubt{
+//
+		width:80px;
+		height:40px;
+//		left:200px;
+		border-color: white;
+		border-style: solid;
+		background-color: transparent;
+		color:white;
+		margin-left:290px;
+}
+
+#sgubt:hover{
+
+		background-color: white;
+		border-color: black;
+		border-style: solid;
+		color:black;
+}
+
+.content{
+		width:100%;
+		height:700px;
+		//background-color: ;
+		position: absolute;
+		top:700px;
+		left:0px;
+		right:0px;
+		z-index: -1;
+}
+
+.content2{
+		width:100%;
+		height:700px;
+		background-color:blue ;
+		position: absolute;
+		top:1400px;
+		left:0px;
+		right: 0px;
+		z-index: -1;
+}
+
+.tags{
+
+		width:66.66%;
+		height:100%;
+		background-color:green ;
+		//position: absolute;
+		//top:1200px;
+		//left:0px;
+		//right: 0px;
+		float: left;
+
+}
+
+
+.info{
+	width:33.33%;
+	height:100%;
+	float:left;
+    filter:brightness(85%);
+	background-color: #CC0000;
+	//background: linear-gradient(white,#CC0000,#CC0000,#CC0000,#CC0000,#CC0000);
+}
+
+
+#info h1{
+
+	color:white;
+	margin-top: 280px;
+	margin-left: 20px;
+	margin-right: 20px;
+	//text-decoration: underline;
+	//font-family: 'Indie Flower', cursive;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 2.5em;
+}
+
+#info p{
+
+	font-family: 'Indie Flower', cursive;
+	color:white;
+	margin-left: 10px;
+	margin-right: 15px;
+	font-size: 1.5em;
+}
+
+
+.info2 h1{
+
+	color:white;
+	margin-top: 280px;
+	margin-left: 20px;
+	margin-right: 20px;
+	//text-decoration: underline;
+	//font-family: 'Indie Flower', cursive;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 2.5em;
+
+}
+
+
+.info2 p{
+
+	font-family: 'Indie Flower', cursive;
+	color:white;
+	margin-left: 10px;
+	margin-right: 15px;
+	font-size: 1.5em;
+}
+
+.info2{
+
+	//position:absolute;
+	//top:1200px;
+	//left:900px;
+	width:33.33%;
+	height:100%;
+	float:left;
+	background-color:#CC0000;
+    filter:brightness(80%);
+
+}
+
+.ctags{
+
+	width:33.33%;
+	height:50%;
+	float:left;
+}
+
+.ctags2{
+
+		width:50%;
+		height: 50%;
+		float: left;
+}
+
+#r1c1{
+	background-image: url("../static/large.jpg");
+	background-size:100% 100%;
+//    filter: brightness(70%);
+}
+
+
+#r1c1:hover{
+
+			background-size: 105% 105%;
+			transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+}
+
+#r1c1:not(hover){
+
+	background-size: 100% 100%;
+		transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+
+}
+
+#r1c2{
+
+	background-color: blue;
+
+}
+
+
+#r2c1{
+
+	background-color:green;
+}
+
+#r2c2{
+	background-image: url("../static/large(2).jpg");
+	background-size:100% 100%;
+}
+
+
+#r2c2:hover{
+
+	background-size: 105% 105%;
+			transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+}
+
+#r2c2:not(hover){
+
+	background-size: 100% 100%;
+		transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+
+}
+
+#r3c1{
+
+		background-color:green;
+}
+
+#r3c2{
+
+		//background-color: blue;
+		background-image:url("../static/top.jpg");
+		background-size:100% 100%;
+}
+
+#r3c2:hover{
+
+	background-size: 105% 105%;
+			transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+}
+
+#r3c2:not(hover){
+
+	background-size: 100% 100%;
+		transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+
+}
+
+#r4c1{
+
+		//background-color: blue;
+		background-image:url("../static/entertainment.jpg");
+		background-size:100% 100%;
+
+}
+
+#r4c1:hover{
+
+background-size: 105% 105%;
+			transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+
+}
+
+#r4c1:not(:hover){
+
+	background-size: 100% 100%;
+	transition: background-size 1s;
+			-webkit-transition:  background-size 1s;
+}
+
+#r4c2{
+
+	background-color: blue
+}
+
+#r1c1info a{
+
+    text-decoration:none;
+    color:white;
+    margin-left:2.5px;
+    font-family:"Lucida Grande","sans-serif";
+}
+
+#r2c2info a{
+
+    text-decoration:none;
+    color:white;
+    margin-left:8px;
+    font-family:"Lucida Grande","sans-serif";
+}
+
+#r3c2info{
+
+    width:35%;
+}
+#r4c1info a{
+
+    text-decoration:none;
+    color:white;
+    margin-left:12px;
+    font-family:"Lucida Grande","sans-serif";
+}
+
+#r3c2info a{
+
+    text-decoration:none;
+    color:white;
+    margin-left:29px;
+    font-family:"Lucida Grande","sans-serif";
+}
+
+
+
+
+
+
+#r2c2info{
+
+    width:28%;
+}
+
+#r4c1info{
+
+    width:35%;
+}
+
+.tagsinfo{
+
+	height: 13%;
+	width:20%;
+	//background-color: white;
+	margin:0 auto;
+	margin-top: 140px;
+	border-style: solid;
+	border-color: white;
+
+}
+
+
+
+.contact{
+
+	position:absolute;
+	top:2100px;
+	left:0;
+	height:500px;
+	width:100%;
+	background-color: green;
+	z-index: -1;
+}
+
+#members{
+
+	height:80%;
+	width:100%;
+	background-color: black;
+}
+
+.team{
+
+	width:20%;
+	height:100%;
+	float:left;
+}
+
+#mem1{
+
+	background-color: red;
+
+}
+#mem2{
+
+	background-color: blue;
+}
+#mem3{
+
+	background-color: green;
+}
+#mem4{
+
+	background-color: yellow;
+}
+#mem5{
+
+	background-color: red;
+}
+#footer{
+
+	height:20%;
+	width: 100%;
+	background-color: grey;
+}
+
+
+
+        #sgndesc2{
+
+	padding-left: 110px;
+	display: none;
+}
+#sgnbt2{
+
+		margin-left: 155px;
+		background-color: transparent;
+		border-style: solid;
+		border-color: white;
+		color:white;
+		height:40px;
+		width: 80px;
+		display: none;
+}
+#sgnbt2:hover{
+
+		background-color: white;
+		border-color: black;
+		border-style: solid;
+		color:black;
+}
+
+
+
+
+	</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src={{ url_for('static', filename = 'main.js') }}></script>
+	<script>
+	var h=0;
+
+		//getting image height as per div
+
+		$('document').ready(function(){
+
+			h = $("#cf").height();
+
+			$('img').height(h);
+		});
+
+
+		//smooth scrolling
+
+		$('document').ready(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+
+
+
+
+
+
+		$(document).ready(function(){
+
+			$('#sgnbt').click(function(){
+
+				$('#sgnform').css("display","block");
+				$('#sgndesc').css('display','none');
+				$('#sgnbt').css('display','none');
+				$('#sgndesc2').css('display','block');
+				$('#sgnbt2').css('display','block');
+				$('#sguform').css("display","none");
+
+			});
+
+
+		});
+
+
+
+
+		$(document).ready(function(){
+
+			$('#sgnbt2').click(function(){
+
+				$('#sgnform').css("display","none");
+				$('#sguform').css("display","block");
+				$('#sgndesc').css('display','block');
+				$('#sgnbt').css('display','block');
+				$('#sgndesc2').css('display','none');
+				$('#sgnbt2').css('display','none');
+
+			});
+
+
+		});
+
+            $(document).ready(function(){
+
+               $('#r1c1').hover(function(){
+
+                    $('#r1c1info a').css('color','black');
+                    $('#r1c1info').css('background-color','white');
+                    $('#r1c1info').css('border-color','black');
+
+                       },
+                function(){
+                {
+                    $('#r1c1info a').css('color','white');
+                    $('#r1c1info').css('background-color','transparent');
+                    $('#r1c1info').css('border-color','white');
+                }
+            });
+
+
+                $('#r2c2').hover(function(){
+
+                    $('#r2c2info a').css('color','black');
+                    $('#r2c2info').css('background-color','white');
+                    $('#r2c2info').css('border-color','black');
+
+                       },
+                function(){
+                {
+                    $('#r2c2info a').css('color','white');
+                    $('#r2c2info').css('background-color','transparent');
+                    $('#r2c2info').css('border-color','white');
+                }
+            });
+
+
+                 $('#r4c1').hover(function(){
+
+                    $('#r4c1info a').css('color','black');
+                    $('#r4c1info').css('background-color','white');
+                    $('#r4c1info').css('border-color','black');
+
+                       },
+                function(){
+                {
+                    $('#r4c1info a').css('color','white');
+                    $('#r4c1info').css('background-color','transparent');
+                    $('#r4c1info').css('border-color','white');
+                }
+            });
+
+
+                 $('#r3c2').hover(function(){
+
+                    $('#r3c2info a').css('color','black');
+                    $('#r3c2info').css('background-color','white');
+                    $('#r3c2info').css('border-color','black');
+
+                       },
+                function(){
+                {
+                    $('#r3c2info a').css('color','white');
+                    $('#r3c2info').css('background-color','transparent');
+                    $('#r3c2info').css('border-color','white');
+                }
+            });
+
+
+            });
+
+
+
+</script>
+
+
+</head>
+
+
+<body>
+
+<div id="cf">
+	<img class="bottom" src={{ url_for('static', filename = "architectureedit.jpg") }}  alt="architecture">
+	<img class="top" src={{ url_for('static', filename = "designedit2.jpg")  }} alt="landscape" >
+
+	<div id="logo">
+	<div id="hlogo">
+	</div>
+	</div>
+
+	<div id="heading">
+
+	<div id="description">
+	<h1>WELCOME TO AGGREGATOR</h1>
+	</div>
+
+	<div id="sgnform">
+
+				<ul>
+
+					<li><input type="text" class="txt" placeholder="User Name"></li>
+					<li><input type="password" class="txt"placeholder="Password"></li>
+				</ul>
+
+				<button type="button" id="sgnbtn">Login</button><br>
+
+
+	</div>
+
+	<div id="sguform">
+					<ul>
+						<li><input type="text" name="fn" class="txt" placeholder="Full Name"/></li>
+						<li><input type="text" name="id" class="txt" placeholder="Email" /></li>
+						<li><input type="password" name="ps" class="txt" placeholder="Password" /></li>
+						<li><input type="password" name="cps" class="txt" placeholder="Confirm Password" /></li>
+					</ul>
+
+					<button type="button" id="sgubt">Register</button>
+					<h3 class="sgu">Or Sign Up Using</h3>
+					<ul>
+						<li>
+							<a href="http://www.facebook.com"><div id="fb" class="lg"></div></a>
+							<a href="http://www.twitter.com"><div id="tw" class="lg" ></div></a>
+							<a href="http://www.gmail.com"><div id="gl" class="lg" ></div></a>
+						</li>
+					</ul>
+
+
+
+	</div>
+
+
+
+
+    </div>
+
+
+	<div id="sgn">
+
+	<div id="sgn1">
+	<h3 style="color:white" id="sgndesc">Already on Aggregator?</h3>
+	<button type="button" id="sgnbt">Sign in</button>
+	</div>
+
+	<div id="sgn2">
+	<h3 style="color:white" id="sgndesc2">Not on Aggregator?</h3>
+	<button type="button" id="sgnbt2">Register</button>
+	</div>
+
+
+
+
+</div>
+
+
+<div class="content">
+	<div class="info" 	id="info">
+		<h1>Find Topics That Matter to you</h1>
+		<p>Discover stories that impact your life, career and creative path - hand-picked by people who share your passions.</p>
+	</div>
+    <div class ="ctags" id="r1c1">
+    	<div class="tagsinfo" id="r1c1info"><p><a href="#heading">LIFESTYLE</a></p></div>
+    	    </div>
+    <div class="ctags" id="r1c2"></div>
+    <div class="ctags" id="r2c1"></div>
+    <div class="ctags"  id="r2c2">
+     <div class="tagsinfo" id="r2c2info"><p><a href="#heading">TECHNOLOGY</a></p></div>
+    </div>
+</div>
+
+<div class="content2">
+<div class="tags">
+	<div class="ctags2" id="r3c1">
+
+	</div>
+	<div class="ctags2" id="r3c2">
+		<div class="tagsinfo" id="r3c2info"><p><a href="#heading">TOP STORIES</a></p></div>
+	</div>
+	<div class="ctags2" id="r4c1">
+		<div class="tagsinfo" id="r4c1info"><p><a href="#heading">ENTERTAINMENT</a></p></div>
+	</div>
+	<div class="ctags2" id="r4c2"></div>
+</div>
+
+<div class="info2">
+	<h1>COLLECT AND SHARE WHAT YOU LIKE</h1>
+	<p>Save great articles, videos and photos into beautiful digital magazines you can share and take anywhere.</p>
+</div>
+
+
+
+</div>
+
+<!--<div class="contact">
+<div id="members">
+<div class="team" id="mem1">
+</div>
+<div class="team" id="mem2"></div>
+<div class="team" id="mem3"></div>
+<div class="team" id="mem4"></div>
+<div class="team" id="mem5"></div>
+</div>
+<div id="footer">
+</div>-->
+</div>
+
+
+</body>
+</html>
