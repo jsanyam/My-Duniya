@@ -1,4 +1,4 @@
-
+# coding:utf-8
 from wtforms import StringField, PasswordField
 from flask_wtf import Form
 from wtforms.validators import DataRequired, Regexp,ValidationError, Email,Length

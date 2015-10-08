@@ -6,10 +6,9 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
 
-from flask import (Flask,g,render_template,flash,redirect,url_for)
+from flask import g, flash, redirect, url_for
 from flask.ext.login import LoginManager,login_user,logout_user,login_required,current_user
 from flask.ext.bcrypt import check_password_hash
-from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import generate_password_hash
 import forms
 
@@ -19,6 +18,7 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
+
 #import psycopg2
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
@@ -44,6 +44,51 @@ json_response = {}
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+
+
+class User(db.Model,UserMixin):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(32))
+    email=db.Column(db.String(100))
+    password = db.Column(db.String(100))
+
+class Article(db.Model):
+    __tablename__ = 'articles'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(300), unique=True, nullable=True)
+    full_story = db.Column(db.Text(), nullable=True)
+    image = db.Column(db.String(100), nullable=True)
+    category = db.Column(db.String(100), nullable=True)
+    description = db.Column(db.Text(), nullable=True)
+    pubdate = db.Column(db.String(40), nullable=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def __repr__(self):
+        return u"%s" % self.title
+
+
+# we use marshmallow Schema to serialize our articles
+class ArticleSchema(Schema):
+    """
+    Article dict serializer
+    """
+    url = fields.Method("article_url")
+
+    def article_url(self, article):
+        return article.url()
+
+    class Meta:
+        # which fields should be serialized?
+        fields = ('id', 'title', 'full_story', 'image', 'category', 'description', 'pubdate')
+
+
+article_schema = ArticleSchema()
+# many -> allow for object list dump
+articles_schema = ArticleSchema(many=True)
 
 
 @login_manager.user_loader
@@ -115,50 +160,6 @@ def logout():
     flash("You've been logged out","success")
     return 'logout successful'
 
-
-class Article(db.Model):
-    __tablename__ = 'articles'
-
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(300), unique=True, nullable=True)
-    full_story = db.Column(db.Text(), nullable=True)
-    image = db.Column(db.String(100), nullable=True)
-    category = db.Column(db.String(100), nullable=True)
-    description = db.Column(db.Text(), nullable=True)
-    pubdate = db.Column(db.String(40), nullable=True)
-
-    def __unicode__(self):
-        return self.title
-
-    def __repr__(self):
-        return u"%s" % self.title
-
-
-class User(db.Model,UserMixin):
-    id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(32))
-    email=db.Column(db.String(100))
-    password = db.Column(db.String(100))
-
-
-# we use marshmallow Schema to serialize our articles
-class ArticleSchema(Schema):
-    """
-    Article dict serializer
-    """
-    url = fields.Method("article_url")
-
-    def article_url(self, article):
-        return article.url()
-
-    class Meta:
-        # which fields should be serialized?
-        fields = ('id', 'title', 'full_story', 'image', 'category', 'description', 'pubdate')
-
-
-article_schema = ArticleSchema()
-# many -> allow for object list dump
-articles_schema = ArticleSchema(many=True)
 
 
 # @app.route('/')
