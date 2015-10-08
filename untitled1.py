@@ -344,7 +344,7 @@ def upload():
              # 'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533925/index.rss':'Environment',
-              'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
+             # 'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
               'http://timesofindia.feedsportal.com/c/33039/f/533928/index.rss':'Entertainment',
               'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
