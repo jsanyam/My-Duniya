@@ -29,7 +29,7 @@ $(document).ready(function(){
 
             //$('#tag1').css('font-family','Lucida Grande,sans-serif');
             $('#r1c2').css('filter','brightness(65%)');
-            $('#tagg1').css('background-color','rgba(84,84,84,0.4)');
+            $('#tagg1').css('background-color','rgba(0,0,0,0.7)');
             //$('#tagg1').css('font-style','italic');
             $('#tagg1').css('margin-top','150px');
             $('#tagg1').css('margin-left','20px');
@@ -75,7 +75,7 @@ $(document).ready(function(){
             //$("#r1c2").append("<div>" + storearray[0][1] + "</div>");
             //$("#r1c2").append("<div>" + storearray[1][0] + "</div>");
               $('#tag2').css('background-color','rgba(84,84,84,0.6)');
-              $('#tagg2').css('background-color','rgba(84,84,84,0.4)');
+              $('#tagg2').css('background-color','rgba(0,0,0,0.7)');
             //$('#tag2').css('background-color','grey');
             //$('#tagg2').css('background-color','grey');
            // $('#tag2').css('font-family','Lucida Grande,sans-serif');
@@ -128,7 +128,7 @@ $(document).ready(function(){
             //$("#r1c2").append("<div>" + storearray[0][1] + "</div>");
             //$("#r1c2").append("<div>" + storearray[1][0] + "</div>");
              $('#tag3').css('background-color','rgba(84,84,84,0.6)');
-              $('#tagg3').css('background-color','rgba(84,84,84,0.4)');
+              $('#tagg3').css('background-color','rgba(0,0,0,0.7)');
             //$('#tag3').css('background-color','grey');
             //$('#tagg3').css('background-color','grey');
            // $('#tag3').css('font-family','Lucida Grande,sans-serif');
@@ -180,7 +180,7 @@ $(document).ready(function(){
             //$("#r1c2").append("<div>" + storearray[0][1] + "</div>");
             //$("#r1c2").append("<div>" + storearray[1][0] + "</div>");
              $('#tag4').css('background-color','rgba(84,84,84,0.6)');
-              $('#tagg4').css('background-color','rgba(84,84,84,0.4)');
+              $('#tagg4').css('background-color','rgba(0,0,0,0.7)');
             //$('#tag4').css('background-color','grey');
             //$('#tagg4').css('background-color','grey');
             //$('#tag4').css('font-family','Lucida Grande','sans-serif');

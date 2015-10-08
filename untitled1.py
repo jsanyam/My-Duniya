@@ -15,11 +15,17 @@ import psycopg2
 
 import tweepy
 
+import urllib
+import json
+import requests
+from string import punctuation
+
+
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite'  #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite'  #os.environ['DATABASE_URL']  #
 db = SQLAlchemy(app)
 
 json_response = {}
@@ -72,9 +78,61 @@ def main():
 def news():
     return render_template("base.html")
 
-@app.route("/tagnews/")
-def tag():
-    return render_template("index.html")
+@app.route("/tagnews/<category>")
+def tag(category):
+    return render_template("base1.html")
+
+@app.route("/senti/<category>")
+def senti(category):
+    new_url='http://prractice.herokuapp.com/' + category
+    g=requests.get(new_url)
+    data = g.json()
+    array = {}
+    i = -1
+
+    for item in data['tag']:
+        i += 1
+        string = item['full_story']
+        string = string.lower()
+        for p in list(punctuation):
+            string = string.replace(p,'')
+            string.encode('utf-8')
+            string = string.encode('ascii', 'ignore')
+        data = urllib.urlencode({"text":string})
+        u = urllib.urlopen("http://text-processing.com/api/sentiment/", data)
+        the_page = u.read()
+        j=json.loads(the_page)
+        negative = j['probability']['neg']
+        positive = j['probability']['pos']
+        neutral = j['probability']['neutral']
+        if negative > neutral:
+            if negative > positive:
+                print 'negative'
+                array[i] = 'negative'
+            else:
+                print 'positive'
+                array[i] = 'positive'
+        else:
+            if negative > positive:
+                if negative > 0.5:
+                    print 'negative'
+                    array[i] = 'negative'
+                else:
+                    print 'neutral'
+                    array[i] = 'neutral'
+            else:
+                if positive > neutral:
+                    print 'positive'
+                    array[i] = 'positive'
+                else:
+                    if positive > 0.5:
+                        print 'positive'
+                        array[i] = 'positive'
+                    else:
+                        print 'neutral'
+                        array[i] = 'neutral'
+
+    return jsonify({'sentiment': array})
 
 @app.route("/news.json/", methods=["GET", "POST"])
 @app.route("/news.json/<article_id>", methods=["GET"])
@@ -104,12 +162,12 @@ def articles(article_id=None):
             #     return jsonify({"msgs:": ["no data"]}), 404
             # #     return render_template('articles.html')
 
-    elif request.method == "POST":# and request.is_xhr:
-        #val1 = (request.get_json(force=True))
-        #val1 = request.args.get('Name', 0, str)
-        val1 = "" + request.form.get('Name')
-        val2 = "" + request.form.get('Desc')
-        return jsonify({'name': val1, 'desc': val2})
+    # elif request.method == "POST":# and request.is_xhr:
+    #     #val1 = (request.get_json(force=True))
+    #     #val1 = request.args.get('Name', 0, str)
+    #     val1 = "" + request.form.get('Name')
+    #     val2 = "" + request.form.get('Desc')
+    #     return jsonify({'name': val1, 'desc': val2})
         #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
 
