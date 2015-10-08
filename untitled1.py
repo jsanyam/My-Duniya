@@ -10,7 +10,7 @@ from flask import g, flash, redirect, url_for
 from flask.ext.login import LoginManager, login_user, logout_user, login_required, current_user
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
-import forms
+#import forms
 
 from flask.ext.login import UserMixin
 
@@ -29,6 +29,10 @@ import urllib
 import json
 import requests
 from string import punctuation
+
+from wtforms import StringField, PasswordField
+from flask_wtf import Form
+from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length
 
 
 app = Flask(__name__)
@@ -92,6 +96,26 @@ article_schema = ArticleSchema()
 articles_schema = ArticleSchema(many=True)
 
 
+
+def email_exists(form,field):
+    if User.query.filter_by(email=field.data).count()>0:#where(User.username == field.data).exists():
+        raise ValidationError("User with that email already exists")
+
+
+class RegisterForm(Form):
+    username = StringField('Username',validators=[DataRequired(),Regexp(r'^[a-zA-Z0-9_]+$',
+                        message="Username should be one word,letters,"
+                        "numbers and underscores only")])
+    email=StringField('Email',validators=[DataRequired(),Email(),email_exists])
+
+    password = PasswordField('Password',validators=[DataRequired(),Length(min=6)])
+
+
+class LoginForm(Form):
+    email=StringField('Email',validators=[DataRequired(),Email()])
+    password = PasswordField('Password',validators=[DataRequired()])
+
+
 @login_manager.user_loader
 def user_loader(user_id):
     user = User.query.filter_by(id=user_id)
@@ -103,7 +127,7 @@ def user_loader(user_id):
 @app.route('/register', methods=('GET','POST'))
 def register():
 
-    form =forms.RegisterForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.username.data)
 
@@ -139,7 +163,7 @@ def index():
 @app.route(('/login?'))
 @app.route('/login',methods=("GET","POST"))
 def login():
-    form =forms.LoginForm()
+    form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data)
         if user.count()==0:
