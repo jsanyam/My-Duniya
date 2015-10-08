@@ -67,9 +67,9 @@ $(document).ready(function(){
             });
 
 
-            $("#r2c1").append("<div id='tag2'>" + twoarray[0][0]+ "</div>");
-            $("#r2c1").append("<div id='tagg2'>" + twoarray[0][1]+ "</div>");
-            $("#r2c1").css('background-image','url(' + twoarray[0][2] + ')');
+            $("#r2c1").append("<div id='tag2'>" + twoarray[1][0]+ "</div>");
+            $("#r2c1").append("<div id='tagg2'>" + twoarray[1][1]+ "</div>");
+            $("#r2c1").css('background-image','url(' + twoarray[1][2] + ')');
             $("#r2c1").css('background-size','100% 100%');
 
             //$("#r1c2").append("<div>" + storearray[0][1] + "</div>");

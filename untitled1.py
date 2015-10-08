@@ -5,11 +5,21 @@ from flask import Flask, jsonify, request, render_template, Session, session
 from flask.ext.sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
+
+from flask import (Flask,g,render_template,flash,redirect,url_for)
+from flask.ext.login import LoginManager,login_user,logout_user,login_required,current_user
+from flask.ext.bcrypt import check_password_hash
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.bcrypt import generate_password_hash
+import forms
+
+from flask.ext.login import UserMixin
+
 import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
-import psycopg2
+#import psycopg2
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
 
@@ -25,10 +35,86 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite'  #
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   # 'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
 
 json_response = {}
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+
+@login_manager.user_loader
+def user_loader(user_id):
+    user = User.query.filter_by(id=user_id)
+    if user.count() == 1:
+        return user.one()
+    return None
+
+
+@app.route('/register', methods=('GET','POST'))
+def register():
+
+    form =forms.RegisterForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.username.data)
+
+
+        if user.count() == 0:
+            user = User(username=form.username.data,email=form.email.data ,password=generate_password_hash(form.password.data))
+            db.session.add(user)
+            db.session.commit()
+
+
+
+            flash('You have registered the email {0}. Please login'.format(form.email.data))
+            return redirect(url_for('login'))
+        else:
+            flash('The email {0} is already in use.  Please try a new email.'.format(form.email.data))
+    return render_template('register.html',form=form)
+
+
+
+@app.route('/')
+def index():
+    if current_user.is_authenticated :
+        return redirect(url_for('news'))
+    else:
+        return redirect(url_for('register'))
+
+
+
+
+
+
+
+@app.route(('/login?'))
+@app.route('/login',methods=("GET","POST"))
+def login():
+    form =forms.LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data)
+        if user.count()==0:
+            flash("You haven't registered with us yet")
+        else:
+            if check_password_hash(user.one().password,form.password.data):
+                login_user(user.one())
+                flash("You been logged in","success")
+
+                return render_template('base.html')
+            else:
+                flash("Your email or password dosent match","error")
+    return render_template('login.html',form=form)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("You've been logged out","success")
+    return 'logout successful'
+
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -40,7 +126,7 @@ class Article(db.Model):
     category = db.Column(db.String(100), nullable=True)
     description = db.Column(db.Text(), nullable=True)
     pubdate = db.Column(db.String(40), nullable=True)
-    #hello
+
     def __unicode__(self):
         return self.title
 
@@ -48,9 +134,14 @@ class Article(db.Model):
         return u"%s" % self.title
 
 
+class User(db.Model,UserMixin):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(32))
+    email=db.Column(db.String(100))
+    password = db.Column(db.String(100))
+
+
 # we use marshmallow Schema to serialize our articles
-
-
 class ArticleSchema(Schema):
     """
     Article dict serializer
@@ -70,13 +161,19 @@ article_schema = ArticleSchema()
 articles_schema = ArticleSchema(many=True)
 
 
-@app.route('/')
-def main():
-    return render_template("basee.html")
+# @app.route('/')
+# def main():
+#     return render_template("basee.html")
 
+#@login_required
 @app.route("/news/", methods=["GET"])
 def news():
-    return render_template("base.html")
+    if current_user.is_authenticated:
+        return render_template("base.html")
+
+# @app.route("/tagnews/")
+# def tag():
+#     return render_template("index.html")
 
 @app.route("/tagnews/<category>")
 def tag(category):
@@ -88,6 +185,7 @@ def senti(category):
     g=requests.get(new_url)
     data = g.json()
     array = {}
+    #lst = []
     i = -1
 
     for item in data['tag']:
@@ -131,6 +229,7 @@ def senti(category):
                     else:
                         print 'neutral'
                         array[i] = 'neutral'
+        #lst.append(array)
 
     return jsonify({'sentiment': array})
 
@@ -160,7 +259,7 @@ def articles(article_id=None):
                 return jsonify({"articles": result.data})
             # else:
             #     return jsonify({"msgs:": ["no data"]}), 404
-            # #     return render_template('articles.html')
+            #     return render_template('articles.html')
 
     # elif request.method == "POST":# and request.is_xhr:
     #     #val1 = (request.get_json(force=True))
@@ -168,7 +267,7 @@ def articles(article_id=None):
     #     val1 = "" + request.form.get('Name')
     #     val2 = "" + request.form.get('Desc')
     #     return jsonify({'name': val1, 'desc': val2})
-        #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
+    #     #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
 
 @app.route('/<category>', methods=["GET"])
@@ -257,7 +356,7 @@ def upload():
                         db.session.commit()
                         print article_a.id
 
-                except psycopg2.IntegrityError:  # as ie:
+                except  e:  # as ie:
                     # print ie
                     print"Caught"
                     db.session.rollback()
@@ -301,6 +400,9 @@ def trend_search(handles):
 def trending():
     return jsonify(json_response)
 
+@app.before_first_request
+def init_request():
+    db.create_all()
 
 db.create_all()
 #db.drop_all()
@@ -308,11 +410,7 @@ db.create_all()
 if __name__ == '__main__':
     # we define the debug environment only if running through command
     app.config['SQLALCHEMY_ECHO'] = True
-    #app.debug = True
     app.run(debug=False)
-
-
-
 
 
 
