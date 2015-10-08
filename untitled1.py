@@ -7,7 +7,7 @@ from marshmallow import Schema, fields
 
 
 from flask import g, flash, redirect, url_for
-from flask.ext.login import LoginManager,login_user,logout_user,login_required,current_user
+from flask.ext.login import LoginManager, login_user, logout_user, login_required, current_user
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
 import forms
@@ -35,7 +35,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   # 'sqlite:///esoteric.sqlite' #
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   #'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
 
 json_response = {}
