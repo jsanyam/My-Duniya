@@ -19,7 +19,7 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
 
-#import psycopg2
+import psycopg2
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
 
@@ -357,7 +357,7 @@ def upload():
                         db.session.commit()
                         print article_a.id
 
-                except  e:  # as ie:
+                except  psycopg2.IntegrityError:  # as ie:
                     # print ie
                     print"Caught"
                     db.session.rollback()
