@@ -7,7 +7,7 @@
 			#mainframe{
 				height:auto;
 				width:100%;
-				background-color:blue;
+				background-color:#FFF;
 			}
 			#header{
 				height:auto;
@@ -90,32 +90,11 @@
 				position:fixed;
 				height:80%;
 				width:20%;
-				top:121px;
-				right:50px;
-				background-color: white;
-                padding: 0;
-				overflow-x:hidden;
-			}
-            #buzztitle{
-                position:fixed;
-				height:50px;
-				width:20%;
 				top:71px;
 				right:50px;
-                text-align: center;
-                color: #337ab7;
-                font-family: Arial, Verdana;
-                font-size: 27.5px;
-            }
-            #b-title{
-                height:5%;
-				width:100%;
-				margin-top: 5px;
-                text-align: center;
-                color: #337ab7;
-                font-family: Arial, Verdana;
-                font-size: 22.5px;
-            }
+				background-color: white;
+				overflow-x:hidden;
+			}
 			#weather{
 				position:relative;
 				height:402px;
@@ -229,10 +208,9 @@
 				width:100%;
 			}
 			.p-tags{
-				height:300px;
+				height:400px;
 				width:400px;
-				border:2px solid lightgray;
-                border-radius: 5px;
+				border:1px solid white;
 				float:left;
 				margin:10px 10px 10px 10px;
 				background-color:seagreen;
@@ -245,21 +223,14 @@
 				margin-top: 200px;
 				border-style: solid;
 				border-color: white;
-                background-color: gray;
                 background-size: 100% 100%;
                 color:white;
 			}
-			.tagsinfo :hover{
+			.tagsinfo:hover{
 
 					background-color: white;
 					border-color: black;
                     color:black;
-			}
-			.tagsinfo :not(hover){
-
-					background-color: seagreen;
-					border-color: #ffffff;
-                    color:#ffffff;
 			}
 			#pt1{
 				background-image:url("../img/large.jpg");
@@ -277,6 +248,20 @@
 				background-image:url('../img/large.jpg');
 				background-size:100% 100%;
 			}
+			#pt5{
+				background-image:url('../img/large.jpg');
+				background-size:100% 100%;
+			}
+            .h-tag{
+                margin: 0;
+                padding:0;
+                height: 100%;
+            }
+
+            .h-tag :hover{
+                background-color: #204d74;
+
+            }
 
 			.jssorb21 {
                 position: absolute;
@@ -347,55 +332,51 @@
 				text-transform: uppercase; 
 				font-size: 30px;
                 cursor: pointer;
-                font-decoration:none;
                 color: #FFFFFF;
-                /background-image: url('../img/backgroung.png');
-                background-color:rgba(192,192,192,0.3);
+                background-image: url('../img/backgroung.png');
+                background-color: ;
                 background-size: 100% 100%;
 			}
 			.content{
 				position: absolute; 
 				width: 750px;
 				height: auto;
-				font-decoration:none;
-                bottom: 45px;
+				bottom: 45px;
 				left: 60px;
 				padding: 5px;
-                text-align: left;
+                text-align: left; 
 				line-height: 36px; 
 				font-size: 20px;
                 color: #FFFFFF;
                 cursor: pointer;
                 overflow-x: hidden;
-                /background-image: url('../img/backgroung.png');
-                background-color:rgba(192,192,192,0.3);
+                background-image: url('../img/backgroung.png');
                 background-size: 100% 100%;
 			}
 
-            .content :hover{
 
-                background-color:rgba(192,192,192,0.8);
-                text-decoration:none;
-            }
 
-            #newstag{
-				height:auto;
+
+            #fnewstag{
+				height:800px;
 				width:100%;
 				position:absolute;
 				top:45px;
 				background-color: #fff;
-				z-index: -111;
 				padding-left:50px;
 				padding-right:50px;
 				padding-top:30px;
-			}
+                margin: 0 auto;
+                text-align: center;
+            }
 
-            #newstitle{
+            #fnewstitle{
                 height: 8%;
 				width:18%;
                 font-size: 30px;
 				margin:0 auto;
 				margin-top: 20px;
+                padding-top: 8px;
                 text-align:center;
 				border-style: solid;
 				border-color: black;
@@ -403,85 +384,42 @@
             }
 
 
-            #newsdiv{
-                width:80%;
+            #fnewsdiv{
+                width:60%;
                 height:auto;
                 margin: 30px auto 20px;
             }
 
-            .newsblock{
-                width:50%;
+            #fnewsblock{
+                width:80%;
                 height:auto;
                 border: 1px dashed  black;
                 padding: 20px;
                 float:left;
+                margin: 0 auto;
             }
-            .n-title{
+            .fn-title{
                 width: 100%;
                 margin: 10px auto;
                 heigth: auto;
-                font: 25px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font: 40px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font-weight: 900;
             }
-            .n-pub{
+            .fn-pub{
                 width: 100%;
                 margin: 10px auto;
                 heigth: auto;
-                font: 10px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font: 15px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
                 color:#999;
             }
-            .n-img{
-                height:150px;
+            .fn-img{
+                height:400px;
                 width:100%;
 
                 background-image: url('../img/backgroung.png');
                 background-size: 100% 100%;
             }
-            .n-fullstory{
-                height:auto;
-                font-size:20px;
-            }
-
-            #fullnews{
-                height:auto;
-				width:100%;
-				position:absolute;
-				top:45px;
-				background-color: #fff;
-				z-index: 111;
-				padding-left:50px;
-				padding-right:50px;
-				padding-top:30px;
-            }
-
-            .fn-category{
-
-                height: 8%;
-				width:18%;
-                font-size: 30px;
-				margin:0 auto;
-				margin-top: 20px;
-                text-align:center;
-				border-style: solid;
-				border-color: black;
-                background-size: 100% 100%;
-            }
-            .fn-title{
-
-                 width: 100%;
-                margin: 10px auto;
-                heigth: auto;
-                font: 25px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
-            }
-            .fn-pub{
-
-                 width: 100%;
-                margin: 10px auto;
-                heigth: auto;
-                font: 10px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
-                color:#999;
-            }
             .fn-fullstory{
                 height:auto;
                 font-size:20px;
-
             }

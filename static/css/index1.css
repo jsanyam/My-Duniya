@@ -93,7 +93,6 @@
 				top:71px;
 				right:50px;
 				background-color: white;
-                padding: 0;
 				overflow-x:hidden;
 			}
 			#weather{
@@ -335,6 +334,7 @@
                 cursor: pointer;
                 color: #FFFFFF;
                 background-image: url('../img/backgroung.png');
+
                 background-size: 100% 100%;
 			}
 			.content{
@@ -355,25 +355,28 @@
 			}
 
 
-            #newstag{
+
+
+            #fnewstag{
 				height:800px;
 				width:100%;
 				position:absolute;
 				top:45px;
 				background-color: #fff;
-				z-index: 111;
 				padding-left:50px;
 				padding-right:50px;
 				padding-top:30px;
-                overflow-x: hidden;
-			}
+                margin: 0 auto;
+                text-align: center;
+            }
 
-            #newstitle{
+            #fnewstitle{
                 height: 8%;
 				width:18%;
                 font-size: 30px;
 				margin:0 auto;
 				margin-top: 20px;
+                padding-top: 8px;
                 text-align:center;
 				border-style: solid;
 				border-color: black;
@@ -381,46 +384,42 @@
             }
 
 
-            #newsdiv{
-                width:80%;
+            #fnewsdiv{
+                width:60%;
                 height:auto;
                 margin: 30px auto 20px;
             }
 
-            .newsblock{
-                width:50%;
+            #fnewsblock{
+                width:80%;
                 height:auto;
                 border: 1px dashed  black;
                 padding: 20px;
                 float:left;
+                margin: 0 auto;
             }
-            .n-title{
+            .fn-title{
                 width: 100%;
                 margin: 10px auto;
                 heigth: auto;
-                font: 25px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font: 40px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font-weight: 900;
             }
-            .n-pub{
+            .fn-pub{
                 width: 100%;
                 margin: 10px auto;
                 heigth: auto;
-                font: 10px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
+                font: 15px "Fakt",AvenirNext-Medium,"Segoe UI",sans-serif;
                 color:#999;
             }
-            .n-img{
-                height:200px;
+            .fn-img{
+                height:400px;
                 width:100%;
 
                 background-image: url('../img/backgroung.png');
                 background-size: 100% 100%;
             }
-            .n-fullstory{
+            .fn-fullstory{
                 height:auto;
                 font-size:20px;
-            }
-
-            .n-btn{
-                margin: 0;
-                padding: 0;
-
             }

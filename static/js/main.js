@@ -2,6 +2,7 @@
         var loading=true;
         storeArray= new Array();
         storeArraynews= new Array();
+        storeArrayfullnews= new Array();
         bckgrnd = new Array();
         var frm=0;
         var tll=3;
@@ -80,6 +81,49 @@
         }
 
 
+
+        function loadfullnews(){
+            var $article = $("#articles");
+            var $name = $("#name");
+            var $desc = $("#desc");
+            array=new Array();
+
+            $.ajax({
+                type: 'GET',
+
+                //url:"{{ url_for('.articles') }}",
+                url:"/news.json/155",
+                success: function(data, textStatus, xhr) {
+
+                    console.log("reached somw where")
+                    $.each(data['article'], function (i, el) {
+                            array=new Array(el.category,el.image,el.title,el.pubdate,el.full_story);
+                            $("<div />", { "class":"fullnews", id:"newsdiv"})
+                         .append($("<div />", {  class:"fn-category",id:"fn-category" }))
+                         .append($("<div />", {  class:"fn-img",id:"fn-img" }))
+                         .append($("<div />", {  class:"fn-title",id:"fn-title" }))
+                         .append($("<div />", {  class:"fn-pub",id:"fn-pub" }))
+                         .append($("<div />", {  class:"fn-fullstory",id:"fn-fullstory"}))
+                         .appendTo("#fullnews");
+                    });
+
+                    $("#fn-category").append("<div>" + array[0][0]+ "</div>");
+                        $("#fn-img").css('background-image', 'url(' + array[0][1] + ')');
+                        $("#fn-title").append("<div>" + array[0][2] + "</div>");
+                        $("#fn-pub").append("<div>" + array[0][3] + "</div>");
+                        $("#fn-fullstory").append("<div>" + array[0][4] + "</div>");
+                    //console.log(storeArray[i][0])
+                    //console.log(storeArray[i][1])
+
+                },
+
+                error: function(){
+                    alert("error loading news");
+                }
+            });
+        }
+
+
         function loadslider() {
 
             $.ajax({
@@ -92,6 +136,12 @@
                         $("#t" + i).append( el.title );
                         $("#c" + i).append(  el.description );
                         $("#img" + i).attr('src',el.image);
+                       var y=el.image;
+
+                        if(y=="http://timesofindia.indiatimes.com/photo/7787613.cms"){
+
+                             $("#img" + i).attr('src','../static/img/pasaulis1.jpg');
+                        }
                     });
 
                 },
@@ -126,7 +176,10 @@
                         console.log(t)
                         $("#live_buzz").css('background-image','url(' + bckgrnd[t] + ')');
                         $("#pt" + t).css('background-image','url(' + bckgrnd[t] + ')');
-
+                        var y=$("#pt" + t).css('background-image');
+                        if(y=="http://timesofindia.indiatimes.com/photo/7787613.cms"){
+                            $("#pt" + t).css('background-image','url(../static/img/pasaulis1.jpg)');
+                        }
                     },
                     error: function(){
                         alert("error loading news");
@@ -165,11 +218,11 @@
             loadtags();
 
             load();
-            document.getElementById("newstag").style.visibility = "hidden";
-            $(".p-tags").click(function() {
-                 document.getElementById("newstag").style.visibility = "block";
+           // document.getElementById("content").style.visibility = "hidden";
+            //$(".p-tags").click(function() {
+              //   document.getElementById("newstag").style.visibility = "block";
 
-            });
+//            });
             /*
             $("#live_buzz").scroll(function(){
                 var curScroll = $(this)[0].scrollTop;
@@ -190,6 +243,7 @@
             });
                */
             //loadnews();
+            //loadfullnews();
             console.log("yahaan pahuche?")
             $("#newstag").scroll(function(){
                 var curScroll = $(this)[0].scrollTop;
@@ -208,6 +262,65 @@
                     loadnews();
                 }
             });
+                $('#w-forecast').hover(function(){alert("coming in phase two")});
+                $('#w-title').hover(function(){alert("coming in phase two")});
+               $('#pt1').hover(function(){
+
+                  $('#pt1info').css('background-color','white');
+                  $('#pt1info').css('border-color','black');
+                  $('#pt1info').css('color','black');
+
+               },
+
+                function(){
+                    $('#pt1info').css('background-color','transparent');
+                     $('#pt1info').css('border-color','white');
+                      $('#pt1info').css('color','white');
+
+                });
+                $('#pt2').hover(function(){
+
+                  $('#pt2info').css('background-color','white');
+                  $('#pt2info').css('border-color','black');
+                  $('#pt2info').css('color','black');
+
+               },
+
+                function(){
+                    $('#pt2info').css('background-color','transparent');
+                     $('#pt2info').css('border-color','white');
+                      $('#pt2info').css('color','white');
+
+                });
+                $('#pt3').hover(function(){
+
+                  $('#pt3info').css('background-color','white');
+                  $('#pt3info').css('border-color','black');
+                  $('#pt3info').css('color','black');
+
+               },
+
+                function(){
+                    $('#pt3info').css('background-color','transparent');
+                     $('#pt3info').css('border-color','white');
+                      $('#pt3info').css('color','white');
+
+                });
+                $('#pt4').hover(function(){
+
+                  $('#pt4info').css('background-color','white');
+                  $('#pt4info').css('border-color','black');
+                  $('#pt4info').css('color','black');
+
+               },
+
+                function(){
+                    $('#pt4info').css('background-color','transparent');
+                     $('#pt4info').css('border-color','white');
+                      $('#pt4info').css('color','white');
+
+                });
+
         });
 
 

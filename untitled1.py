@@ -40,7 +40,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   #'sqlite:///esoteric.sqlite' #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite' # os.environ['DATABASE_URL']   #
 db = SQLAlchemy(app)
 
 json_response = {}
@@ -174,7 +174,7 @@ def login():
                 login_user(user.one())
                 flash("You been logged in","success")
 
-                return render_template('base.html')
+                return render_template('index.html')
             else:
                 flash("Your email or password dosent match","error")
     return render_template('login.html',form=form)
@@ -196,16 +196,23 @@ def logout():
 @app.route("/news/", methods=["GET"])
 def news():
     if current_user.is_authenticated:
-        return render_template("base.html")
+        return render_template("index.html")
 
 # @app.route("/tagnews/")
 # def tag():
 #     return render_template("index.html")
 
+#template opening on clicking tiles
 @app.route("/tagnews/<category>")
 def tag(category):
-    return render_template("base1.html")
+    return render_template("base5.html")
 
+#more tags
+@app.route("/all_tags")
+def all_tags():
+    return render_template("more.html")
+
+#sentiment analysis returns json
 @app.route("/senti/<category>")
 def senti(category):
     new_url='http://prractice.herokuapp.com/' + category
@@ -260,6 +267,7 @@ def senti(category):
 
     return jsonify({'sentiment': array})
 
+#REST implementing to return whole news or id wise news in json
 @app.route("/news.json/", methods=["GET", "POST"])
 @app.route("/news.json/<article_id>", methods=["GET"])
 def articles(article_id=None):
@@ -296,7 +304,7 @@ def articles(article_id=None):
     #     return jsonify({'name': val1, 'desc': val2})
     #     #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
-
+#REST implementation to return news category wise
 @app.route('/<category>', methods=["GET"])
 def tags(category):
     if request.method == 'GET':
@@ -306,7 +314,12 @@ def tags(category):
         result = articles_schema.dump(tag)
         return jsonify({'tag': result.data})
 
+#news with id
+@app.route('/full_news/<id>')
+def full_news(id):
+    return render_template("base1.html")
 
+#BING search API
 @app.route('/<search_type>/<query>')
 def bing_search(query, search_type = 'Web'):#(query, search_type):
     #search_type: Web, Image, News, Video
@@ -331,12 +344,12 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
     return jsonify({'data':result_list})
     #return response_data  #not a good view
 
-
+#URL to update database
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
     toi_rss={#'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
              #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms': 'Most Recent',
-             # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
+              'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss': 'World',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
@@ -347,7 +360,7 @@ def upload():
              # 'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
               'http://timesofindia.feedsportal.com/c/33039/f/533928/index.rss':'Entertainment',
-              'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
+             # 'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
         }
 
 

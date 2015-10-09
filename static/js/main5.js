@@ -16,20 +16,20 @@
             var $name = $("#name");
             var $desc = $("#desc");
             var x = $(location).attr('href');
-            console.log(x);
+            console.log(x)
             var y=x.split('/');
             var l= y.length;
-            console.log(y[l-2]);
+            console.log(y[l-2])
 
             $.ajax({
                 type: 'GET',
                 //url:"{{ url_for('.articles') }}",
-                url:"/" + y[l-2] +".json",
+                url:"/"+y[l-1],
                 success: function(data, textStatus, xhr) {
                     console.log(data);
-                    $.each(data['articles'], function(i, el){
-
-                        storeArraynews[i]=new Array(el.title, el.description,el.image,el.pubdate);
+                    $.each(data['tag'], function(i, el){
+                        console.log(el.title);
+                        storeArraynews[i]=new Array(el.title, el.description,el.image,el.pubdate,el.id, el.category);
                     });
                     console.log("pahuche")
 
@@ -37,17 +37,28 @@
                         console.log(frmn)
                         console.log(tlln)
                         $("<div />", { "class":"newsblock", id:"news"+j })
-                         .append($("<div />", {  class:"n-img",id:"n-img"+j }))
-                         .append($("<div />", {  class:"n-title",id:"n-title"+j }))
+                         .append($("<a />", {  class:"n-a",id:"n-img-a"+j }))
+                         .append($("<a />", {  class:"n-a",id:"n-title"+j }))
                          .append($("<div />", {  class:"n-pub",id:"n-pub"+j }))
-                         .append($("<div />", {  class:"n-fullstory",id:"n-fullstory" }))
                          .appendTo("#newsdiv");
 
                         // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>" + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
+                        $("#newstitle").append("<div>" + storeArraynews[j][5] + "</div>");
                         $("#n-fullstory" + j).append("<div>" + storeArraynews[j][1] + "</div>");
+                        $("#n-img-a" + j).append($("<img />", {  class:"n-img",id:"n-img"+j }));
                         $("#n-title" + j).append("<div>" + storeArraynews[j][0] + "</div>");
                         $("#n-pub" + j).append("<div>" + storeArraynews[j][3] + "</div>");
-                        $("#n-img" + j).css('background-image','url(' + storeArraynews[j][2] + ')');
+                        $("#n-img" + j).attr('src' , storeArraynews[j][2]);
+               //         $("#n-img-a" + j).prop("href" , "/fullnews/" + storeArraynews[j][4]);
+                        console.log($("#n-img-a"+j).attr('href') )
+                        var y=storeArraynews[j][2];
+
+                        $(".n-a").attr('href','/full_news/'+storeArraynews[j][4]);
+
+                        if(y=="http://timesofindia.indiatimes.com/photo/7787613.cms"){
+
+                             $("#n-img" + j).attr('src','../static/img/pasaulis1.jpg');
+                        }
 
 
                     }
@@ -96,7 +107,7 @@
             //loadtags();
 
             //load();
-            //document.getElementById("newstag").style.visibility = "hidden";
+            //document.getElementById("content").style.visibility = "hidden";
             //$(".p-tags").click(function() {
               //   document.getElementById("newstag").style.visibility = "block";
 
