@@ -32,7 +32,7 @@
                         storeArraynews[i]=new Array(el.title, el.description,el.image,el.pubdate,el.id, el.category);
                     });
                     console.log("pahuche")
-
+                    $("#newstitle").append("<div>" + storeArraynews[0][5] + "</div>");
                     for(j=frmn;j<tlln;j++){
                         console.log(frmn)
                         console.log(tlln)
@@ -43,7 +43,7 @@
                          .appendTo("#newsdiv");
 
                         // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>" + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
-                        $("#newstitle").append("<div>" + storeArraynews[j][5] + "</div>");
+
                         $("#n-fullstory" + j).append("<div>" + storeArraynews[j][1] + "</div>");
                         $("#n-img-a" + j).append($("<img />", {  class:"n-img",id:"n-img"+j }));
                         $("#n-title" + j).append("<div>" + storeArraynews[j][0] + "</div>");
