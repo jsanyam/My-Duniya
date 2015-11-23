@@ -40,7 +40,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   # 'sqlite:///esoteric.sqlite' #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite' #os.environ['DATABASE_URL']   #
 db = SQLAlchemy(app)
 
 json_response = {}
@@ -185,7 +185,6 @@ def logout():
     logout_user()
     flash("You've been logged out","success")
     return 'logout successful'
-
 
 
 # @app.route('/')
@@ -347,9 +346,9 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
 #URL to update database
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
-    toi_rss={#'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
+    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
              #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms': 'Most Recent',
-              'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
+             # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss': 'World',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
@@ -357,10 +356,10 @@ def upload():
              # 'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533925/index.rss':'Environment',
-             # 'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
+              'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
               'http://timesofindia.feedsportal.com/c/33039/f/533928/index.rss':'Entertainment',
-             # 'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
+              'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
         }
 
 
