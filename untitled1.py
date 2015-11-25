@@ -144,6 +144,13 @@ def register():
     return render_template('register.html', form=form)
 
 
+@app.route('/login_android', methods=('GET', 'POST'))
+def login_android():
+    user = User.query.filter_by(email=request.form.get('username'))
+
+    if user.count() == 0:
+
+
 @app.route('/register_android', methods=('GET', 'POST'))
 def register_android():
     if request.method == "POST":
@@ -462,10 +469,10 @@ def trend_search(handles):
     # print json.dumps(json_response)
     return jsonify({"Tweets": ["Updated Trending Tweets"]})
 
-trend = 'python'
-req = urllib2.Request('http://http://prractice.herokuapp.com/trends/>' + trend)
-response = urllib2.urlopen(req)
-the_page = response.read()
+#trend = 'python'
+#req = urllib2.Request('http://http://prractice.herokuapp.com/trends/>' + trend)
+#response = urllib2.urlopen(req)
+#the_page = response.read()
 
 @app.route('/get_tweets')
 def trending():
