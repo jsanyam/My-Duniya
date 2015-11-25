@@ -164,9 +164,9 @@ def register_android():
 @app.route('/login_android', methods=('GET', 'POST'))
 def login_android():
     if request.method == "POST":
-        uname = "" + request.form.get('username')
+        email = "" + request.form.get('email')
         pwd = "" + request.form.get('password')
-        print uname
+        print email
         #print str(request.values)
         return jsonify({'validation': 'true'})
 
