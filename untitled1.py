@@ -123,7 +123,7 @@ def user_loader(user_id):
         return user.one()
     return None
 
-
+#error
 @app.route('/register', methods=('GET', 'POST'))
 def register():
 
@@ -144,19 +144,29 @@ def register():
     return render_template('register.html', form=form)
 
 
-#@app.route('/login_android', methods=('GET', 'POST'))
-#def login_android():
-#    user = User.query.filter_by(email=request.form.get('username'))
-#
-#     if user.count() == 0:
-
-
 @app.route('/register_android', methods=('GET', 'POST'))
 def register_android():
     if request.method == "POST":
-        uname = "" + request.form.get('username')
-        pwd = "" + request.form.get('password')
-        print uname
+        user = User.query.filter_by(username=request.form.get('username'))
+        if user.count() == 0:
+            user2 = User.query.filter_by(email=request.form.get('email'))
+            if user2.count() == 0:
+                user2 = User(username=request.form.get('username'), email=request.form.get('email'), password=generate_password_hash(request.form.get('password')))
+                db.session.add(user2)
+                db.session.commit()
+                return jsonify({'status': 'registered'})
+            else:
+                return jsonify({'status': 'This email already exists'})
+
+        return jsonify({'status': 'This username already exists'})
+
+
+@app.route('/login_android', methods=('GET', 'POST'))
+def login_android():
+    if request.method == "POST":
+        #uname = "" + request.form.get('username')
+        #pwd = "" + request.form.get('password')
+        print str(request.values)
         return jsonify({'validation': 'true'})
 
 
