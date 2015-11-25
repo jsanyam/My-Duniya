@@ -56,8 +56,9 @@ class User(db.Model,UserMixin):
 
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(32))
-    email=db.Column(db.String(100))
+    email = db.Column(db.String(100))
     password = db.Column(db.String(100))
+
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -97,24 +98,22 @@ article_schema = ArticleSchema()
 articles_schema = ArticleSchema(many=True)
 
 
-
-def email_exists(form,field):
-    if User.query.filter_by(email=field.data).count()>0:#where(User.username == field.data).exists():
+def email_exists(form, field):
+    if User.query.filter_by(email=field.data).count() > 0: #where(User.username == field.data).exists():
         raise ValidationError("User with that email already exists")
 
 
 class RegisterForm(Form):
-    username = StringField('Username',validators=[DataRequired(),Regexp(r'^[a-zA-Z0-9_]+$',
-                        message="Username should be one word,letters,"
+    username = StringField('Username', validators=[DataRequired(), Regexp(r'^[a-zA-Z0-9_]+$',
+                        message = "Username should be one word, letters,"
                         "numbers and underscores only")])
-    email=StringField('Email',validators=[DataRequired(),Email(),email_exists])
-
-    password = PasswordField('Password',validators=[DataRequired(),Length(min=6)])
+    email = StringField('Email', validators=[DataRequired(), Email(), email_exists])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
 
 
 class LoginForm(Form):
-    email=StringField('Email',validators=[DataRequired(),Email()])
-    password = PasswordField('Password',validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
 
 
 @login_manager.user_loader
@@ -125,32 +124,38 @@ def user_loader(user_id):
     return None
 
 
-@app.route('/register', methods=('GET','POST'))
+@app.route('/register', methods=('GET', 'POST'))
 def register():
 
     form = RegisterForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.username.data)
 
-
         if user.count() == 0:
-            user = User(username=form.username.data,email=form.email.data ,password=generate_password_hash(form.password.data))
+            user = User(username=form.username.data, email=form.email.data, password=generate_password_hash(form.password.data))
             db.session.add(user)
             db.session.commit()
-
-
-
             flash('You have registered the email {0}. Please login'.format(form.email.data))
             return redirect(url_for('login'))
+
         else:
             flash('The email {0} is already in use.  Please try a new email.'.format(form.email.data))
-    return render_template('register.html',form=form)
 
+    return render_template('register.html', form=form)
+
+
+@app.route('/register_android', methods=('GET', 'POST'))
+def register_android():
+    if request.method == "POST":
+        uname = "" + request.form.get('username')
+        pwd = "" + request.form.get('password')
+        print uname
+        return jsonify({'validation': 'true'})
 
 
 @app.route('/')
 def index():
-    if current_user.is_authenticated :
+    if current_user.is_authenticated:
         return redirect(url_for('news'))
     else:
         return redirect(url_for('register'))
@@ -158,26 +163,23 @@ def index():
 
 
 
-
-
-
-@app.route(('/login?'))
-@app.route('/login',methods=("GET","POST"))
+@app.route('/login?')
+@app.route('/login', methods=("GET", "POST"))
 def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data)
-        if user.count()==0:
+        if user.count() == 0:
             flash("You haven't registered with us yet")
         else:
-            if check_password_hash(user.one().password,form.password.data):
+            if check_password_hash(user.one().password, form.password.data):
                 login_user(user.one())
-                flash("You been logged in","success")
+                flash("You been logged in", "success")
 
                 return render_template('index.html')
             else:
-                flash("Your email or password dosent match","error")
-    return render_template('login.html',form=form)
+                flash("Your email or password dosent match", "error")
+    return render_template('login.html', form=form)
 
 @app.route('/logout')
 @login_required
@@ -343,6 +345,7 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
     return jsonify({'data':result_list})
     #return response_data  #not a good view
 
+
 #URL to update database
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
@@ -459,6 +462,10 @@ def trend_search(handles):
     # print json.dumps(json_response)
     return jsonify({"Tweets": ["Updated Trending Tweets"]})
 
+trend = 'python'
+req = urllib2.Request('http://http://prractice.herokuapp.com/trends/>' + trend)
+response = urllib2.urlopen(req)
+the_page = response.read()
 
 @app.route('/get_tweets')
 def trending():
