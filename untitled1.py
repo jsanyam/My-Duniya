@@ -144,11 +144,11 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/login_android', methods=('GET', 'POST'))
-def login_android():
-    user = User.query.filter_by(email=request.form.get('username'))
-
-    if user.count() == 0:
+# @app.route('/login_android', methods=('GET', 'POST'))
+# def login_android():
+#     user = User.query.filter_by(email=request.form.get('username'))
+#
+#     if user.count() == 0:
 
 
 @app.route('/register_android', methods=('GET', 'POST'))
