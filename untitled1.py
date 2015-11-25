@@ -129,7 +129,7 @@ def register():
 
     form = RegisterForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.username.data)
+        user = User.query.filter_by(username=form.username.data)
 
         if user.count() == 0:
             user = User(username=form.username.data, email=form.email.data, password=generate_password_hash(form.password.data))
@@ -139,14 +139,14 @@ def register():
             return redirect(url_for('login'))
 
         else:
-            flash('The email {0} is already in use.  Please try a new email.'.format(form.email.data))
+            flash('The username {0} is already in use.  Please try a new email.'.format(form.username.data))
 
     return render_template('register.html', form=form)
 
 
-# @app.route('/login_android', methods=('GET', 'POST'))
-# def login_android():
-#     user = User.query.filter_by(email=request.form.get('username'))
+#@app.route('/login_android', methods=('GET', 'POST'))
+#def login_android():
+#    user = User.query.filter_by(email=request.form.get('username'))
 #
 #     if user.count() == 0:
 
