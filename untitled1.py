@@ -164,13 +164,18 @@ def register_android():
 @app.route('/login_android', methods=('GET', 'POST'))
 def login_android():
     if request.method == "POST":
-        print "hey"
-        email = "" + request.form.get('email')
-        pwd = "" + request.form.get('password')
-        print "reached"
-        print email
-        #print str(request.values)
-        return jsonify({'validation': 'true'})
+        #email = "" + request.form.get('email')
+        #pwd = "" + request.form.get('password')
+        user = User.query.filter_by(email=request.form.get('email'))
+        if user.count() == 0:
+            return jsonify({'validation': "You haven't registered with us yet"})
+        else:
+            if check_password_hash(user.one().password, request.form.get('password')):
+                return jsonify({'validation': "You have successfully logged in"})
+            else:
+                return jsonify({'validation': "Your email or password doesn't match"})
+        #print email
+        #return jsonify({'validation': "true"})
 
 
 @app.route('/')
@@ -198,7 +203,7 @@ def login():
 
                 return render_template('index.html')
             else:
-                flash("Your email or password dosent match", "error")
+                flash("Your email or password doesn't match", "error")
     return render_template('login.html', form=form)
 
 @app.route('/logout')
