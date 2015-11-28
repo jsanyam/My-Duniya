@@ -70,6 +70,7 @@ class Article(db.Model):
     category = db.Column(db.Text(), nullable=True)
     description = db.Column(db.Text(), nullable=True)
     pubdate = db.Column(db.Text(), nullable=True)
+    html = db.Column(db.Text(), nullable=True)
 
     def __unicode__(self):
         return self.title
