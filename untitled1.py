@@ -64,10 +64,10 @@ class Article(db.Model):
     __tablename__ = 'articles'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(300), unique=True, nullable=True)
+    title = db.Column(db.Text(), unique=True, nullable=True)
     full_story = db.Column(db.Text(), nullable=True)
-    image = db.Column(db.String(100), nullable=True)
-    category = db.Column(db.String(100), nullable=True)
+    image = db.Column(db.Text(), nullable=True)
+    category = db.Column(db.Text(), nullable=True)
     description = db.Column(db.Text(), nullable=True)
     pubdate = db.Column(db.String(40), nullable=True)
 
@@ -378,11 +378,11 @@ def upload():
              #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms': 'Most Recent',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
               'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss': 'World',
-              'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
+             #'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
              # 'http://dynamic.feedsportal.com/c/33039/f/533968/index.rss':'Health',
-              'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
+             # 'http://timesofindia.feedsportal.com/c/33039/f/533922/index.rss':'Science',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533925/index.rss':'Environment',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533923/index.rss':'Technology',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
