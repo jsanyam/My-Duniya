@@ -42,7 +42,7 @@ app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   #'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
-
+print os.environ['DATABASE_URL']
 json_response = {}
 
 
