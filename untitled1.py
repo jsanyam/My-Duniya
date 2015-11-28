@@ -91,7 +91,7 @@ class ArticleSchema(Schema):
 
     class Meta:
         # which fields should be serialized?
-        fields = ('id', 'title', 'full_story', 'image', 'category', 'description', 'pubdate')
+        fields = ('id', 'title', 'full_story', 'image', 'category', 'description', 'pubdate', 'html')
 
 
 article_schema = ArticleSchema()
