@@ -47,9 +47,10 @@ for result in resultset:
 
         # print("\n\n\n\n\n\n")
 
+
         if not db.session.query(Article).filter(Article.title == title).count():
-                    article_a = Article(title=title, full_story=""+full_story, image=image, category=category,
-                                        description=description, pubdate=date, html=""+html)
+                    article_a = Article(title=title, full_story=full_story, image=image, category=category,
+                                        description=description, pubdate=date, html=str(html))
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
