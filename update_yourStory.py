@@ -32,7 +32,7 @@ for result in resultset:
 
         # whole story
         html = bsObj.find("div", attrs={"class": "ys_post_content text"})
-        print html
+        #print html
         # pub_date
         # print date
 
