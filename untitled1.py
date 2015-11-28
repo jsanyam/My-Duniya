@@ -69,7 +69,7 @@ class Article(db.Model):
     image = db.Column(db.Text(), nullable=True)
     category = db.Column(db.Text(), nullable=True)
     description = db.Column(db.Text(), nullable=True)
-    pubdate = db.Column(db.String(40), nullable=True)
+    pubdate = db.Column(db.Text(), nullable=True)
 
     def __unicode__(self):
         return self.title
