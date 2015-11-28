@@ -54,10 +54,11 @@ for result in resultset:
                     db.session.commit()
                     print article_a.id
 
-    except psycopg2.IntegrityError:  # as ie:
+    except psycopg2.ProgrammingError:  # as ie:
                 # print ie
-                print"Caught"
-                db.session.rollback()
+                #print"Caught"
+                pass
+                #db.session.rollback()
                 # break
                 # continue
 

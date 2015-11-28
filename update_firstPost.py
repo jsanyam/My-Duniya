@@ -35,7 +35,7 @@ for key in rss:
 
       pubdate=bsObj.find("meta",attrs={"property":"article:published_time"})["content"]
 
-      full_story=bsObj.find("div",attrs={"class":"fullCont1"}).get_text();
+      full_story=bsObj.find("div",attrs={"class":"fullCont1"}).get_text()
 
       # print title
       # print image
