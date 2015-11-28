@@ -66,9 +66,10 @@ for url, category in urls.iteritems():
                 db.session.commit()
                 print article_a.id
 
-    except psycopg2.IntegrityError:
-        print"Caught"
-        db.session.rollback()
+    # except psycopg2.IntegrityError:
+    #     print"Caught"
+    #     db.session.rollback()
 
     except Exception as e:
         print e
+        pass
