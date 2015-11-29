@@ -23,6 +23,7 @@ import sys
 import psycopg2
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
+from sqlalchemy import ForeignKey
 
 import tweepy
 
@@ -77,6 +78,47 @@ class Article(db.Model):
 
     def __repr__(self):
         return u"%s" % self.title
+
+# class Keyword(db.Model):
+#     __tablename__ = 'keywords'
+#
+#     id = db.Column(db.Integer, primary_key=True)
+#     key_name = db.Column(db.Text(), unique=True, nullable=True)
+#
+#     def __unicode__(self):
+#         return self.key_name
+#
+#     def __repr__(self):
+#         return u"%s" % self.key_name
+#
+# class UserKeyword(db.Model):
+#     __tablename__ = 'user_key'
+#
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
+#     key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
+#     priority = db.Column(db.Float, nullable=False)
+#
+#
+#     def __unicode__(self):
+#         return self.priority
+#
+#     def __repr__(self):
+#         return u"%f" % self.priority
+#
+# class NewsKeyword(db.Model):
+#     __tablename__ = 'news_key'
+#
+#     id = db.Column(db.Integer, primary_key=True)
+#     news_id = db.Column(db.Integer, ForeignKey("articles.id"), nullable=False)
+#     key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
+#
+#
+#     def __unicode__(self):
+#         return self.id
+#
+#     def __repr__(self):
+#         return u"%d" % self.id
 
 
 # we use marshmallow Schema to serialize our articles

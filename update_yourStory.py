@@ -5,52 +5,44 @@ from untitled1 import db, Article
 
 
 html = urlopen('http://yourstory.com/ys-stories/')
-bsObj1 = BeautifulSoup(html, "html.parser")
-resultset = bsObj1.findAll("a", attrs={"class": "block"})
-imageset = bsObj1.findAll("div", attrs={"class": "imgWrapper block"})
+bsObj1 = BeautifulSoup(html,"html.parser")
+resultset = bsObj1.findAll("a",attrs={"class":"block"})
+imageset = bsObj1.findAll("div",attrs={"class":"imgWrapper block"})
 
 
-# print imageset
 i = 0
 for result in resultset:
     try:
         image = imageset[i].findChildren()[0]["src"]
 
-        # image
-        # print image
-
         i += 1
         html = urlopen(result['href'])
-        bsObj = BeautifulSoup(html, "html.parser")
-        description = bsObj.find("meta", attrs={"name": "description"})["content"]
-        date = bsObj.find("meta", attrs={"property": "article:published_time"})["content"]
+        bsObj = BeautifulSoup(html,"html.parser")
+        description = bsObj.find("meta",attrs={"name":"description"})["content"]
 
-        #title
-        title = bsObj.find("h3", attrs={"class": "title color-ys"}).text.strip()
+        date = bsObj.find("meta",attrs={"property":"article:published_time"})["content"]
 
-        #print "\n\n"
+        title = bsObj.find("h3",attrs={"class":"title color-ys"}).text.strip()
 
-        # whole story
-        html = bsObj.find("div", attrs={"class": "ys_post_content text"})
-        #print html
-        # pub_date
-        # print date
+        #html data
+        full_story = str(bsObj.find("div",attrs={"class":"ys_post_content text"})).decode('utf-8')
 
-        # description
-        # print description
-
-        # simpletext
-        full_story = bsObj.find("div", attrs={"class": "ys_post_content text"}).get_text()
+        simple_text = bsObj.find("div",attrs={"class":"ys_post_content text"}).get_text()
 
         # category
         category = "YourStory"
 
-        # print("\n\n\n\n\n\n")
-
+        # print title
+        # print image
+        # print description
+        # print full_story
+        # print simple_text
+        # print category
+        # print date
 
         if not db.session.query(Article).filter(Article.title == title).count():
-                    article_a = Article(title=title, full_story=full_story, image=image, category=category,
-                                        description=description, pubdate=date, html=str(html))
+                    article_a = Article(title=title, full_story=simple_text, image=image, category=category,
+                                        description=description, pubdate=date, html=str(full_story))
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id

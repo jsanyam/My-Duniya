@@ -10,54 +10,59 @@ def open(str):
     html = urllib2.urlopen(req).read()
     return html
 
-urls = ['http://thelogicalindian.com/category/story-feed/opinion/','http://thelogicalindian.com/category/story-feed/get-inspired/','http://thelogicalindian.com/category/story-feed/awareness/']
+urls=['http://thelogicalindian.com/category/story-feed/opinion/','http://thelogicalindian.com/category/story-feed/get-inspired/','http://thelogicalindian.com/category/story-feed/awareness/']
 for url in urls:
     html = open(url)
     bsObj = BeautifulSoup(html,"html.parser")
-    resultset = bsObj.findAll("h3",attrs={"class":"entry-title"})
+    resultset= bsObj.findAll("h3",attrs={"class":"entry-title"})
+
 
     for result in resultset:
         try:
-            title = result.text
+            title=result.text
             match = re.search(r'href=[\'"]?([^\'" >]+)', str(result))
             if match:
                 html = open(str(match.group(0))[6:])
                 bsObj = BeautifulSoup(html,"html.parser")
-                description = bsObj.find("meta",attrs={"property":"og:description"})["content"]
-                date = bsObj.find("meta",attrs={"property":"article:published_time"})["content"]
+                description=bsObj.find("meta",attrs={"property":"og:description"})["content"]
+                date=bsObj.find("meta",attrs={"property":"article:published_time"})["content"]
 
-                # title
-                #print title
 
-                # image
-                image = str(bsObj.find("img",attrs={"class":"attachment-regular-featured wp-post-image"})['src']).replace("//","http://www.")
+                simpletext=bsObj.find("div",attrs={"class":"entry-content clearfix"}).get_text()
 
-                simpletext = bsObj.find("div",attrs={"class":"entry-content clearfix"}).get_text()
-                str1 = str(bsObj.find("div",attrs={"class":"entry-content clearfix"})).replace("//thelogical","www.thelogical").replace("<a href","<img src")
-                pos = str1.find("<button")
+                if(("Video" in simpletext or "video" in simpletext or "Watch" in simpletext or "watch" in simpletext)):
+                     continue
+                if(("Video" in title or "video" in title or "Watch" in title or "watch" in title)):
+                     continue
 
-                 # story html
-                html = str1[0:pos]
+                str1= str(bsObj.find("div",attrs={"class":"entry-content clearfix"})).decode('utf-8').replace("//thelogical","http://www.thelogical")
 
-                # simpletext for keyword generation
-                # print simpletext
 
-                # pub_date
-                # print date
 
-                # description
-                # print description
+                pos=str1.find("<button")
 
-                # category
+                story_html=""
+                 #story html
+                if "Also Read" in str1[0:pos]:
+                    pos1=str1[0:pos].find("Also Read")
+                    story_html=str1[0:pos1]+"</strong></p></div> </div>"
+                else:
+                    story_html=str1[0:pos]+" </div> </div>"
+                image=str(bsObj.find("meta",attrs={"name":"twitter:image"})['content'])
+
                 category = "The Logical Indian"
 
-
-
-                # print("\n\n\n\n\n\n")
+                # print title
+                # print image
+                # print story_html
+                # print simpletext
+                # print date
+                # print description
+                # print category
 
                 if not db.session.query(Article).filter(Article.title == title).count():
                     article_a = Article(title=title, full_story=simpletext, image=image, category=category,
-                                        description=description, pubdate=date, html=str(html))
+                                        description=description, pubdate=date, html=str(story_html))
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
