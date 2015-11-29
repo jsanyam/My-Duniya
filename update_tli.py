@@ -62,7 +62,7 @@ for url in urls:
 
                 if not db.session.query(Article).filter(Article.title == title).count():
                     article_a = Article(title=title, full_story=simpletext, image=image, category=category,
-                                        description=description, pubdate=date, html=str(story_html))
+                                        description=description, pubdate=date, html=story_html)
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id

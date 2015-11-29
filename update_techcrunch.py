@@ -49,7 +49,7 @@ for key in rss:
 
       if not db.session.query(Article).filter(Article.title == title).count():
                     article_a = Article(title=title, full_story=cleantext, image=image, category=category,
-                                        description=description, pubdate=date, html=str(html))
+                                        description=description, pubdate=date, html=html)
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
