@@ -11,7 +11,6 @@ from flask import g, flash, redirect, url_for
 from flask.ext.login import LoginManager, login_user, logout_user, login_required, current_user
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
-#import forms
 
 from flask.ext.login import UserMixin
 
@@ -20,7 +19,7 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import sys
 
-import psycopg2
+#import psycopg2
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
 from sqlalchemy import ForeignKey
@@ -41,7 +40,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']   #'sqlite:///esoteric.sqlite' #
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  # 'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
 #print os.environ['DATABASE_URL']
 json_response = {}
@@ -184,7 +183,7 @@ def register():
         else:
             flash('The username {0} is already in use.  Please try a new email.'.format(form.username.data))
 
-    return render_template('register.html', form=form)
+    return render_template('duniyaregister.html', form=form)
 
 
 @app.route('/register_android', methods=('GET', 'POST'))
@@ -231,9 +230,9 @@ def index():
 
 
 
-@app.route('/login?')
 @app.route('/login', methods=("GET", "POST"))
 def login():
+    print "page opened"
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data)
@@ -244,10 +243,10 @@ def login():
                 login_user(user.one())
                 flash("You been logged in", "success")
 
-                return render_template('index.html')
+                return redirect(url_for('news'))
             else:
                 flash("Your email or password doesn't match", "error")
-    return render_template('login.html', form=form)
+    return render_template('duniyalogin.html', form=form)
 
 @app.route('/logout')
 @login_required
@@ -262,10 +261,10 @@ def logout():
 #     return render_template("basee.html")
 
 #@login_required
-@app.route("/news/", methods=["GET"])
+@app.route("/news", methods=["GET"])
 def news():
     if current_user.is_authenticated:
-        return render_template("index.html")
+        return render_template("duniya.html")
 
 # @app.route("/tagnews/")
 # def tag():
@@ -491,7 +490,7 @@ def upload():
                         db.session.commit()
                         print article_a.id
 
-                except  psycopg2.IntegrityError:  # as ie:
+                except Exception as e:#psycopg2.IntegrityError:  # as ie:
                     # print ie
                     print"Caught"
                     db.session.rollback()

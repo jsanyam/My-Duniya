@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		
+        
+
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			#mainframe{
+				height:750px;
+				width:100%;
+				background-image:url("food.jpg");
+				background-size:100% 100%;
+				background-repeat:no-repeat;
+				top:0;
+				
+			}
+			
+			 
+			
+			#head{
+				height:150px;
+				width:1000px;
+				margin:0 auto;
+				color:white;
+			}
+			#hlogo{
+				height:100%;
+				width:150px;
+				float:left;
+				
+			}
+			#hflip{
+				height:50%;
+				width:700px;
+				float:left;
+				font-size:1.5em;
+				text-align:center;
+				padding-top:65px;
+				font-family:"Lucida Grande",sans-serif;
+			}
+			#hsignin{
+				height:100%;
+				width:150px;
+				float:left;
+			//background-color:green;
+				//margin:0 auto;
+			}
+			#content{
+				height:auto;
+				width:1000px;
+				margin:0 auto;
+			}
+			#signup{
+				height:400px;
+				width:450px;
+				margin:0 auto;
+				//background-color:blue;
+			}
+			#signup ul{
+				list-style:none;
+			}
+			#signup ul li{
+				width:100%;
+				height:50px;
+				text-align:center;
+			}
+			.txt{
+				margin-top:1px;
+				border:1px solid grey;
+				width:100%;
+				height:50px;
+				padding-left:10px;
+			}
+			.lg{
+				float:left;
+				height:100%;
+				width:33.33333333333333%;
+				background-color:red;
+			}
+			#logo{
+				margin:30px;
+				height:97px;
+				width:97px;
+				position:fixed;
+				left:10px;
+			}
+			#sgn{
+				height: 45px;
+				width: 89px;
+				border: 1px solid black;
+				opacity:0.3;
+				padding:1px 20px 1px 20px;
+				position:fixed;
+				right:85px;
+				top:60px;
+			}
+			#sgn:hover{
+				border: 1px solid white;
+				opacity:1;
+				color:white;
+			}
+			#hsignin span{
+				position:fixed;
+				top:25px;
+				right:40px;
+				font-family: 'Garamond',sans-serif;
+			}
+			//.sgu{
+				//	margin-left:450px;
+					//margin-top:30px;
+					//background-color: #09c;
+					//color:white;
+					//width:400px;
+					//height:30px;
+				//	padding-top:15px;
+					//text-align:center;
+                    //font-family:'Garamond',sans-serif;
+					
+					
+			//}
+			
+			#su{
+					
+					margin-top:20px;
+					margin-left:180px;		
+					margin-bottom:20px;
+			}
+			
+			#sgu{
+			
+						color:white;
+						text-align:center;
+			
+			
+			}
+			
+			#bt{
+					width:80px;
+					height:40px;
+			
+			}
+			#tags{
+				width:100%;
+				height:auto;
+			}
+			.rtags{
+				width:100%;
+				height:350px;
+			}
+			.ctags{
+				width:33.33333333333333%;
+				height:100%;
+				float:left;
+			}
+			#r1c1{
+				
+                background-image: url(large_002.jpg);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+			}
+			
+				#r1c1:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			
+			
+		
+			
+			#r1c2{
+				//background-color:blue;
+                background-image: url(large_003.jpg);
+                 background-repeat: no-repeat;
+                  background-size: 100% 100%;
+			}
+			
+			#r1c2:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			
+			
+			#r1c3{
+				//background-color:red;
+                background-image: url(large_004.jpg);
+                 background-repeat: no-repeat;
+                  background-size: 100% 100%;
+			}
+			#r1c3:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			#r2c1{
+				//background-color:yellow;
+                background-image: url(large_005.jpg);
+                 background-repeat: no-repeat;
+                  background-size: 100% 100%;
+			}
+			#r2c1:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			#r2c2{
+				//background-color:black;
+             background-image: url(large.jpg);
+                 background-repeat: no-repeat;
+                  background-size: 100% 100%;
+			}
+			#r2c2:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			#r2c3{
+			//	background-color:white;
+                background-image: url(sheep-grazing-judean-desert_89872_990x742.jpg);
+                 background-repeat: no-repeat;
+                  background-size: 100% 100%;
+			}
+			#r2c3:hover{
+			background-size: 105% 105%;
+			transition: background-size 2s;
+			-webkit-transition:  background-size 2s;
+			}
+			
+			.tagsinfo{
+				
+					margin-top:135px;
+					height:10%;
+					width:20%;
+					margin-left:165px;
+					border-color:white;
+					border-style:solid;
+					
+					
+			}
+			#outer{
+		height:40px;
+		width:40px;
+		border-style:solid;
+		border-color:white;
+		border-radius:30px;
+		margin:auto;
+			}
+
+			#v{
+		font-size:25px;
+		font-family:none,sans-serif;
+		text-decoration:none;
+		color:white;
+		padding-left:8px;
+		margin-top:20px;
+		font-size-adjust:0.58;
+			}
+			#inner{
+			padding-top:7px;
+			padding-left:3px;
+			}
+			
+
+            
+		</style>
+        
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+        <script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+
+		<script>
+		var f=1;
+			function change(){
+						
+				if(f == 1)
+				{document.getElementById("mainframe").style.backgroundImage = 'url(eKvzqL6.jpg)';
+				 f=2;
+				}
+				else if(f == 2)
+				{document.getElementById("mainframe").style.backgroundImage = 'url(food.jpg)';
+				f=1;
+				}
+				
+				
+			
+			}
+			
+			setInterval(function(){change();},3000);
+		
+		</script>
+		
+        <script>
+			
+			
+			
+			
+			
+			
+             
+               $(document).ready(function(){
+			   
+			   $('#r1c1').hover(function(){
+			   
+						$('#r1c1info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r1c1info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			   
+			    $(document).ready(function(){
+			   
+			   $('#r1c2').hover(function(){
+			   
+						$('#r1c2info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r1c2info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			   
+			    $(document).ready(function(){
+			   
+			   $('#r1c3').hover(function(){
+			   
+						$('#r1c3info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r1c3info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			   
+			    $(document).ready(function(){
+			   
+			   $('#r2c1').hover(function(){
+			   
+						$('#r2c1info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r2c1info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			    $(document).ready(function(){
+			   
+			   $('#r2c2').hover(function(){
+			   
+						$('#r2c2info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r2c2info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			    $(document).ready(function(){
+			   
+			   $('#r2c3').hover(function(){
+			   
+						$('#r2c3info').css('background-color','white');
+			   
+			   },function(){
+					
+						$('#r2c3info').css('background-color','transparent');
+			   
+			   });
+			   
+			   });
+			   
+                
+		</script>
+	</head>
+	<body>
+		<div id="mainframe">
+			
+			<div id="head">
+				<div id="hlogo">
+					<img src="" alt="1" id="logo"/> 
+				</div>
+				<div id="hflip">
+					<h1>Welcome To Newsstand</h1>
+				</div>
+				<div id="hsignin">
+					<span>Already on Newsstand?</span>
+					<button id="sgn">Sign In</button>
+				</div>
+				
+				
+			</div>
+			<div id="content">
+				<div id="signup">
+					<ul>
+						<li><input type="text" name="fn" class="txt" placeholder="Full Name"/></li>
+						<li><input type="text" name="id" class="txt" placeholder="Email" /></li>
+						<li><input type="password" name="ps" class="txt" placeholder="Password" /></li>
+						<li><input type="password" name="cps" class="txt" placeholder="Confirm Password" /></li>
+					</ul>	
+					
+					<div id="su">
+					<button type="button" id="bt">Register</button>
+					</div>
+					
+					
+					<h3 id="sgu">Or Sign Up Using</h3><br>
+					<ul>
+						<li>
+							<div id="fb" class="lg"></div>
+							<div id="tw" class="lg" style="background-color:green;"></div>
+							<div id="gl" class="lg" style="background-color:pink;"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="outer">
+			<div id="inner"><a href="#tags" id="v">V</a>
+			</div>
+			</div>
+		</div>
+			<div id="tags">
+				<div class="rtags">
+					<div class="ctags" id="r1c1">
+					<div class="tagsinfo" id="r1c1info">
+					</div>
+					</div>
+					<div class="ctags" id="r1c2">
+					<div class="tagsinfo" id="r1c2info">
+					</div>
+					</div>
+					<div class="ctags" id="r1c3">
+					<div class="tagsinfo" id="r1c3info">
+					</div>
+					</div>
+				</div>
+				<div class="rtags">
+					<div class="ctags" id="r2c1">
+					<div class="tagsinfo" id="r2c1info">
+					</div>
+					</div>
+					<div class="ctags" id="r2c2">
+					<div class="tagsinfo" id="r2c2info">
+					</div>
+					</div>
+					<div class="ctags" id="r2c3">
+					<div class="tagsinfo" id="r2c3info">
+					</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

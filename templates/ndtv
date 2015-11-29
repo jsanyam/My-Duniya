@@ -1,0 +1,21 @@
+import requests
+import json
+from bs4 import BeautifulSoup
+
+r=requests.get("http://gadgets.ndtv.com/?pfrom=home-header-globalnav2015")
+
+#print r.content
+
+
+soup=BeautifulSoup(r.content,"html.parser")
+#print soup.prettify()
+
+soup.prettify()
+
+#for link in soup.find_all("a"):
+   # print link.text,link.get("href")
+
+g=soup.find_all("div",{"class":"gadwid technews"})
+
+for link in g:
+    print link.text
