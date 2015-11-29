@@ -534,7 +534,7 @@ def trend_search(handles):
 #response = urllib2.urlopen(req)
 #the_page = response.read()
 
-@app.route('/get_tweets')
+@app.route('/get/tweets')
 def trending():
     global json_response
     return jsonify(json_response)

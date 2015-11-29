@@ -2,53 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\Google.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\Twitter.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\architecture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\architectureedit.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\architectureedit2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\index.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\index1.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\index2.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\index3.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\index5.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\css\more.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\design.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\designedit.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\designedit2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\entertainment.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\fb-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\architecture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\design.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\large(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\large(3).jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\index.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\jason.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\jssor.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\jssor.slider.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\main1.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\main2.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\js\more.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\large(2).jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\large.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\top.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\base.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\base1.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\base5.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\basee.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\login.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\more.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\register.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/clear.png" afterPath="$PROJECT_DIR$/static/img/clear.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/img/large.jpg" afterPath="$PROJECT_DIR$/static/img/large.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/jquery-1.9.1.min.js" afterPath="$PROJECT_DIR$/static/js/jquery-1.9.1.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main5.js" afterPath="$PROJECT_DIR$/static/js/main5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queries.py" afterPath="$PROJECT_DIR$/queries.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -85,8 +38,8 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11849">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9344894" vertical-offset="8593" max-vertical-offset="11849">
+              <caret line="534" column="17" selection-start-line="534" selection-start-column="17" selection-end-line="534" selection-end-column="17" />
               <folding>
                 <element signature="e#15#29#0" expanded="true" />
               </folding>
@@ -942,8 +895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11849">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9344894" vertical-offset="8593" max-vertical-offset="11849">
+          <caret line="534" column="17" selection-start-line="534" selection-start-column="17" selection-end-line="534" selection-end-column="17" />
           <folding>
             <element signature="e#15#29#0" expanded="true" />
           </folding>
