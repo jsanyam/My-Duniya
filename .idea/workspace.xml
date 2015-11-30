@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/entity_api.py" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\eKvzqL6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\i1.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\i2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\i3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\i4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\i5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\img\sheep-grazing-judean-desert_89872_990x742.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\templates\ndtv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniya.html" afterPath="$PROJECT_DIR$/templates/duniya.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniyacontact.html" afterPath="$PROJECT_DIR$/templates/duniyacontact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniyalogin.html" afterPath="$PROJECT_DIR$/templates/duniyalogin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniyaregister.html" afterPath="$PROJECT_DIR$/templates/duniyaregister.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entity_api.py" afterPath="$PROJECT_DIR$/entity_api.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/lifestyle.html" afterPath="$PROJECT_DIR$/templates/lifestyle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main5.js" afterPath="$PROJECT_DIR$/static/js/main5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queries.py" afterPath="$PROJECT_DIR$/queries.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tags.html" afterPath="$PROJECT_DIR$/templates/tags.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_firstPost.py" afterPath="$PROJECT_DIR$/update_firstPost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_ht.py" afterPath="$PROJECT_DIR$/update_ht.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_techcrunch.py" afterPath="$PROJECT_DIR$/update_techcrunch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_tli.py" afterPath="$PROJECT_DIR$/update_tli.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_yourStory.py" afterPath="$PROJECT_DIR$/update_yourStory.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled1.iws" />
@@ -63,21 +43,11 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11832">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="11968">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#15#29#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9008746" vertical-offset="847" max-vertical-offset="1258">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -94,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entity_api.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="entity_api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/entity_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.8969697" vertical-offset="27" max-vertical-offset="425">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -135,14 +105,14 @@
         <option value="$PROJECT_DIR$/templates/duniyacontact.html" />
         <option value="$PROJECT_DIR$/templates/duniya.html" />
         <option value="$PROJECT_DIR$/queries.py" />
-        <option value="$PROJECT_DIR$/entity_api.py" />
         <option value="$PROJECT_DIR$/update_ht.py" />
         <option value="$PROJECT_DIR$/update_firstPost.py" />
         <option value="$PROJECT_DIR$/update_techcrunch.py" />
         <option value="$PROJECT_DIR$/update_tli.py" />
         <option value="$PROJECT_DIR$/update_yourStory.py" />
-        <option value="$PROJECT_DIR$/untitled1.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/untitled1.py" />
+        <option value="$PROJECT_DIR$/entity_api.py" />
       </list>
     </option>
   </component>
@@ -1030,14 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entity_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/update_ht.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44606414" vertical-offset="935" max-vertical-offset="1632">
@@ -1064,13 +1026,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queries.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.9008746" vertical-offset="847" max-vertical-offset="1258">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,10 +1044,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/queries.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9008746" vertical-offset="847" max-vertical-offset="1258">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8969697" vertical-offset="27" max-vertical-offset="425">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding />
         </state>
       </provider>

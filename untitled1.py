@@ -40,7 +40,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  # 'sqlite:///esoteric.sqlite' #
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///esoteric.sqlite' #os.environ['DATABASE_URL']  # 'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
 #print os.environ['DATABASE_URL']
 json_response = {}
@@ -220,13 +220,20 @@ def login_android():
         #return jsonify({'validation': "true"})
 
 
+
+# change this
 @app.route('/')
 def index():
     if current_user.is_authenticated:
-        return redirect(url_for('news'))
+        return redirect(url_for('personal'))
     else:
-        return render_template("duniya.html")
+        return redirect(url_for('news'))
         # return redirect(url_for('register'))
+
+@app.route("/personal")
+def personal():
+    if current_user.is_authenticated:
+        return render_template("personal.html")
 
 
 
@@ -244,7 +251,7 @@ def login():
                 login_user(user.one())
                 flash("You been logged in", "success")
 
-                return redirect(url_for('news'))
+                return redirect(url_for('personal'))
             else:
                 flash("Your email or password doesn't match", "error")
     return render_template('duniyalogin.html', form=form)
@@ -264,8 +271,7 @@ def contacts():
 #@login_required
 @app.route("/news", methods=["GET"])
 def news():
-    if current_user.is_authenticated:
-        return render_template("duniya.html")
+   return render_template("duniya.html")
 
 # @app.route("/tagnews/")
 # def tag():
@@ -689,3 +695,4 @@ if __name__ == '__main__':
 
 #a = Article.query.get(1)
 #print a
+

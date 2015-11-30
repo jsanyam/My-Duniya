@@ -1,7 +1,7 @@
 from untitled1 import Keyword, NewsKeyword, db
 
 
-def entity_extract(id, text):
+def entity_extract(Id, text):
     from monkeylearn import MonkeyLearn
 
     ml = MonkeyLearn('f61694907b120433ddc66da1880d537c5f9d8f1e')
@@ -15,6 +15,6 @@ def entity_extract(id, text):
             db.session.commit()
         else:
             key = Keyword.query.filter_by(key_name=row["entity"]).first()
-        nk = NewsKeyword(news_id=id, key_id=key.id)
+        nk = NewsKeyword(news_id=Id, key_id=key.id)
         db.session.add(nk)
         db.session.commit()
