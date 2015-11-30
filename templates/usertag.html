@@ -1,0 +1,1211 @@
+<Doctype html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var storeArray=new Array();
+			var flag=new Array();
+			var y=1;
+			var i=0;
+			
+			if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			
+
+			$("#m1").click(function(){
+				if(flag[0]!=y){
+					storeArray[0]=$("#ms1").text();
+					console.log(storeArray);
+					flag[0]=1;
+					i++;
+				}
+				else{
+					flag[0]=0;
+					storeArray[0]=0;
+					console.log(storeArray);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+				
+			});
+			$("#m2").click(function(){
+				if(flag[1]!=y){
+					storeArray[1]=$("#ms2").text();
+					console.log(storeArray[1]);
+					flag[1]=1;
+					i++;
+				}
+				else{
+					flag[1]=0;
+					storeArray[1]=0;
+					console.log(storeArray[1]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m3").click(function(){
+				if(flag[2]!=y){
+					storeArray[2]=$("#ms3").text();
+					console.log(storeArray[2]);
+					flag[2]=1;
+					i++;
+				}
+				else{
+					flag[2]=0;
+					storeArray[2]=0;
+					console.log(storeArray[2]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m4").click(function(){
+				if(flag[3]!=y){
+					storeArray[3]=$("#ms4").text();
+					console.log(storeArray[3]);
+					flag[3]=1;
+					i++;
+				}
+				else{
+					flag[3]=0;
+					storeArray[3]=0;
+					console.log(storeArray[3]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m5").click(function(){
+				if(flag[4]!=y){
+					storeArray[4]=$("#ms5").text();
+					console.log(storeArray[4]);
+					flag[4]=1;
+					i++;
+				}
+				else{
+					flag[4]=0;
+					storeArray[4]=0;
+					console.log(storeArray[4]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m6").click(function(){
+				if(flag[5]!=y){
+					storeArray[5]=$("#ms6").text();
+					console.log(storeArray[5]);
+					flag[5]=1;
+					i++;
+				}
+				else{
+					flag[5]=0;
+					storeArray[5]=0;
+					console.log(storeArray[5]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m7").click(function(){
+				if(flag[6]!=y){
+					storeArray[6]=$("#ms7").text();
+					console.log(storeArray[6]);
+					flag[6]=1;
+					i++;
+				}
+				else{
+					flag[6]=0;
+					storeArray[6]=0;
+					console.log(storeArray[6]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m8").click(function(){
+				if(flag[7]!=y){
+					storeArray[7]=$("#ms8").text();
+					console.log(storeArray[7]);
+					flag[7]=1;
+					i++;
+				}
+				else{
+					flag[7]=0;
+					storeArray[7]=0;
+					console.log(storeArray[7]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m9").click(function(){
+				if(flag[8]!=y){
+					storeArray[8]=$("#ms9").text();
+					console.log(storeArray[8]);
+					flag[8]=1;
+					i++;
+				}
+				else{
+					flag[8]=0;
+					storeArray[8]=0;
+					console.log(storeArray[8]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m10").click(function(){
+				if(flag[9]!=y){
+					storeArray[9]=$("#ms10").text();
+					console.log(storeArray[9]);
+					flag[9]=1;
+					i++;
+				}
+				else{
+					flag[9]=0;
+					storeArray[9]=0;
+					console.log(storeArray[9]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m11").click(function(){
+				if(flag[10]!=y){
+					storeArray[10]=$("#ms11").text();
+					console.log(storeArray[10]);
+					flag[10]=1;
+					i++;
+				}
+				else{
+					flag[10]=0;
+					storeArray[10]=0;
+					console.log(storeArray[10]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m12").click(function(){
+				if(flag[11]!=y){
+					storeArray[11]=$("#ms12").text();
+					console.log(storeArray[11]);
+					flag[11]=1;
+					i++;
+				}
+				else{
+					flag[11]=0;
+					storeArray[11]=0;
+					console.log(storeArray[11]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m13").click(function(){
+				if(flag[12]!=y){
+					storeArray[12]=$("#ms13").text();
+					console.log(storeArray[12]);
+					flag[12]=1;
+					i++;
+				}
+				else{
+					flag[12]=0;
+					storeArray[12]=0;
+					console.log(storeArray[12]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m14").click(function(){
+				if(flag[13]!=y){
+					storeArray[13]=$("#ms14").text();
+					console.log(storeArray[13]);
+					flag[13]=1;
+					i++;
+				}
+				else{
+					flag[13]=0;
+					storeArray[13]=0;
+					console.log(storeArray[13]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m15").click(function(){
+				if(flag[14]!=y){
+					storeArray[14]=$("#ms15").text();
+					console.log(storeArray[14]);
+					flag[14]=1;
+					i++;
+				}
+				else{
+					flag[14]=0;
+					storeArray[14]=0;
+					console.log(storeArray[14]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m16").click(function(){
+				if(flag[15]!=y){
+					storeArray[15]=$("#ms16").text();
+					console.log(storeArray[15]);
+					flag[15]=1;
+					i++;
+				}
+				else{
+					flag[15]=0;
+					storeArray[15]=0;
+					console.log(storeArray[15]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m17").click(function(){
+				if(flag[16]!=y){
+					storeArray[16]=$("#ms17").text();
+					console.log(storeArray[16]);
+					flag[16]=1;
+					i++;
+				}
+				else{
+					flag[16]=0;
+					storeArray[16]=0;
+					console.log(storeArray[16]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m18").click(function(){
+				if(flag[17]!=y){
+					storeArray[17]=$("#ms18").text();
+					console.log(storeArray[17]);
+					flag[17]=1;
+					i++;
+				}
+				else{
+					flag[17]=0;
+					storeArray[17]=0;
+					console.log(storeArray[17]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m19").click(function(){
+				if(flag[18]!=y){
+					storeArray[18]=$("#ms19").text();
+					console.log(storeArray[18]);
+					flag[18]=1;
+					i++;
+				}
+				else{
+					flag[18]=0;
+					storeArray[18]=0;
+					console.log(storeArray[18]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m20").click(function(){
+				if(flag[19]!=y){
+					storeArray[19]=$("#ms20").text();
+					console.log(storeArray[19]);
+					flag[19]=1;
+					i++;
+				}
+				else{
+					flag[19]=0;
+					storeArray[19]=0;
+					console.log(storeArray[19]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m21").click(function(){
+				if(flag[20]!=y){
+					storeArray[20]=$("#ms21").text();
+					console.log(storeArray[20]);
+					flag[20]=1;
+					i++;
+				}
+				else{
+					flag[20]=0;
+					storeArray[20]=0;
+					console.log(storeArray[20]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+
+			$("#m22").click(function(){
+				if(flag[21]!=y){
+					storeArray[21]=$("#ms22").text();
+					console.log(storeArray[21]);
+					flag[21]=1;
+					i++;
+				}
+				else{
+					flag[21]=0;
+					storeArray[21]=0;
+					console.log(storeArray[21]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m23").click(function(){
+				if(flag[22]!=y){
+					storeArray[22]=$("#ms23").text();
+					console.log(storeArray[22]);
+					flag[22]=1;
+					i++;
+				}
+				else{
+					flag[22]=0;
+					storeArray[22]=0;
+					console.log(storeArray[22]);
+					i--;
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m24").click(function(){
+				if(flag[23]!=y){
+					storeArray[23]=$("#ms24").text();
+					console.log(storeArray[23]);
+					flag[23]=1;
+					i++;
+
+					$("#m24").css("background-color","gray");
+				}
+				else{
+					flag[23]=0;
+					storeArray[23]=0;
+					console.log(storeArray[23]);
+					i--;
+					$("#m24").css("background-color","white");
+				}
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+			});
+			$("#m25").click(function(){
+				if(flag[24]!=y){
+					storeArray[24]=$("#ms25").text();
+					console.log(storeArray[24]);
+					flag[24]=1;
+					i++;
+					$("#m25").css("background-color","gray");
+				}
+				else{
+					flag[24]=0;
+					storeArray[24]=0;
+					console.log(storeArray[24]);
+					i--;
+					$("#m25").css("background-color","white");
+				}
+
+
+				if(i<5)
+			{
+				//$("#bt").css("background-color", "yellow");
+				$("#bt").attr('disabled',true);
+			}
+			else
+			{
+				//$("#bt").css("background-color", "red");
+				$("#bt").attr('disabled',false);	
+			}
+
+			});
+		});
+
+
+	</script>
+<style>
+
+#main-content{
+			width: 100%;
+			height:auto;
+			float: left;
+			padding: 50px 0px;
+			box-sizing: border-box;
+			display: block;
+		    font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			font-family: Roboto, sans-serif;
+		}
+		#container{
+			width: 1140px;
+			padding-right: 15px;
+			padding-left: 15px;
+			margin-right: auto;
+			margin-left: auto;
+			box-sizing: border-box;
+			display: block;
+		    font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			font-family: Roboto, sans-serif;
+		}
+		.row{
+			margin-right: -15px;
+			margin-left: -15px;
+			box-sizing: border-box;
+			display: block;
+		    font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			font-family: Roboto, sans-serif;
+		}
+		.col-md-8{
+			width: 1100px;
+			float:left;
+			position: relative;
+			min-height: 1px;
+			padding-right: 15px;
+			padding-left: 15px;
+			box-sizing: border-box;
+			display: block;
+		    font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			font-family: Roboto, sans-serif;
+
+		}
+		.cp-news-grid-style{
+			width: 100%;
+			height:auto;
+			float: left;
+			clear: both;
+			display: block;
+			font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			box-sizing: border-box;
+		}
+		.mh20{
+			margin-top: 20px;
+		}
+		.section-title{
+			width: 100%;
+			float: left;
+			clear: both;
+			margin-bottom: 25px;
+			display: block;
+			font-size: 14px;
+			line-height: 1.42857;
+			color: rgb(51, 51, 51);
+			font-family: Roboto, sans-serif;
+		}
+		.purple-border h1{
+			font: 700 18px/40px Roboto, sans-serif;
+			margin: 0px 10px 0px 0px;
+			float: left;
+			border-left: 5px solid rgb(50, 170, 225);
+			border-right: 1px solid rgb(50, 170, 225);
+			padding: 0px 10px;
+			text-transform: uppercase;
+		}
+		.section-title small{
+			font: 400 14px/40px Roboto, sans-serif;
+			color: rgb(136, 136, 136);
+		}
+		.grid-holder{
+			width: 100%;
+		    float: left;
+		    box-shadow: 0 1px 4px rgba(0,0,0,.20);
+		    border-radius: 2px;
+		    padding: 30px;
+		}
+		.cp-load-newsgrid{
+			list-style: none;
+			width: 100%;
+			height: auto;
+		    float:left;
+		    margin: 0px;
+		    padding: 0px;
+		}
+		.cp-load-newsgrid .col-md-4{
+			margin-bottom: 30px;
+			width: 33.3333333%;
+			position: relative;
+		    min-height: 1px;
+		    padding-right: 15px;
+		    padding-left: 15px;
+			margin-left: 0px;
+		}
+
+		 .catname {
+ 		   position: relative;
+ 		   top: -15px;
+ 		   z-index: 99;
+ 		   overflow: hidden;
+		}
+
+		.cp-thumb{
+			width: 100%;
+		    float: left;
+		    position: relative;
+		    border-radius: 2px;
+		    overflow: hidden;
+		    height:200px;
+		}
+
+		.cp thumb img{
+
+			min-height: 100%;
+		}
+		.cp-load-newsgrid h3 {
+		    font: 500 16px/22px 'Roboto',sans-serif;
+		    margin: 0;
+		}
+		.cp-load-newsgrid h3 a {
+		    color: #222;
+		    text-decoration:none;
+		}
+
+    .small-grid{
+			width: 100%;
+			float: left;
+			clear: both;
+			padding: 0px;
+			display: block;
+			list-style-type: disc;
+			-webkit-margin-before: 1em;
+			-webkit-margin-after: 1em;
+			-webkit-margin-start: 0px;
+						margin-left: 15px;-webkit-margin-end+: 0px;
+			margin: 0px;
+		}
+
+		.col-md-4{
+            width: 300px;
+            float: left;
+            position: relative;
+            min-height: 1px;
+            margin-left: 45px;
+            padding-right: 15px;
+            padding-left: 15px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            font-family: 'Roboto',sans-serif;
+            box-sizing: border-box;
+        }
+
+       .catname{
+       	position: relative;
+       	width: 200px;
+       	top:-20px;
+       	left:10px;
+       }
+
+       .catname a {
+    border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+    color: #fff;
+    display: block;
+    font: 900 14px/30px "Roboto",sans-serif;
+    height: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.hg1{
+
+	max-height:100%;
+	max-width:100%;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.btn-purple {
+    background-color: #9c27b0;
+}
+
+.btn-pink {
+    background-color: #e91e63;
+}
+
+.btn-gray {
+    background-color: #607d8b;
+}
+      
+.btn-green {
+    background-color: #cddc39;
+}
+
+.btn-orange {
+    background-color: #ff5722;
+}
+
+.heading h1{
+
+	text-align: center;
+	
+}
+
+#bt{
+
+	width: 100px;
+	height: 30px;
+	float: right;
+}
+
+.cp-news-grid-style 
+{
+
+//	position:fixed;
+//	z-index:111;
+//	background-color:white;
+//	overflow:auto;
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+<!--
+
+entertainent:
+movie-reviews
+bolly
+holly
+world-cinema
+television
+music
+entertainment
+social media
+
+
+science and edu:
+gadgets
+education
+autos
+apps
+tech-reviews
+
+lifestyle:
+sex&relatinships
+lifestyle
+books 
+travel
+art and culture
+fashion and trends 
+
+
+more:
+opinion
+india 
+world
+business
+real estate
+sports
+
+
+
+-->
+
+<div id="main-content">
+		<div id="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="cp-news-grid-style mh20">
+							<div class="section-title purple-border">
+								<h1>Choose your topics</h1>
+								<small>Minimum 5</small>
+								<button type="button" id="bt">DONE</button>
+							</div>
+						</div>
+						<div class="grid-holder">
+
+						<div class="heading">
+						<h1>Entertainment</h1>
+						</div>
+							<div class="row">
+								<ul class="cp-load-newsgrid">
+									<li class="col-md-4" id="m1">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/review.jpg"/> 
+										</div>
+										<div class="catname" style="width:160px"><a id="ms1" class=" btn-purple " href="#">Movie-reviews</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m2">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/bolly.jpg"/> 
+										</div>
+										<div class="catname" style="width:130px"><a id="ms2" class=" btn-pink waves-effect" href="#">Bollywood</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m3">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/holly.jpg"/> 
+										</div>
+										<div class="catname" style="width:130px" ><a id="ms3" class=" btn-gray waves-effect" href="#">Hollywood</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m4">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/cinema.jpg"/> 
+										</div>
+										<div class="catname" style="width:95px"><a id="ms4" class=" btn-green waves-effect" href="#">Cinema</a>
+										</div>
+									</li>
+
+
+									<li class="col-md-4" id="m5">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/tv.jpg"/> 
+										</div>
+										<div class="catname" style="width:110px"><a id="ms5" class=" btn-orange waves-effect" href="#">Television</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m6">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/music.jpg"/> 
+										</div>
+										<div class="catname" style="width:90px"><a id="ms6" class=" btn-purple waves-effect" href="#">Music</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m7">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/entertainment.jpg"/> 
+										</div>
+										<div class="catname" style="width:150px"><a id="ms7" class=" btn-orange waves-effect" href="#">Entertainment</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m8">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/social.jpg"/> 
+										</div>
+										<div class="catname" style="width:150px"><a id="ms8" class=" btn-pink waves-effect" href="#">Social media</a>
+										</div>
+									</li>
+
+									</ul>
+
+									</div>
+
+
+						<div class="heading">
+						<h1>Science & Education</h1>
+						</div>
+									<div class="row">
+									<ul class="cp-load-newsgrid">
+
+									<li class="col-md-4" id="m9">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/gadgets.jpg"/> 
+										</div>
+										<div class="catname" style="width:100px"><a id="ms9" class=" btn-purple waves-effect" href="#">Gadgets</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m10">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/edu.jpg"/> 
+										</div>
+										<div class="catname" style="width:110px"><a id="ms10" class=" btn-green waves-effect" href="#">Education</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m11">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/auto.jpg"/> 
+										</div>
+										<div class="catname" style="width:70px"><a id="ms11" class=" btn-pink waves-effect" href="#">Auto</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m12">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/apps.jpg"/> 
+										</div>
+										<div class="catname" style="width:70px"><a id="ms12" class=" btn-orange waves-effect" href="#">Apps</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m13">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/tech-reviews.jpg"/> 
+										</div>
+										<div class="catname" style="width:135px"><a id="ms13" class=" btn-gray waves-effect" href="#">Tech-Reviews</a>
+										</div>
+									</li>
+
+									</ul>
+									</div>
+
+
+						<div class="heading">
+						<h1>Lifestyle</h1>
+						</div>
+									<div class="row">
+									<ul class="cp-load-newsgrid">
+
+									<li class="col-md-4" id="m14">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/sex.jpg"/> 
+										</div>
+										<div class="catname"><a id="ms14" class=" btn-purple waves-effect" href="#">Sex & Relationships</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m15">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/lifestyle.jpg"/> 
+										</div>
+										<div class="catname" style="width:110px"><a id="ms15" class=" btn-pink waves-effect" href="#">LifeStyle</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m16">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/books.jpg"/> 
+										</div>
+										<div class="catname" style="width:80px"><a id="ms16" class=" btn-gray waves-effect" href="#">Books</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m17">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/travel.jpg"/> 
+										</div>
+										<div class="catname" style="width:80px"> <a id="ms17" class=" btn-green waves-effect" href="#">Travel</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m18">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/art.jpg"/> 
+										</div>
+										<div class="catname" style="width:150px"><a id="ms18" class=" btn-orange waves-effect" href="#">Art & Culture</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m19">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/fashion.jpg"/> 
+										</div>
+										<div class="catname" style="width:100px"><a id="ms19" class=" btn-purple waves-effect" href="#">Fashion</a>
+										</div>
+									</li>
+
+									</ul>
+									</div>
+
+
+						<div class="heading">
+						<h1>Other</h1>
+						</div>
+									<div class="row">
+									<ul class="cp-load-newsgrid">
+
+									<li class="col-md-4" id="m20">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/opinion.jpg"/> 
+										</div>
+										<div class="catname" style="width:90px"><a id="ms20" class=" btn-gray waves-effect" href="#">Opinion</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m21">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/india.jpg"/> 
+										</div>
+										<div class="catname" style="width:80px;"><a id="ms21" class=" btn-pink waves-effect" href="#">India</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m22">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/world.jpg"/> 
+										</div>
+										<div class="catname" style="width:80px"><a id="ms22" class=" btn-purple waves-effect" href="#">World</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m23">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/business.jpg"/> 
+										</div>
+										<div class="catname" style="width:100px"><a id="ms23" class=" btn-green waves-effect" href="#">Business</a>
+										</div>
+									</li>
+
+									<li class="col-md-4" id="m24">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/img/estate.jpg"/> 
+										</div>
+										<div class="catname" style="width:130px"><a id="ms24" class=" btn-gray waves-effect" href="#">Real Estate</a>
+										</div>
+									</li>
+
+								
+									<li class="col-md-4" id="m25">
+										<div class="cp-thumb">
+											<img class="hg1" src="../static/sports.jpg"/> 
+										</div>
+										<div class="catname" style="width:90px"><a id="ms25" class=" btn-orange waves-effect" href="#">Sports</a>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>				
+	</div>
+	</div>
+	</div>
+	</div>
+	
+</body>
+
+
+</html>

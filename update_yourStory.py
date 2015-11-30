@@ -1,6 +1,7 @@
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import psycopg2
+from entity_api import entity_extract
 from untitled1 import db, Article
 
 
@@ -46,6 +47,7 @@ for result in resultset:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
+                    entity_extract(article_a.id, simple_text)
 
     except psycopg2.ProgrammingError:  # as ie:
                 # print ie

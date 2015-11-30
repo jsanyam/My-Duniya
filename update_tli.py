@@ -2,6 +2,7 @@ import urllib2
 import re
 from bs4 import BeautifulSoup
 import psycopg2
+from entity_api import entity_extract
 from untitled1 import db, Article
 
 
@@ -66,6 +67,7 @@ for url in urls:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
+                    entity_extract(article_a.id, simpletext)
 
         except psycopg2.IntegrityError:  # as ie:
                 # print ie

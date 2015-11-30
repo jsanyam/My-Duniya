@@ -78,46 +78,46 @@ class Article(db.Model):
     def __repr__(self):
         return u"%s" % self.title
 
-# class Keyword(db.Model):
-#     __tablename__ = 'keywords'
-#
-#     id = db.Column(db.Integer, primary_key=True)
-#     key_name = db.Column(db.Text(), unique=True, nullable=True)
-#
-#     def __unicode__(self):
-#         return self.key_name
-#
-#     def __repr__(self):
-#         return u"%s" % self.key_name
-#
-# class UserKeyword(db.Model):
-#     __tablename__ = 'user_key'
-#
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
-#     key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
-#     priority = db.Column(db.Float, nullable=False)
-#
-#
-#     def __unicode__(self):
-#         return self.priority
-#
-#     def __repr__(self):
-#         return u"%f" % self.priority
-#
-# class NewsKeyword(db.Model):
-#     __tablename__ = 'news_key'
-#
-#     id = db.Column(db.Integer, primary_key=True)
-#     news_id = db.Column(db.Integer, ForeignKey("articles.id"), nullable=False)
-#     key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
-#
-#
-#     def __unicode__(self):
-#         return self.id
-#
-#     def __repr__(self):
-#         return u"%d" % self.id
+class Keyword(db.Model):
+    __tablename__ = 'keywords'
+
+    id = db.Column(db.Integer, primary_key=True)
+    key_name = db.Column(db.Text(), unique=True, nullable=True)
+
+    def __unicode__(self):
+        return self.key_name
+
+    def __repr__(self):
+        return u"%s" % self.key_name
+
+class UserKeyword(db.Model):
+    __tablename__ = 'user_key'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
+    key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
+    priority = db.Column(db.Float, nullable=False)
+
+
+    def __unicode__(self):
+        return self.priority
+
+    def __repr__(self):
+        return u"%f" % self.priority
+
+class NewsKeyword(db.Model):
+    __tablename__ = 'news_key'
+
+    id = db.Column(db.Integer, primary_key=True)
+    news_id = db.Column(db.Integer, ForeignKey("articles.id"), nullable=False)
+    key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
+
+
+    def __unicode__(self):
+        return self.id
+
+    def __repr__(self):
+        return u"%d" % self.id
 
 
 # we use marshmallow Schema to serialize our articles
@@ -225,7 +225,8 @@ def index():
     if current_user.is_authenticated:
         return redirect(url_for('news'))
     else:
-        return redirect(url_for('register'))
+        return render_template("duniya.html")
+        # return redirect(url_for('register'))
 
 
 
@@ -256,9 +257,9 @@ def logout():
     return 'logout successful'
 
 
-# @app.route('/')
-# def main():
-#     return render_template("basee.html")
+@app.route('/contact')
+def contacts():
+    return render_template("duniyacontact.html")
 
 #@login_required
 @app.route("/news", methods=["GET"])
@@ -273,7 +274,7 @@ def news():
 #template opening on clicking tiles
 @app.route("/tagnews/<category>")
 def tag(category):
-    return render_template("base5.html")
+    return render_template("lifestyle.html")
 
 #more tags
 @app.route("/all_tags")
@@ -416,10 +417,10 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
 #URL to update database
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
-    toi_rss={#'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
-             #'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms': 'Most Recent',
+    toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
+             'http://timesofindia.indiatimes.com/rssfeeds/1221656.cms': 'Most Recent',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss': 'India',
-              'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss': 'World',
+             # 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss': 'World',
              #'http://timesofindia.feedsportal.com/c/33039/f/533919/index.rss':'Business',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533920/index.rss':'Cricket',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533921/index.rss':'Sports',
@@ -430,7 +431,7 @@ def upload():
              # 'http://timesofindia.feedsportal.com/c/33039/f/533924/index.rss':'Education',
              # 'http://timesofindia.feedsportal.com/c/33039/f/533928/index.rss':'Entertainment',
              # 'http://timesofindia.indiatimes.com/rssfeeds/2886704.cms':'Lifestyle'
-        }
+            }
 
 
     for key, value in toi_rss.iteritems():
@@ -688,4 +689,3 @@ if __name__ == '__main__':
 
 #a = Article.query.get(1)
 #print a
-

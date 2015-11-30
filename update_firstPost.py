@@ -3,6 +3,7 @@ import feedparser
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import psycopg2
+from entity_api import entity_extract
 from untitled1 import db
 from untitled1 import Article
 
@@ -51,6 +52,7 @@ for key in rss:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
+                    entity_extract(article_a.id, full_story)
 
     except psycopg2.IntegrityError:  # as ie:
                 # print ie

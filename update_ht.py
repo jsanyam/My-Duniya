@@ -1,11 +1,14 @@
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import psycopg2
+from entity_api import entity_extract
 from untitled1 import db, Article
 
 
 try:
     urls={
+    'http://www.hindustantimes.com/top-news':'top-news',
+    'http://www.hindustantimes.com/cricket/top-news':'cricket',
     'http://www.hindustantimes.com/movie-reviews/top-news':'reviews',
     'http://www.hindustantimes.com/bollywood/top-news':'bollywood',
     'http://www.hindustantimes.com/hollywood/top-news':'hollywood',
@@ -31,8 +34,6 @@ try:
     'http://www.hindustantimes.com/sports/top-news':'sports',
     'http://www.hindustantimes.com/lifestyle/top-news':'lifestyle',
     'http://www.hindustantimes.com/entertainment/top-news':'entertainment'
-
-
     }
 
 
@@ -71,6 +72,7 @@ try:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
+                    entity_extract(article_a.id, full_story)
 
         except psycopg2.IntegrityError:  # as ie:
                 # print ie

@@ -43,7 +43,7 @@
 
          $.ajax({
                 type:'GET',
-                url:"/" + y[l-1],
+                url:"/" +y[l-1],
                 success:function(data, textStatus, xhr) {
                     console.log(data);
 
