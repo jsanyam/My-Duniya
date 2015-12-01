@@ -1,7 +1,8 @@
-from untitled1 import Keyword, NewsKeyword, db
+from flask.ext.login import current_user
+from untitled1 import Keyword, NewsKeyword, db, UserKeyword
 
 
-def entity_extract(Id, text):
+def entity_extract(Id, text, news):
     from monkeylearn import MonkeyLearn
 
     ml = MonkeyLearn('f61694907b120433ddc66da1880d537c5f9d8f1e')
@@ -15,6 +16,18 @@ def entity_extract(Id, text):
             db.session.commit()
         else:
             key = Keyword.query.filter_by(key_name=row["entity"]).first()
-        nk = NewsKeyword(news_id=Id, key_id=key.id)
-        db.session.add(nk)
-        db.session.commit()
+
+        if news:
+            nk = NewsKeyword(news_id=Id, key_id=key.id)
+            db.session.add(nk)
+            db.session.commit()
+        else:
+            if not UserKeyword.query.filter_by(key_id=key.id).count():
+                uk = UserKeyword(user_id=current_user.id, key_id=key.id, priority=1)
+                db.session.add(uk)
+                db.session.commit()
+
+            else:
+                uk = UserKeyword.query.filter_by(key_id=key.id).first()
+                uk.priority += 1
+                db.session.commit()

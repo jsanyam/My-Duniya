@@ -40,7 +40,7 @@ app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite' # 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite' #
 db = SQLAlchemy(app)
 #print os.environ['DATABASE_URL']
 json_response = {}
@@ -236,8 +236,6 @@ def personal():
         return render_template("personal.html")
 
 
-
-
 @app.route('/login', methods=("GET", "POST"))
 def login():
     print "page opened"
@@ -392,7 +390,7 @@ def tags(category):
 #news with id
 @app.route('/full_news/<id>')
 def full_news(id):
-    return render_template("base1.html")
+    return render_template("fullnews.html")
 
 #BING search API
 @app.route('/<search_type>/<query>')
