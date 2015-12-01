@@ -65,7 +65,7 @@ login_manager.login_view = 'login'
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.BigInteger, primary_key=True)
+    id = db.Column(db.BIGINT, primary_key=True)
     username = db.Column(db.String(32))
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
