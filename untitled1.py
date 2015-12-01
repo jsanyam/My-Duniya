@@ -1,5 +1,4 @@
 # coding:utf-8
-import logging
 import os
 import urllib2
 from flask import Flask, jsonify, request, render_template, Session, session
@@ -11,6 +10,11 @@ from flask import g, flash, redirect, url_for
 from flask.ext.login import LoginManager, login_user, logout_user, login_required, current_user
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
+
+#from pip.utils import logging
+from oauth import OAuthSignIn
+import logging
+
 
 from flask.ext.login import UserMixin
 
@@ -41,6 +45,13 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 app.config['SECRET_KEY'] = 'secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']  #'sqlite:///esoteric.sqlite' #
+app.config['OAUTH_CREDENTIALS'] = {
+    'facebook': {
+        'id': '1508201969495385',
+        'secret': '167e0183ff7392c43283e07bd95f5b83'
+    }
+}
+
 db = SQLAlchemy(app)
 #print os.environ['DATABASE_URL']
 json_response = {}
@@ -54,11 +65,11 @@ login_manager.login_view = 'login'
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(32))
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
-
+    general = db.Column(db.Integer, default=1)
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -208,9 +219,9 @@ def login_android():
     if request.method == "POST":
         #email = "" + request.form.get('email')
         #pwd = "" + request.form.get('password')
-        user = User.query.filter_by(email=request.form.get('email'))
+        user = User.query.filter_by(email=request.form.get('email'), general=1)
         if user.count() == 0:
-            return jsonify({'validation': "You haven't registered with us yet"})
+            return jsonify({'validation': "You haven't registered with us yet or registered with facebook"})
         else:
             if check_password_hash(user.one().password, request.form.get('password')):
                 return jsonify({'validation': "You have successfully logged in"})
@@ -241,9 +252,9 @@ def login():
     print "page opened"
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data)
+        user = User.query.filter_by(email=form.email.data, general=1)
         if user.count() == 0:
-            flash("You haven't registered with us yet")
+            flash("You haven't registered with us yet or registered with facebook")
         else:
             if check_password_hash(user.one().password, form.password.data):
                 login_user(user.one())
@@ -259,7 +270,36 @@ def login():
 def logout():
     logout_user()
     flash("You've been logged out","success")
-    return 'logout successful'
+    #return 'logout successful'
+    return redirect(url_for('news'))
+
+
+@app.route('/authorize/<provider>')
+def oauth_authorize(provider):
+    if not current_user.is_anonymous:
+        return redirect(url_for('personal'))
+    oauth = OAuthSignIn.get_provider(provider)
+    return oauth.authorize()
+
+
+@app.route('/callback/<provider>')
+def oauth_callback(provider):
+    if not current_user.is_anonymous:
+        return redirect(url_for('personal'))
+    oauth = OAuthSignIn.get_provider(provider)
+    social_id, username, email = oauth.callback()
+    if social_id is None:
+        flash('Authentication failed.')
+        return redirect(url_for('news'))
+    user = User.query.filter_by(id=social_id).first()
+    if not user:
+        print username
+        user = User(id=social_id, username=username, email=email, general=0)#, friends=friends) #social_id=social_id,
+        db.session.add(user)
+        db.session.commit()
+    login_user(user, True)
+    return redirect(url_for('personal'))
+
 
 
 @app.route('/contact')
