@@ -619,7 +619,11 @@ def twitter_handle():
 @app.route('/fb_android', methods=['GET', 'POST'])
 def fb_android():
     if request.method == 'POST':
-        data = request.form.get('')
+        me = request.get_json()
+        data = ""
+        for item in me['likes']['data']: #['category'])
+            data = data + item['description'] + item['about'] +" "
+        return jsonify({'result': 'success'})
 
 @app.route('/keywords')
 def keywords():
