@@ -14,7 +14,7 @@ from flask.ext.bcrypt import generate_password_hash
 # from pip.utils import logging
 # from entity_api import entity_extract
 #from enty import entity
-from entity_api import entity_extract
+#from entity_api import entity_extract
 #from enty import entity
 from oauth import OAuthSignIn
 import logging
@@ -312,7 +312,7 @@ def oauth_callback(provider):
         user = User(id=social_id, username=username, email=email, general=0)#, friends=friends) #social_id=social_id,
         db.session.add(user)
         db.session.commit()
-        entity_extract(social_id, data, 0)
+        #entity_extract(social_id, data, 0)
     login_user(user, True)
     return redirect(url_for('personal'))
 
