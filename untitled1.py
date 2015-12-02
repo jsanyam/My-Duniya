@@ -627,7 +627,7 @@ def fb_android():
 
 @app.route('/keywords')
 def keywords():
-    keys = Keyword.query.limit(500)
+    keys = Keyword.query.limit(400)
     return jsonify({'keywords': keys})
 
 
