@@ -166,6 +166,24 @@ article_schema = ArticleSchema()
 # many -> allow for object list dump
 articles_schema = ArticleSchema(many=True)
 
+# we use marshmallow Schema to serialize our keywords
+class KeywordSchema(Schema):
+    """
+    keyword dict serializer
+    """
+    url = fields.Method("keyword_url")
+
+    def keyword_url(self, keys):
+        return keys.url()
+
+    class Meta:
+        # which fields should be serialized?
+        fields = ('id', 'key_name')
+
+
+# many -> allow for object list dump
+keywords_schema = KeywordSchema(many=True)
+
 
 def email_exists(form, field):
     if User.query.filter_by(email=field.data).count() > 0: #where(User.username == field.data).exists():
@@ -627,8 +645,9 @@ def fb_android():
 
 @app.route('/keywords')
 def keywords():
-    keys = Keyword.query.limit(400)
-    return jsonify({'keywords': keys})
+    keys = Keyword.query.limit(500)
+    result = keywords_schema.dumps(keys)
+    return jsonify({'keywords': result.data})
 
 
 @app.before_first_request
