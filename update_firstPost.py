@@ -52,7 +52,7 @@ for key in rss:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
-                    entity_extract(article_a.id, full_story)
+                    entity_extract(article_a.id, full_story, 1)
 
     except psycopg2.IntegrityError:  # as ie:
                 # print ie

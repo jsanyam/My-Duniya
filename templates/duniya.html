@@ -34,7 +34,7 @@
                     $.each(data['tag'], function(i, el)
                     {
 
-                        storeArray[i]=new Array(el.title, el.category,el.image);
+                        storeArray[i]=new Array(el.title, el.category,el.image,el.id);
                         
                     });
 
@@ -50,20 +50,32 @@
                     		$(".content" + i + " " + "h2").text(storeArray[i-1][1]);
 
                     	}
-                    
+
+
+
                     	for(i=1;i<7;i++)
                     	{
-                    		
+                            console.log("imagine")
                     		$(".content" + i + " " + "img").attr("src",storeArray[i-1][2]);
 
-                    		if(!storeArray[i-1][2] || storeArray[i-1][2]=="http://timesofindia.indiatimes.com/photo/7787613.cms")
-                    		{
-                    			$(".content" + i + " " + "img").attr('src','../static/img/header.png');		
-                    		}
+                    	}
+
+
+                        for(i=1;i<7;i++)
+                    	{
+                    		$("#a" + i).attr('href','/full_news/'+storeArray[i-1][3]);
 
                     	}
+
+
+                    	for(i=1;i<7;i++)
+                    	{
+                    		$(".content" + i + " " + ".b1").attr('href','/tagnews/'+storeArray[i-1][1]);
+
+                    	}
+
                     	
-                    
+
 
                    /* 	for(i=1;i<9;i++)
                     	{
@@ -149,12 +161,12 @@
             $.ajax({
                 type: 'GET',
                 //url:"{{ url_for('.articles') }}",
-                url:"/Most Recent",
+                url:"/top-news",
                 success: function(data, textStatus, xhr) {
                     console.log(data);
 
                     $.each(data['tag'], function(i, el){
-                        storeArrayrecent[i]=new Array(el.title,el.image,el.pubdate);
+                        storeArrayrecent[i]=new Array(el.title,el.image,el.pubdate,el.id,el.category);
                     });
 
                     for(j=1;j<5;j++)
@@ -170,17 +182,20 @@
                          */
 
                         // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        console.log("yahaan pahuche3?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
-                        $("#f-d" + j).append("<div>" + storeArrayrecent[j-1][2] + "</div>");
-                        $("#f-t" + j).append("<div>" + storeArrayrecent[j-1][0] + "</div>");
-                        $("#f-i" + j).attr('src',storeArrayrecent[j-1][1]);
+                        console.log("yahaan pahuche3?")
+                        console.log(storeArrayrecent[j][2])
+                        console.log(storeArrayrecent[j][1])
+                        console.log(storeArrayrecent[j][0])
+                        $("#f-d" + j).append("<div>" + storeArrayrecent[j+4][2] + "</div>");
+                        $("#f-t" + j).append("<div>" + storeArrayrecent[j+4][0] + "</div>");
+                        $("#f-i" + j).attr('src',storeArrayrecent[j+4][1]);
+                        $(".f-a" + j).attr('href','/full_news/'+storeArrayrecent[j+4][3]);
                         
                         if(!storeArrayrecent[j-1][1] || storeArrayrecent[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms")
                         {
                             $("#f-i" + j).attr('src','../static/img/header.png');
                         }
 
-                        console.log("yahaan pahuche4?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
 
 
                     }
@@ -194,7 +209,6 @@
             });
         }
         function loadindia(){
-            console.log("yahaan pahuche2?")
             var $article = $("#articles");
             var $name = $("#name");
             var $desc = $("#desc");
@@ -207,7 +221,7 @@
                     console.log(data);
 
                     $.each(data['tag'], function(i, el){
-                        storeArrayindia[i]=new Array(el.title,el.image,el.pubdate,el.description);
+                        storeArrayindia[i]=new Array(el.title,el.image,el.pubdate,el.description,el.id);
                     });
 
                     for(j=1;j<5;j++){
@@ -222,15 +236,14 @@
                          */
 
                         // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        console.log("yahaan pahuche3?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
                         $("#i-d" + j).append("<div>" + storeArrayindia[j-1][2] + "</div>");
                         $("#i-t" + j).append("<div>" + storeArrayindia[j-1][0] + "</div>");
                         $("#i-b" + j).append("<div>" + storeArrayindia[j-1][3] + "</div>");
                         $("#i-i" + j).attr('src',storeArrayindia[j-1][1]);
+                        $(".i-a" + j).attr('href','/full_news/'+storeArrayindia[j-1][4]);
                         if(!storeArrayindia[j-1][1] || storeArrayindia[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms"){
                             $("#i-i" + j).attr('src','../static/img/header.png');
                         }
-                        console.log("yahaan pahuche4?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
 
 
                     }
@@ -243,7 +256,6 @@
             });
         }
         function loadworld(){
-            console.log("yahaan pahuche2?")
             var $article = $("#articles");
             var $name = $("#name");
             var $desc = $("#desc");
@@ -256,7 +268,7 @@
                     console.log(data);
 
                     $.each(data['tag'], function(i, el){
-                        storeArrayworld[i]=new Array(el.title,el.image,el.pubdate,el.description);
+                        storeArrayworld[i]=new Array(el.title,el.image,el.pubdate,el.description,el.id);
                     });
 
                     for(j=1;j<8;j++){
@@ -271,12 +283,12 @@
                          */
 
                         // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        console.log("yahaan pahuche3?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
                         if(j==1){
                             $("#w-d" + j).append("<div>" + storeArrayworld[j-1][2] + "</div>");
                             $("#w-b" + j).append("<div>" + storeArrayworld[j-1][3] + "</div>");
                             $("#w-t" + j).append("<div>" + storeArrayworld[j-1][0] + "</div>");
                             $("#w-i" + j).attr('src',storeArrayworld[j-1][1]);
+                            $(".w-a" + j).attr('href','/full_news/'+storeArrayworld[j-1][4]);
                             if(!storeArrayworld[j-1][1] || storeArrayworld[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms") {
                                 $("#w-i" + j).attr('src', '../static/img/header.png');
                             }
@@ -285,11 +297,11 @@
                             $("#w-d" + j).append("<div>" + storeArrayworld[j-1][2] + "</div>");
                             $("#w-t" + j).append("<div>" + storeArrayworld[j-1][0] + "</div>");
                             $("#w-i" + j).attr('src',storeArrayworld[j-1][1]);
+                            $(".w-a" + j).attr('href','/full_news/'+storeArrayworld[j-1][4]);
                             if(!storeArrayworld[j-1][1] || storeArrayworld[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms") {
                                 $("#w-i" + j).attr('src', '../static/img/header.png');
                             }
                         }
-                        console.log("yahaan pahuche4?")// + storeArraynews[i][3] + "</div><div>" + storeArraynews[i][1] + "</div>");
 
 
                     }
@@ -466,7 +478,7 @@ ul{
 
 	width:20%;
 	border-radius:5px;
-	margin: 2% 7%;
+	margin: 1% 7%;
 }	
 
 
@@ -965,7 +977,7 @@ ul{
 		}
 		.cp-news-post-excert{
 			border-radius: 3px;
-			height: 260px;
+			height: 425px;
 			overflow: hidden;
 			box-shadow: rgba(0, 0, 0, 0.129412) 0px 2px 4px 0px;
 			margin-bottom: 30px;
@@ -1200,37 +1212,38 @@ ul{
             color: #222222;
         }
         .cp-side-widget{
-            width: 133.3333%;
+            width: 148.3333%;
         }
         .cp-side-widget a{
             color: #337ab7;
             display: inline-block;
             border: 1px solid #cccccc;
-            font: 500 16px/40px 'Roboto',sans-serif;
+            font: 500 13px/40px 'Roboto',sans-serif;
             border-radius: 2px;
             padding: 0 10px;
             margin: 0 1px 5px 0;
             text-decoration: none;
             background-color: transparent;
+            text-transform: uppercase;
         }
 
         .load-more {
-    width: 100%;
-    float: left;
-    margin-top: 20px;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
+            width: 100%;
+            float: left;
+            margin-top: 20px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
 
-.waves-effect {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    -webkit-user-select: none;
-    background-color: #32aae1;
-}
+        .waves-effect {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            -webkit-user-select: none;
+            background-color: #32aae1;
+        }
 
 .loadmore, .load {
     width: 157px;
@@ -1266,52 +1279,49 @@ ul{
 
 <body>
 
-<div class="nav1">
 
-<ul id="left">
-<li id="home"><a href="../news">Home</a></li>
-<li><a href="#">News</a></li>
-<li><a href="#">FAQ's</a></li>
-<li><a href="../contact">Contact</a></li>
-<li><a href="#">Email</a></li>
-</ul>
-<ul id="right">
-<li><a href="../login">Login<i class="fa fa-sign-in fa-fw"></i></a></li>
-<li><a href="../register">Register<i class="fa fa-male fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-youtube fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-facebook-official fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
-</ul>
+	<div class="nav1">
 
-</div>
+		<ul id="left">
+			<li id="home"><a href="../news">Home</a></li>
+			<li><a href="../news">News</a></li>
+			<li><a href="../contact">Contact</a></li>
+		</ul>
+		<ul id="right">
+			<li><a href="../register">Register<i class="fa fa-male fa-fw"></i></a></li>
+			<li><a href="../login">Login<i class="fa fa-sign-in fa-fw"></i></a></li>
+			<li><a href="{{ url_for('oauth_authorize', provider='facebook') }}"><i class="fa fa-facebook-official fa-fw"></i></a></li>
+		</ul>
 
-
-<div class="header">
-	
-		<img src="../static/header.png" alt="logo">
-
-<!--	<div id="heading">
-			<h1>MyDuniya</h1>
 	</div>
-	-->
-</div>
 
 
-<div class="nav2">
-<ul>
-<li><a href="../news">HOME</a></li>
-<li><a href="/tagnews/music">MUSIC</a></li>
-<li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
-<li><a href="/tagnews/sports">SPORTS</a></li>
-<li><a href="/tagnews/technology">TECH</a></li>
-<li><a href="/tagnews/education">EDU</a></li>
-<li><a href="/tagnews/travel">TRAVEL</a></li>
-<li><a href="/tagnews/business">BUSINESS</a></li>
-<li><a href="tags.html">TAGS</a></li>
-<li><a href="../contact">CONTACT</a></li>
-<li id="search"><a href="#">SEARCH</a></li>
-</ul>
-</div>
+    <div class="header">
+
+            <img src="../static/header.png" alt="logo">
+
+    <!--	<div id="heading">
+                <h1>MyDuniya</h1>
+        </div>
+        -->
+    </div>
+
+
+    <div class="nav2">
+        <ul>
+            <li><a href="../news">HOME</a></li>
+            <li><a href="/tagnews/music">MUSIC</a></li>
+            <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
+            <li><a href="/tagnews/sports">SPORTS</a></li>
+            <li><a href="/tagnews/tech-reviews">TECH REVIEWS</a></li>
+            <li><a href="/tagnews/education">EDUCATION</a></li>
+            <li><a href="/tagnews/travel">TRAVEL</a></li>
+            <li><a href="/tagnews/business">BUSINESS</a></li>
+            <li><a href="/tags">CATEGORIES</a></li>
+            <li><a href="../contact">CONTACT</a></li>
+            <li id="search"><a href="#">SEARCH</a></li>
+        </ul>
+    </div>
 
 
     <div id="owl-example" class="owl-carousel">
@@ -1319,57 +1329,56 @@ ul{
 				<div class="item">
 						<div class="content1">	
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a1"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 					</div>
 
 				<div class="item">
-						<div class="content2">	
+						<div class="content2">
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a2"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 					</div>
 
 				<div class="item">
-						<div class="content3">	
+						<div class="content3">
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a3"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 				</div>
 
 				<div class="item">
-						<div class="content4">	
+						<div class="content4">
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a4"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 				</div>
 
 				<div class="item">
-						<div class="content5">	
+						<div class="content5">
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a5"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 				</div>
 
 				<div class="item">
-						<div class="content6">	
+						<div class="content6">
 							<img src="../static/.jpg"/>
-							<h2> </h2>
-							<h1> </h1>
+							<a href=" " id="a6"><h1> </h1></a>
+							<a href=" " class="b1"><h2> </h2></a>
 						</div>
 
 				</div>
-
 			<!--	<div class="item">
 						<div class="content7">	
 							<img src="../static/fsimg4.jpg"/>
@@ -1435,22 +1444,23 @@ ul{
 						<div class="cp-news-grid-style">
 								<div class="section-title blue-border">
 									<h2 id="title-1">recent</h2>
-									<small>/*comments*/</small>
+									<small> </small>
 								</div>
 								<div class="row">
 									<ul class="grid">
 										<li class="col-md-6 col-sm-6">
 											<div class="cp-news-post-excert">
 												<div class="cp-thumb">
-													<img id="f-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+													<a class="f-a1"href="">
+													    <img id="f-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+												    </a>
 												</div>
 												<div class="cp-post-content">
 													<h3>
-														<a id="f-t1" href=""> </a>
+														<a class="f-a1" id="f-t1" href=""> </a>
 													</h3>
 													<ul class="cp-post-tools">
 														<li id="f-d1"> </li>
-														<li id="f-s1">sa</li>
 													</ul>
 												</div>
 											</div>
@@ -1458,15 +1468,16 @@ ul{
 										<li class="col-md-6 col-sm-6">
 											<div class="cp-news-post-excert">
 												<div class="cp-thumb">
-													<img id="f-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+													<a class="f-a2" href="">
+													    <img id="f-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+												    </a>
 												</div>
 												<div class="cp-post-content">
 													<h3>
-														<a id="f-t2" href=""> </a>
+														<a class="f-a2" id="f-t2" href=""> </a>
 													</h3>
 													<ul class="cp-post-tools">
 														<li id="f-d2"> </li>
-														<li id="f-s2">sa</li>
 													</ul>
 												</div>
 											</div>
@@ -1474,15 +1485,16 @@ ul{
 										<li class="col-md-6 col-sm-6">
 											<div class="cp-news-post-excert">
 												<div class="cp-thumb">
-													<img id="f-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+												    <a class="f-a3" href="">
+													    <img id="f-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+												    </a>
 												</div>
 												<div class="cp-post-content">
 													<h3>
-														<a id="f-t3" href=""> </a>
+														<a class="f-a3" id="f-t3" href=""> </a>
 													</h3>
 													<ul class="cp-post-tools">
 														<li id="f-d3"> </li>
-														<li id="f-s3">sa</li>
 													</ul>
 												</div>
 											</div>
@@ -1490,15 +1502,16 @@ ul{
 										<li class="col-md-6 col-sm-6">
 											<div class="cp-news-post-excert">
 												<div class="cp-thumb">
-													<img id="f-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+												    <a class="f-a4" href="">
+													    <img id="f-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+												    </a>
 												</div>
 												<div class="cp-post-content">
 													<h3>
-														<a id="f-t4" href=""> </a>
+														<a class="f-a4" id="f-t4" href=""> </a>
 													</h3>
 													<ul class="cp-post-tools">
 														<li id="f-d4"> </li>
-														<li id="f-s4">sa</li>
 													</ul>
 												</div>
 											</div>
@@ -1513,21 +1526,22 @@ ul{
 						<div class="cp-news-grid-style mh20">
 							<div class="section-title orange-border">
 									<h2 id="title-2">world</h2>
-									<small>/*space for comments*/</small>
+									<small> </small>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="cp-fullwidth-news-post-excert">
 										<div class="cp-thumb">
-											<img id="w-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+										    <a class="w-a1" href="">
+											    <img id="w-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+										    </a>
 										</div>
 										<div class="cp-post-content">
 											<h3>
-												<a  id="w-t1"href=""> </a>
+												<a class="w-a1" id="w-t1"href=""> </a>
 											</h3>
 											<ul class="cp-post-tools">
 												<li id="w-d1"> </li>
-												<li id="w-s1">sa</li>
 											</ul>
 											<p id="w-b1"> </p>
 										</div>
@@ -1537,15 +1551,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                <a class="w-a2" href=" ">
+                                                    <img id="w-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t2" href=""> </a>
+													<a class="w-a2" id="w-t2" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d2"> </li>
-													<li id="w-s2">sa</li>
 												</ul>
 
 											</div>
@@ -1554,15 +1569,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                <a class="w-a3" href=" ">
+                                                    <img id="w-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t3" href=""> </a>
+													<a class="w-a3" id="w-t3" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d3"> </li>
-													<li id="w-s3">sa</li>
 												</ul>
 											</div>
 										</div>
@@ -1570,15 +1586,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+												<a class="w-a4" href=" ">
+                                                    <img id="w-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t4" href=""> </a>
+													<a class="w-a4" id="w-t4" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d4"> </li>
-													<li id="w-s4">sa</li>
 												</ul>
 											</div>
 										</div>
@@ -1586,15 +1603,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i5" src={{ url_for('static', filename = "" ) }} alt="" />
+												<a class="w-a5" href=" ">
+                                                    <img id="w-i5" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t5" href=""> </a>
+													<a class="w-a5" id="w-t5" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d5"> </li>
-													<li id="w-s5">sa</li>
 												</ul>
 											</div>
 										</div>
@@ -1602,15 +1620,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i6" src={{ url_for('static', filename = "" ) }} alt="" />
+												<a class="w-a6" href=" ">
+                                                    <img id="w-i6" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t6" href=""> </a>
+													<a class="w-a6" id="w-t6" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d6"> </li>
-													<li id="w-s6">sa</li>
 												</ul>
 											</div>
 										</div>
@@ -1618,15 +1637,16 @@ ul{
 									<li class="col-md-6 col-sm-6">
 										<div class="small-post">
 											<div class="cp-thumb">
-												<img id="w-i7" src={{ url_for('static', filename = "" ) }} alt="" />
+												<a class="w-a7" href=" ">
+                                                    <img id="w-i7" src={{ url_for('static', filename = "" ) }} alt="" />
+                                                </a>
 											</div>
 											<div class="cp-post-content">
 												<h3>
-													<a id="w-t7" href=""> </a>
+													<a class="w-a7" id="w-t7" href=" "> </a>
 												</h3>
 												<ul class="cp-post-tools">
 													<li id="w-d7"> </li>
-													<li id="w-s7">sa</li>
 												</ul>
 
 											</div>
@@ -1643,23 +1663,24 @@ ul{
 						<div class="cp-news-grid-style mh20">
 							<div class="section-title pink-border">
 									<h2 id="title-2">india</h2>
-									<small>/*space for comments*/</small>
+									<small> </small>
 							</div>
 							<div class="cp-news-list">
 								<ul class="row">
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-thumb">
-											<img id="i-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+										    <a class="i-a1" href="">
+    											<img id="i-i1" src={{ url_for('static', filename = "" ) }} alt="" />
+										    </a>
 										</div>
 									</li>
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-post-content">
 											<h3>
-												<a id="i-t1" href=""> </a>
+												<a class="i-a1" id="i-t1" href=""> </a>
 											</h3>
 											<ul class="cp-post-tools">
 												<li id="i-d1"> </li>
-												<li id="i-s1">sa</li>
 											</ul>
 											<p id="i-b1"> </p>
 										</div>
@@ -1670,17 +1691,18 @@ ul{
 								<ul class="row">
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-thumb">
-											<img id="i-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+										    <a class="i-a2" href="">
+    											<img id="i-i2" src={{ url_for('static', filename = "" ) }} alt="" />
+										    </a>
 										</div>
 									</li>
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-post-content">
 											<h3>
-												<a id="i-t2" href=""> </a>
+												<a class="i-a2" id="i-t2" href=""> </a>
 											</h3>
 											<ul class="cp-post-tools">
 												<li id="i-d2"> </li>
-												<li id="i-s2">sa</li>
 											</ul>
 											<p id="i-b2"> </p>
 										</div>
@@ -1691,17 +1713,18 @@ ul{
 								<ul class="row">
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-thumb">
-											<img id="i-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+										    <a class="i-a3" href="">
+    											<img id="i-i3" src={{ url_for('static', filename = "" ) }} alt="" />
+										    </a>
 										</div>
 									</li>
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-post-content">
 											<h3>
-												<a id="i-t3" href=""> </a>
+												<a class="i-a3" id="i-t3" href=""> </a>
 											</h3>
 											<ul class="cp-post-tools">
 												<li id="i-d3"> </li>
-												<li id="i-s3">sa</li>
 											</ul>
 											<p id="i-b3"> </p>
 										</div>
@@ -1712,17 +1735,18 @@ ul{
 								<ul class="row">
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-thumb">
-											<img id="i-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+										    <a class="i-a4" href="">
+    											<img id="i-i4" src={{ url_for('static', filename = "" ) }} alt="" />
+										    </a>
 										</div>
 									</li>
 									<li class="col-md-6 col-sm-6">
 										<div class="cp-post-content">
 											<h3>
-												<a id="i-t4" href=""> </a>
+												<a class="i-a4" id="i-t4" href=""> </a>
 											</h3>
 											<ul class="cp-post-tools">
 												<li id="i-d4"> </li>
-												<li id="i-s4">sa</li>
 											</ul>
 											<p id="i-b4"> </p>
 										</div>
@@ -1739,10 +1763,14 @@ ul{
 				        <div class="widget">
                             <h3 class="side-title">CATEGORIES</h3>
                             <div class="cp-side-widget">
+                                <a href="/tagnews/top-news">top news</a>
+                                <a href="/tagnews/The Logical Indian">the logical indian</a>
+                                <a href="/tagnews/TechCrunch">tech crunch</a>
+                                <a href="/tagnews/YourStory">your story</a>
                                 <a href="/tagnews/reviews">movie reviews</a>
                                 <a href="/tagnews/bollywood">bollywood</a>
                                 <a href="/tagnews/hollywood">hollywood</a>
-                                <a href="/tagnews/world-cinema">world-cinema</a>
+                                <a href="/tagnews/world-cinema">world cinema</a>
                                 <a href="/tagnews/india">india</a>
                                 <a href="/tagnews/world">world</a>
                                 <a href="/tagnews/television">tv</a>

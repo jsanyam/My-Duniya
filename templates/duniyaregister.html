@@ -101,7 +101,7 @@ ul{
 
 	width:20%;
 	border-radius:5px;
-	margin: 2% 7%;
+	margin: 1% 7%;
 }	
 
 
@@ -219,25 +219,19 @@ ul{
 
 <body>
 
-<div class="nav1">
+	<div class="nav1">
 
-<ul id="left">
-<li id="home"><a href="../news">Home</a></li>
-<li><a href="#">News</a></li>
-<li><a href="#">FAQ's</a></li>
-<li><a href="../contact">Contact</a></li>
-<li><a href="#">Email</a></li>
-</ul>
-<ul id="right">
-<li><a href="/register"><i class="fa fa-sign-in fa-fw"></i></a></li>
-<li><a href="/login"><i class="fa fa-male fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-youtube fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-facebook-official fa-fw"></i></a></li>
-<li><a href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
-</ul>
+		<ul id="left">
+			<li id="home"><a href="../news">Home</a></li>
+			<li><a href="../news">News</a></li>
+			<li><a href="../contact">Contact</a></li>
+		</ul>
+		<ul id="right">
+			<li><a href="../login">Login<i class="fa fa-sign-in fa-fw"></i></a></li>
+			<li><a href="{{ url_for('oauth_authorize', provider='facebook') }}"><i class="fa fa-facebook-official fa-fw"></i></a></li>
+		</ul>
 
-</div>
-
+	</div>
 
 <div class="header">
 	
@@ -249,22 +243,21 @@ ul{
 	-->
 </div>
 
-
-<div class="nav2">
-<ul>
-<li><a href="../news">HOME</a></li>
-<li><a href="#">FASHION</a></li>
-<li><a href="#">LIFESTYLE</a></li>
-<li><a href="#">SPORTS</a></li>
-<li><a href="#">PHOTO</a></li>
-<li><a href="#">PAGES</a></li>
-<li><a href="#">BLOG</a></li>
-<li><a href="#">ARCHIVE</a></li>
-<li><a href="#">CODES</a></li>
-<li><a href="../contact">CONTACT</a></li>
-<li><a href="#">SEARCH</a></li>
-</ul>
-</div>
+    <div class="nav2">
+        <ul>
+            <li><a href="../news">HOME</a></li>
+            <li><a href="/tagnews/music">MUSIC</a></li>
+            <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
+            <li><a href="/tagnews/sports">SPORTS</a></li>
+            <li><a href="/tagnews/tech-reviews">TECH REVIEWS</a></li>
+            <li><a href="/tagnews/education">EDUCATION</a></li>
+            <li><a href="/tagnews/travel">TRAVEL</a></li>
+            <li><a href="/tagnews/business">BUSINESS</a></li>
+            <li><a href="/tags">CATEGORIES</a></li>
+            <li><a href="../contact">CONTACT</a></li>
+            <li id="search"><a href="#">SEARCH</a></li>
+        </ul>
+    </div>
 
 <div class="banner">
 <h1>Register</h1>
@@ -303,9 +296,7 @@ ul{
 <div class="social">
 	<!--<p>or<br/>Sign Up Using</p>-->
 	<ul>
-		<li><a href="#"><img src="../static/fb-signup.png"/></a></li>
-		<li><a href="#"><img src="../static/tw-signup.png"/></a></li>
-		<li><a href="#"><img src="../static/gp-signup.png"/></a></li>
+		<li><a href="{{ url_for('oauth_authorize', provider='facebook') }}"><img src="../static/fb-signup.png"/></a></li>
 	</ul>
 </div>
 

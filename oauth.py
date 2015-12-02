@@ -62,8 +62,9 @@ class FacebookSignIn(OAuthSignIn):
                   'redirect_uri': self.get_callback_url()}
         )
         me = oauth_session.get(
-            'me?fields=id, name, email, likes.limit(100){category, name, about, description}').json()    # birthday, picture, hometown, , education
+            'me?fields=id, name, email, likes.limit(100){name, about, description}').json()    # birthday, picture, hometown, , education
         print (me)
+
         #print (me['likes']['paging']['next'])
         # req = urllib2.Request(''+me['likes']['paging']['next'])
         # response = urllib2.urlopen(req)
@@ -71,8 +72,9 @@ class FacebookSignIn(OAuthSignIn):
         # print the_page
         #id = me['id']
         #email = me['email']
-        #for item in me['likes']['data']: #['category'])
-        #    print item['category']
+        data = ""
+        for item in me['likes']['data']: #['category'])
+            data = data + item['description'] + item['about'] +" "
         #we = oauth_session.get(me['likes']['paging']['next'])
         #print (we)
         return (
@@ -83,8 +85,8 @@ class FacebookSignIn(OAuthSignIn):
             # is used instead
             #me.get('email')
             me['email'].split('@')[0],
-            me['email']
-
+            me['email'],
+            data
             #me['email'].split('@')[0],
             #me['email'],
             # me['friends'].name

@@ -1,5 +1,9 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head><html lang="en">
 
 
 <head>
@@ -11,12 +15,12 @@
 <link rel="stylesheet" href="../static/css/owl.theme.css">
 <link rel="stylesheet" href="../static/css/owl.carousel.css">
 <script src="../static/js/jquery-1.9.1.min.js"></script>
-<script src="../static/js/main8.js"></script>
+<script src="../static/js/main9.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 <script src="../static/js/owl.carousel.js"></script>
 
 <style type="text/css">
-	
+
 
 body{
 
@@ -61,7 +65,7 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
@@ -94,7 +98,7 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
@@ -126,7 +130,7 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
@@ -158,7 +162,7 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
@@ -191,7 +195,7 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
@@ -223,19 +227,20 @@ body{
 	background-color: rgba(0,0,0,0.7);
 	color:white;
 	width:90%;
-	padding-right:5%; 
+	padding-right:5%;
 	bottom:0px;
 	padding-top:4%;
 }
 
     #owl-example .item{
       margin:0px;
-      height:450px; 
+      height:450px;
     }
     #owl-example .item img{
       display: block;
       width: 100%;
-      height: 450px;
+      max-height:100%;
+      min-height: 100%;
     }
 
     h3{
@@ -253,7 +258,7 @@ body{
 	margin: 0px;
 	padding: 0px;
 
-}	
+}
 
 .nav1{
 
@@ -303,12 +308,80 @@ ul{
 	color: white;
 	//font-weight:400;
 	line-height:50px;
-}	
+}
+#fnewstag{
+				height:800px;
+				width:100%;
+				position:absolute;
+				top:45px;
+				background-color: #fff;
+				padding-left:50px;
+				padding-right:50px;
+				padding-top:30px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            #fnewstitle{
+                height: 8%;
+				width:18%;
+                font-size: 30px;
+				margin:0 auto;
+				margin-top: 20px;
+                padding-top: 8px;
+                text-align:center;
+				background-size: 100% 100%;
+            }
+
+
+            #fnewsdiv{
+                width:80%;
+                height:auto;
+                margin: 30px auto 20px;
+                overflow: hidden;
+            }
+
+            #fnewsblock{
+                width:80%;
+                height:auto;
+                border: 1px dashed  black;
+                padding: 20px;
+                float:left;
+                margin: 0 auto;
+            }
+            .fn-title{
+                width: 100%;
+                margin: 10px auto;
+                heigth: auto;
+                font-size: 30px;
+                font-family: 'Roboto',sans-serif;
+                font-weight: 700;
+            }
+            .fn-pub{
+                width: 100%;
+                margin: 10px auto;
+                heigth: auto;
+                color:#999;
+            }
+            .fn-img{
+                height:400px;
+                width:100%;
+
+                background-image: url('../img/backgroung.png');
+                background-size: 100% 100%;
+            }
+            .fn-fullstory{
+                height:auto;
+                font-size:17px;
+            }
+            .mh30{
+                margin-top: 30px;
+            }
 
 
 .header{
 
-	
+
 	overflow:hidden;
 	max-width:100%;
 	height: auto;
@@ -319,77 +392,78 @@ ul{
 	width:20%;
 	border-radius:5px;
 	margin: 1% 7%;
-}	
-
-
-
-
-.nav2{
-	height:auto;
-	max-width: 100%;
-	background-color: rgba(255,255,255);
-	overflow:hidden;
 }
 
 
-.nav2 ul li{
-	float:left;
-	width:9%;	
-    }
 
 
-.nav2 ul li a{
-
-	text-decoration:none;
-	color:#222222;
-	line-height:50px; 
-	display: block;
-	font-size: 14px;
-	//padding: 10% 1%;
-	text-align:center;
-	border-left:1px solid rgba(0,0,0,0.2);
-	border-top: 1px solid rgba(0,0,0,0.2);
-	border-bottom: 1px soid rgba(0,0,0,0.2);
-} 
-
-.banner{
-
-	width: 100%;
-	background-image:url("../static/topbannerbg1.jpg");
-	height: 65px;
-	text-align: center;
-	color: white;
-	//line-height: 50px;
-	display: table;
-}
-
-.banner h1{
-    text-transform: uppercase;
-	margin:20px auto;
-}
+        .nav2{
+            height:auto;
+            max-width: 100%;
+            background-color: rgba(255,255,255);
+            overflow:hidden;
+        }
 
 
-.news{
-
-	//background-color: green;
-	width:62%;
-	float: left;
-	height:auto;
-	margin-left:3%;
-	margin-right: 0px;
-}
+        .nav2 ul li{
+            float:left;
+            width:9%;
+        }
 
 
-.aside{
+        .nav2 ul li a{
 
-	//background-color: red;
-	width: 35%;
-	float: right;
-	height:auto;
-}
+            text-decoration:none;
+            color:#222222;
+            line-height:50px;
+            display: block;
+            font-size: 14px;
+            //padding: 10% 1%;
+            text-align:center;
+            border-left:1px solid rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(0,0,0,0.2);
+            border-bottom: 1px soid rgba(0,0,0,0.2);
+        }
 
 
-.small-grid{
+        .banner{
+
+            width: 100%;
+            background-image:url("../static/topbannerbg1.jpg");
+            height: 65px;
+            text-align: center;
+            color: white;
+            //line-height: 50px;
+            display: table;
+        }
+
+        .banner h1{
+            text-transform: uppercase;
+            margin:20px auto;
+        }
+
+        .news{
+
+            //background-color: green;
+            width:62%;
+            float: left;
+            height:auto;
+            margin-left:3%;
+            margin-right: 0px;
+        }
+
+
+        .aside{
+
+            //background-color: red;
+            width: 35%;
+            float: right;
+            height:auto;
+            overflow:hidden;
+        }
+
+
+        .small-grid{
 			width: 100%;
 			float: left;
 			clear: both;
@@ -513,6 +587,7 @@ ul{
             float: left;
             clear: both;
             margin: 0px;
+            margin-top: 30px;
         }
         .side-title {
             font: 700 18px/23px 'Roboto', sans-serif;
@@ -538,97 +613,20 @@ ul{
             text-transform: uppercase;
         }
 
-            #newsdiv{
-                width:80%;
-                height:auto;
-                margin: 30px auto 10px;
-                display:table-cell;
-    			vertical-align:top;
-    			padding-right:0px; 
-       }
-
-            .newsblock{
-                width:45%;
-                height:auto;
-                border:none;
-                box-sizing:border-box;
-                box-shadow: 0 2px 4px rgba(0,0,0,.23);
-                margin:10px;
-				float:left;
-                display:table-cell;
-    			vertical-align:top;
-            }
-            .n-title{
-                width: 100%;
-                margin: 10px auto;
-                heigth: auto;
-
-                
-			}
-            .n-pub{
-                width: 100%;
-                margin: 10px auto;
-                heigth: auto;
-                color: rgb(136, 136, 136);
-                text-align: right;
-            }
-            .n-img{
-                height:250px;
-                width:100%;
-                background-image: url('../img/backgroung.png');
-                background-size: 100% 100%;
-            }
-            .n-fullstory{
-                height:auto;
-                font-size:20px;
-            }
-
-            .n-btn{
-                margin: 0;
-                padding: 0;
-
-            }
-
-            .n-a{
-                width: 100%;
-                margin: 10px auto;
-                heigth: auto;
-                text-decoration: none;
-                color:#222;
-                font-weight: 700;
-                text-align: left;
-
-                font: 500 20px/26px 'Roboto',sans-serif;
-                text-transform: uppercase;
-            }
-            .mh{
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-
 </style>
-
-
-
-
-
-</head>
-
-
-
 <body>
+
 
 	<div class="nav1">
 
 		<ul id="left">
-			<li id="home"><a href="../news">Home</a></li>
+			<li id="home"><a href="../personal">Home</a></li>
 			<li><a href="../news">News</a></li>
 			<li><a href="../contact">Contact</a></li>
 		</ul>
 		<ul id="right">
-			<li><a href="../register">Register<i class="fa fa-male fa-fw"></i></a></li>
-			<li><a href="../login">Login<i class="fa fa-sign-in fa-fw"></i></a></li>
-			<li><a href="{{ url_for('oauth_authorize', provider='facebook') }}"><i class="fa fa-facebook-official fa-fw"></i></a></li>
+			<li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+			<li><i class="fa fa-male-in fa-fw"></i>Welcome</li>
 		</ul>
 
 	</div>
@@ -639,10 +637,9 @@ ul{
     </div>
 
 
-
     <div class="nav2">
         <ul>
-            <li><a href="../news">HOME</a></li>
+            <li><a href="../personal">HOME</a></li>
             <li><a href="/tagnews/music">MUSIC</a></li>
             <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
             <li><a href="/tagnews/sports">SPORTS</a></li>
@@ -656,84 +653,20 @@ ul{
         </ul>
     </div>
 
-
     <div class="banner">
         <h1 id="heading"> </h1>
     </div>
-
-
- <div id="owl-example" class="owl-carousel">
-      
-				<div class="item">
-						<div class="content1">	
-							<img src="../static/.jpg"/>
-							<a href=" " id="a1"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-					</div>
-
-				<div class="item">
-						<div class="content2">
-							<img src="../static/.jpg"/>
-							<a href=" " id="a2"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-					</div>
-
-				<div class="item">
-						<div class="content3">
-							<img src="../static/.jpg"/>
-							<a href=" " id="a3"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-				</div>
-
-				<div class="item">
-						<div class="content4">
-							<img src="../static/.jpg"/>
-							<a href=" " id="a4"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-				</div>
-
-				<div class="item">
-						<div class="content5">
-							<img src="../static/.jpg"/>
-							<a href=" " id="a5"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-				</div>
-
-				<div class="item">
-						<div class="content6">
-							<img src="../static/.jpg"/>
-							<a href=" " id="a6"><h1> </h1></a>
-							<a href=" " class="b1"><h2> </h2></a>
-						</div>
-
-				</div>
-</div>
-
-
-
-    <div class="clear">
-    </div>
-
     <div class="news">
-        <div id="newsdiv">
+            <div id="fnewsdiv">
 
-        </div>
+
+            </div>
+
     </div>
 
     <div class="aside">
-
-			<div class="col-md-4">
-			    <div class="widget">
+            <div class="col-md-4">
+			    <div class="widget mh30">
                             <h3 class="side-title">CATEGORIES</h3>
                             <div class="cp-side-widget">
                                 <a href="/tagnews/top-news">top news</a>
@@ -904,5 +837,4 @@ ul{
 
 
 </body>
-
 </html>

@@ -47,7 +47,7 @@ for result in resultset:
                     db.session.add(article_a)
                     db.session.commit()
                     print article_a.id
-                    entity_extract(article_a.id, simple_text)
+                    entity_extract(article_a.id, simple_text, 1)
 
     except psycopg2.ProgrammingError:  # as ie:
                 # print ie

@@ -11,7 +11,11 @@ from flask.ext.login import LoginManager, login_user, logout_user, login_require
 from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
 
-#from pip.utils import logging
+# from pip.utils import logging
+# from entity_api import entity_extract
+#from enty import entity
+from entity_api import entity_extract
+#from enty import entity
 from oauth import OAuthSignIn
 import logging
 
@@ -38,6 +42,7 @@ from string import punctuation
 from wtforms import StringField, PasswordField
 from flask_wtf import Form
 from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length
+from twitter import get_keywords_twitter
 
 
 app = Flask(__name__)
@@ -105,7 +110,7 @@ class UserKeyword(db.Model):
     __tablename__ = 'user_key'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
+    user_id = db.Column(db.BIGINT, ForeignKey("users.id"), nullable=False)
     key_id = db.Column(db.Integer, ForeignKey("keywords.id"), nullable=False)
     priority = db.Column(db.Float, nullable=False)
 
@@ -130,6 +135,17 @@ class NewsKeyword(db.Model):
     def __repr__(self):
         return u"%d" % self.id
 
+class Trend(db.Model):
+    __tablename__ = 'trend'
+
+    id = db.Column(db.Integer, primary_key=True)
+    buzz = db.Column(db.Text(), nullable=True, default=" ")
+
+    def __unicode__(self):
+        return self.json
+
+    def __repr__(self):
+        return self.json
 
 # we use marshmallow Schema to serialize our articles
 class ArticleSchema(Schema):
@@ -176,7 +192,6 @@ def user_loader(user_id):
         return user.one()
     return None
 
-#error
 @app.route('/register', methods=('GET', 'POST'))
 def register():
 
@@ -245,7 +260,8 @@ def index():
 def personal():
     if current_user.is_authenticated:
         return render_template("personal.html")
-
+        # else:
+        #     return render_template("preference.html")
 
 @app.route('/login', methods=("GET", "POST"))
 def login():
@@ -287,16 +303,16 @@ def oauth_callback(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('personal'))
     oauth = OAuthSignIn.get_provider(provider)
-    social_id, username, email = oauth.callback()
+    social_id, username, email, data = oauth.callback()
     if social_id is None:
         flash('Authentication failed.')
         return redirect(url_for('news'))
     user = User.query.filter_by(id=social_id).first()
     if not user:
-        print username
         user = User(id=social_id, username=username, email=email, general=0)#, friends=friends) #social_id=social_id,
         db.session.add(user)
         db.session.commit()
+        entity_extract(social_id, data, 0)
     login_user(user, True)
     return redirect(url_for('personal'))
 
@@ -304,13 +320,18 @@ def oauth_callback(provider):
 
 @app.route('/contact')
 def contacts():
-    return render_template("duniyacontact.html")
+    if current_user.is_authenticated:
+        return render_template("duniyacontactout.html")
+    else:
+        return render_template("duniyacontact.html")
 
 #@login_required
 @app.route("/news", methods=["GET"])
 def news():
-   return render_template("duniya.html")
-
+    if current_user.is_authenticated:
+        return render_template("duniyaout.html")
+    else:
+        return render_template("duniya.html")
 # @app.route("/tagnews/")
 # def tag():
 #     return render_template("index.html")
@@ -318,12 +339,17 @@ def news():
 #template opening on clicking tiles
 @app.route("/tagnews/<category>")
 def tag(category):
-    return render_template("lifestyle.html")
-
-#more tags
-@app.route("/all_tags")
-def all_tags():
-    return render_template("more.html")
+    if current_user.is_authenticated:
+        return render_template("lifestyleout.html")
+    else:
+        return render_template("lifestyle.html")
+#waste
+@app.route("/tags")
+def tags():
+    if current_user.is_authenticated:
+        return render_template("usertagout.html")
+    else:
+        return render_template("usertag.html")
 
 #sentiment analysis returns json
 @app.route("/senti/<category>")
@@ -419,7 +445,7 @@ def articles(article_id=None):
 
 #REST implementation to return news category wise
 @app.route('/<category>', methods=["GET"])
-def tags(category):
+def tagger(category):
     if request.method == 'GET':
         tag = Article.query.filter(Article.category == category).order_by(Article.id.desc()).limit(50)
         if tag is None:
@@ -430,7 +456,10 @@ def tags(category):
 #news with id
 @app.route('/full_news/<id>')
 def full_news(id):
-    return render_template("fullnews.html")
+    if current_user.is_authenticated:
+        return render_template("fullnewsout.html")
+    else:
+        return render_template("fullnews.html")
 
 #BING search API
 @app.route('/<search_type>/<query>')
@@ -549,40 +578,54 @@ def upload():
     return jsonify({"database": ["Updated Database version"]})
 
 
-@app.route('/trends/<handles>')
-def trend_search(handles):
-    hash_list = handles.split('_')
-    consumer_key = 'orVBG7irMKWuPZVE3EjzVMHmF'
-    consumer_secret = 'iuujp0hKDAYNkK60C7FjxnAA7l5cn4z34lNyGiX686l2BvVtOA'
-    access_token = '986776236-0S9XqKSH5mtXq9oRxwpy4IbSM6sVnDP63ifbUEKu'
-    access_token_secret = 'JkWIrlvCgpomr1hIcntKFMQ1OiAcxuOGuIw3xCDZmJcIq'
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
-    api = tweepy.API(auth)
-    global json_response
-    #json_response = {}
-    json_response.clear()
-    for hash in hash_list:
-        q = "#"+hash+" -RT"
-        alltweets = api.search(q,count=5)
-        list=[]
-        for tweets in alltweets:
-            list.append(api.get_oembed(tweets.id))
+@app.route('/trends/')
+def trend_search():
+    trend = Trend(buzz=" ")
+    db.session.add(trend)
+    db.session.commit()
 
-        json_response[hash] = list
 
-    # print json.dumps(json_response)
-    return jsonify({"Tweets": ["Updated Trending Tweets"]})
-
-#trend = 'python'
-#req = urllib2.Request('http://http://prractice.herokuapp.com/trends/>' + trend)
-#response = urllib2.urlopen(req)
-#the_page = response.read()
-
-@app.route('/get/tweets')
+@app.route('/get_tweets')
 def trending():
-    global json_response
-    return jsonify(json_response)
+    trend = Trend.query.filter_by(id=1).first()
+    return jsonify({'trends': trend.buzz})
+
+
+@app.route('/twitter_handle', methods=['GET', 'POST'])
+def twitter_handle():
+    if request.method == 'POST':
+        keys = get_keywords_twitter(request.form.get('account'))
+        for key in keys:
+            if not db.session.query(Keyword).filter(Keyword.key_name == key).count():
+                keyword = Keyword(key_name=key)
+                db.session.add(keyword)
+                db.session.commit()
+            else:
+                keyword = Keyword.query.filter_by(key_name=key).first()
+
+            if not UserKeyword.query.filter_by(key_id=keyword.id, user_id=current_user.id).count():  #may not be needed
+                uk = UserKeyword(user_id=current_user.id, key_id=keyword.id, priority=1)
+                db.session.add(uk)
+                db.session.commit()
+
+            else:
+                uk = UserKeyword.query.filter_by(key_id=keyword.id, user_id=current_user.id).first()
+                uk.priority += 1
+                db.session.commit()
+
+        return jsonify({'result': 'updated'})
+
+
+@app.route('/fb_android', methods=['GET', 'POST'])
+def fb_android():
+    if request.method == 'POST':
+        data = request.form.get('')
+
+@app.route('/keywords')
+def keywords():
+    keys = Keyword.query.limit(500)
+    return jsonify({'keywords': keys})
+
 
 @app.before_first_request
 def init_request():
@@ -598,139 +641,7 @@ if __name__ == '__main__':
 
 
 
-# @app.route("/update-db/", methods=["GET", "POST"])
-# def upload():
-#     #let's populate our database with some data; empty examples are not that cool
-#     #if request.method == 'POST':
-#
-#         #val1 = request.form.get('initiate')
-#         #print val1
-#
-#         ht_rss={
-#         'http://feeds.hindustantimes.com/HT-HomePage-TopStories':"Topstory",
-#         # 'http://feeds.hindustantimes.com/HT-Dontmiss':"Dontmiss",
-#         # 'http://feeds.hindustantimes.com/HT-India':"India",
-#         # 'http://feeds.hindustantimes.com/HT-World':"World",
-#         # 'http://feeds.hindustantimes.com/HT-Business':"Buisiness",
-#         # 'http://feeds.hindustantimes.com/HT-Comment':"Opinions",
-#         # 'http://feeds.hindustantimes.com/HT-Entertainment':"Entertainment",
-#         # 'http://feeds.hindustantimes.com/HT-Fashion':"Fashion",
-#         # 'http://feeds.hindustantimes.com/HT-Sexandrelationships':"Lifestyle",
-#         # 'http://feeds.hindustantimes.com/HT-auto':"Auto"
-#         }
-#
-#         print("####### Hindustan Times ######## \n")
-#
-#         for key, value in ht_rss.iteritems():
-#             #print(key)
-#             d = feedparser.parse(key)
-#
-#             #category = value
-#
-#             for post in d.entries:
-#                 try:
-#                     #title = post.title
-#                     #description = post.description
-#                     print(post.link)
-#                     html = urlopen(post.link)
-#                     bsObj = BeautifulSoup(html,"html.parser")
-#                     story_list = bsObj.findAll("p")
-#                     #images = bsObj.find("link", rel="image_src")
-#
-#                     full_story = ""
-#                     for story in story_list:
-#                         full_story += story.get_text()
-#
-#                     #print('title :'+title+"\n")
-#                     #print('category :'+category+"\n")
-#                     print bsObj.find("link", rel="image_src")
-#                     print '\ndesc:'+post.description+"\n"
-#                     print('full_story:'+full_story+"\n")
-#                     article_a = Article(title=""+post.title, full_story=full_story, category=""+value,
-#                                         description=""+post.description)
-#                     #print "Hello"
-#                     db.session.add(article_a)
-#                     db.session.commit()
-#                     print article_a.id
-#
-#                 except:
-#                     continue
-#
-#         return jsonify({"database": ["Updated Database version"]})
-
-
-
-
-
-
-# print("####### Hindustan Times ######## \n")
-#
-#
-#
-# for key, value in ht_rss.iteritems():
-#   print(key)
-#   d = feedparser.parse(key)
-#
-#
-#   category=value
-#
-#   for post in d.entries:
-#    try:
-#        title=post.title
-#        description=post.description
-#        print(post.link)
-#        html = urlopen(post.link)
-#        bsObj = BeautifulSoup(html,"html.parser")
-#        story_list=bsObj.findAll("p")
-#        images=icon_link = bsObj.find("link", rel="image_src")
-#
-#        full_story=""
-#        for story in story_list:
-#             full_story+=story.get_text()+"\n"
-#
-#        print('title :'+title+"/n"  )
-#        print('category :'+category+"\n")
-#        print('description :'+description+"\n")
-#        print('full story :'+full_story+"\n")
-#        print('image :'+images['href'])
-#        print("\n \n \n \n")
-#    except:
-#       continue;
-
-
-
-
-# print("####### Times  of India ######## \n")
-#
-#
-#
-#
-# toi_rss=[
-#
-# 'http://timesofindia.feedsportal.com/c/33039/f/533917/index.rss']
-#
-# for link in toi_rss:
-#   d = feedparser.parse(link)
-#   #print("-----"+d.feed.title+" -------- \n")
-# #print(post.description+"\n"+post.enclosures[0].href+" \n")
-# #for ele in d.feed:
-# # print(ele)
-#   for post in d.entries:
-#    #print(post.title + "\n")
-#    html = urlopen(post.link)
-#    bsObj = BeautifulSoup(html, "html.parser")
-#    story_list=bsObj.find("div",{"class":"Normal"})
-#    str=""
-#    for story in story_list:
-#        str = str + story.get_text()+" "
-#
-#    #print str
-#    news_a = Article(title=""+post.title, full_story=str)
-#    db.session.add(news_a)
-#    #print news_a.title
-#    db.session.commit()
-
-
-#a = Article.query.get(1)
-#print a
-
+#trend = 'python'
+#req = urllib2.Request('http://http://prractice.herokuapp.com/trends/>' + trend)
+#response = urllib2.urlopen(req)
+#the_page = response.read()

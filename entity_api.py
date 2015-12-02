@@ -1,5 +1,4 @@
-from flask.ext.login import current_user
-from untitled1 import Keyword, NewsKeyword, db, UserKeyword
+from untitled1 import NewsKeyword, db, UserKeyword, Keyword
 
 
 def entity_extract(Id, text, news):
@@ -22,12 +21,12 @@ def entity_extract(Id, text, news):
             db.session.add(nk)
             db.session.commit()
         else:
-            if not UserKeyword.query.filter_by(key_id=key.id).count():
-                uk = UserKeyword(user_id=current_user.id, key_id=key.id, priority=1)
-                db.session.add(uk)
-                db.session.commit()
+            # if not UserKeyword.query.filter_by(key_id=key.id, user_id=Id).count():  #may not be needed
+            uk = UserKeyword(user_id=Id, key_id=key.id, priority=1)
+            db.session.add(uk)
+            db.session.commit()
 
-            else:
-                uk = UserKeyword.query.filter_by(key_id=key.id).first()
-                uk.priority += 1
-                db.session.commit()
+            # else:
+            #     uk = UserKeyword.query.filter_by(key_id=key.id).first()
+            #     uk.priority += 1
+            #     db.session.commit()
