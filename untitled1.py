@@ -12,11 +12,6 @@ from flask.ext.bcrypt import check_password_hash
 from flask.ext.bcrypt import generate_password_hash
 
 # from pip.utils import logging
-# from entity_api import entity_extract
-#from enty import entity
-#import entity_api
-#from enty import entity
-#import entity_api
 from oauth import OAuthSignIn
 import logging
 
@@ -485,6 +480,7 @@ def tagger(category):
 @app.route('/full_news/<id>')
 def full_news(id):
     if current_user.is_authenticated:
+        newsClick(id)
         return render_template("fullnewsout.html")
     else:
         return render_template("fullnews.html")
@@ -766,6 +762,19 @@ def entity_extract(Id, text, news):
             #     uk.priority += 1
             #     db.session.commit()
 
+
+
+def newsClick(Id):
+    nk = NewsKeyword.query.filter_by(news_id=Id).all()
+    for row in nk:
+        if not db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == current_user.id).count():
+            uk = UserKeyword(key_id=row.key_id, user_id=current_user.id, priority=0.1)
+            db.session.add(uk)
+            db.session.commit()
+        else:
+            uk = db.session.query(UserKeyword).filter(UserKeyword.key_name == row.key_id, UserKeyword.user_id == current_user.id).first()
+            uk += 0.1
+            db.session.commit()
 
 @app.route('/search_tag', methods=['GET', 'POST'])
 def search_tag():
