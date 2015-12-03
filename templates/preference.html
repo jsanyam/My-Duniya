@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="../static/css/owl.theme.css">
 <link rel="stylesheet" href="../static/css/owl.carousel.css">
 <script src="../static/js/jquery-1.9.1.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 <script src="../static/js/owl.carousel.js"></script>
 
 <script type="text/javascript">
@@ -36,7 +35,7 @@ $(document).ready(function(){
             type:'GET',
             url:'/keywords',
             success:function(data, textStatus, xhr){
-                 $.each(data['keywords'][0], function(i, el)
+                 $.each(data['keywords'], function(i, el)
                     {
 
                         storeArray[i]=new Array(el.id,el.key_name);
