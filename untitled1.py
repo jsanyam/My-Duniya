@@ -331,7 +331,7 @@ def oauth_callback(provider):
         user = User(id=social_id, username=username, email=email, general=0)#, friends=friends) #social_id=social_id,
         db.session.add(user)
         db.session.commit()
-        #entity_api.entity_extract(social_id, data, 0)
+        entity_extract(social_id, data, 0)
     login_user(user, True)
     return redirect(url_for('personal'))
 
@@ -641,8 +641,9 @@ def twitter_handle():
 @app.route('/fb_android', methods=['GET', 'POST'])
 def fb_android():
     if request.method == 'POST':
-        me = request.get_json()
+        me = request.get_json(force=True)
         print me
+        print json.loads(me)
         #data = ""
         #for item in me['likes']['data']: #['category'])
         #    data = data + item['description'] + item['about'] +" "
@@ -673,6 +674,37 @@ def recommended():
 @app.route('/preference')
 def preference():
     return render_template("preference.html")
+
+def entity_extract(Id, text, news):
+    from monkeylearn import MonkeyLearn
+
+    ml = MonkeyLearn('f61694907b120433ddc66da1880d537c5f9d8f1e')
+    text_list = [text]
+    module_id = 'ex_isnnZRbS'
+    res = ml.extractors.extract(module_id, text_list)
+    for row in res.result[0]:
+        if not db.session.query(Keyword).filter(Keyword.key_name == row['entity']).count():
+            key = Keyword(key_name=row["entity"])
+            db.session.add(key)
+            db.session.commit()
+        else:
+            key = Keyword.query.filter_by(key_name=row["entity"]).first()
+
+        if news:
+            nk = NewsKeyword(news_id=Id, key_id=key.id)
+            db.session.add(nk)
+            db.session.commit()
+        else:
+            # if not UserKeyword.query.filter_by(key_id=key.id, user_id=Id).count():  #may not be needed
+            uk = UserKeyword(user_id=Id, key_id=key.id, priority=1)
+            db.session.add(uk)
+            db.session.commit()
+
+            # else:
+            #     uk = UserKeyword.query.filter_by(key_id=key.id).first()
+            #     uk.priority += 1
+            #     db.session.commit()
+
 
 if __name__ == '__main__':
     # we define the debug environment only if running through command
