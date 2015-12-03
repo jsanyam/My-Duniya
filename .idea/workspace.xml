@@ -53,8 +53,8 @@
       <file leaf-file-name="tweet.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tweet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6296296" vertical-offset="459" max-vertical-offset="1190">
-              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.52469134" vertical-offset="459" max-vertical-offset="1190">
+              <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -1087,8 +1087,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/tweet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6296296" vertical-offset="459" max-vertical-offset="1190">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.52469134" vertical-offset="459" max-vertical-offset="1190">
+          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
           <folding />
         </state>
       </provider>

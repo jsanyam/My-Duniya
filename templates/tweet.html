@@ -34,7 +34,7 @@
                     $.each(data['tweets'], function(i, el)
                     {
 
-                        storeArray[i]=new Array(el.author_name, el.author_url, el.html, el.url);
+                        storeArray[i]=new Array(el[i].author_name, el[i].author_url, el[i].html, el[i].url);
                         console.log(storeArray);
                     });
                     console.log(storeArray);
