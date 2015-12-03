@@ -649,6 +649,7 @@ def fb_android():
             db.session.commit()
             # print me
             # print json.loads(me)
+            print "yes"
             data = ""
             for item in me['likes']['data']:
                 # print item
@@ -660,11 +661,11 @@ def fb_android():
                     data = data + item['about'] + " "
                 else:
                     data = data + item['description'] + item['about'] + " "
-            print data
+            # print data
             #entity_extract(me['id'], data, 0)
 
             return jsonify({'result': 'successful'})
-
+        print "no"
         return jsonify({'result': 'success'})
 
 
