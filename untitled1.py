@@ -607,6 +607,7 @@ def trend_search():
 @app.route('/get_tweets')
 def trending():
     trend = Trend.query.filter_by(id=1).first()
+    print trend
     return jsonify({'trends': trend.buzz})
 
 
