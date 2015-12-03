@@ -31,7 +31,7 @@
                 success:function(data, textStatus, xhr) {
                     console.log(data);
 
-                    $.each(data, function(i, el)
+                    $.each(data['tweets'], function(i, el)
                     {
 
                         storeArray[i]=new Array(el.title, el.category,el.image,el.id);
