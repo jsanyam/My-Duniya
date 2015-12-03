@@ -681,12 +681,16 @@ def keywords():
     return jsonify({'keywords': result.data})
 
 
-@app.route('/recommended_news')
+@app.route('/recommended_news', methods=['GET', 'POST'])
 def recommended():
-    # nk_ids = []
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form.get('email')).first()
+        id = user.id
+    else:
+        id = current_user.id
     dict = {}
     iter = 0
-    keys = UserKeyword.query.filter_by(user_id=current_user.id).order_by(UserKeyword.priority.desc()).limit(50)
+    keys = UserKeyword.query.filter_by(user_id=id).order_by(UserKeyword.priority.desc()).limit(50)
     for key in keys:
         iter += 1
         if iter == 1:
