@@ -638,9 +638,9 @@ def twitter_handle():
 def fb_android():
     if request.method == 'POST':
         me = request.get_json()
-        data = ""
-        for item in me['likes']['data']: #['category'])
-            data = data + item['description'] + item['about'] +" "
+        #data = ""
+        #for item in me['likes']['data']: #['category'])
+        #    data = data + item['description'] + item['about'] +" "
         return jsonify({'result': 'success'})
 
 
