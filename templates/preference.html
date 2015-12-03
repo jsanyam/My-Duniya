@@ -31,6 +31,7 @@ $(document).ready(function(){
 
     $(document).ready(function(){
 
+            var storeArray=new Array();
         $.ajax({
             type:'GET',
             url:'/keywords',
@@ -46,7 +47,7 @@ $(document).ready(function(){
 
                     for(i=1;i<100;i++)
                     {
-                        $(".side-bar").append('<a href=" "' + " >" + storeArray[0][i-1] + "</a>");
+                        $(".cp-sidebar-content").append('<a href=" "' + '>' + storeArray[0][i-1] + '<' + '/a>');
                     }
 
 
