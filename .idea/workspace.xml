@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\font-awesome-4.4.0.zip" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\sony\PycharmProjects\untitled1\static\minor.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main8.js" afterPath="$PROJECT_DIR$/static/js/main8.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal.html" afterPath="$PROJECT_DIR$/templates/personal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/preference.css" afterPath="$PROJECT_DIR$/static/css/preference.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/preference.html" afterPath="$PROJECT_DIR$/templates/preference.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,14 +37,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6232687" vertical-offset="11131" max-vertical-offset="11679">
-              <caret line="668" column="45" selection-start-line="668" selection-start-column="45" selection-end-line="668" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="11084" max-vertical-offset="11679">
+              <caret line="653" column="31" selection-start-line="653" selection-start-column="31" selection-end-line="653" selection-end-column="31" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preference.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/preference.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43965518" vertical-offset="561" max-vertical-offset="2482">
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +166,6 @@
         <option value="$PROJECT_DIR$/templates/fullnewsout.html" />
         <option value="$PROJECT_DIR$/templates/lifestyleout.html" />
         <option value="$PROJECT_DIR$/templates/personal.html" />
-        <option value="$PROJECT_DIR$/templates/preference.html" />
         <option value="$PROJECT_DIR$/templates/usertagout.html" />
         <option value="$PROJECT_DIR$/enty.py" />
         <option value="$PROJECT_DIR$/entity_api.py" />
@@ -175,6 +177,7 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/static/js/main8.js" />
         <option value="$PROJECT_DIR$/untitled1.py" />
+        <option value="$PROJECT_DIR$/templates/preference.html" />
       </list>
     </option>
   </component>
@@ -225,6 +228,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -927,13 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/preference.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="884" max-vertical-offset="2873">
-          <caret line="67" column="36" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/tags.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.076923" vertical-offset="13175" max-vertical-offset="20655">
@@ -1079,11 +1089,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6232687" vertical-offset="11131" max-vertical-offset="11679">
-          <caret line="668" column="45" selection-start-line="668" selection-start-column="45" selection-end-line="668" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="11084" max-vertical-offset="11679">
+          <caret line="653" column="31" selection-start-line="653" selection-start-column="31" selection-end-line="653" selection-end-column="31" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/preference.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43965518" vertical-offset="561" max-vertical-offset="2482">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
