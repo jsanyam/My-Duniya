@@ -746,6 +746,20 @@ def recommended():
 def preference():
     return render_template("preference.html")
 
+
+@app.route('/search_tag', methods=['GET', 'POST'])
+def search_tag():
+    #if request.method == 'POST':
+    list =[]
+    list = search_to_json('srk')#request.form.get('search'))
+    return jsonify({'searched', list})
+
+
+@app.route('/tweet')
+def tweet():
+    return render_template('tweet.html')
+
+
 def entity_extract(Id, text, news):
     from monkeylearn import MonkeyLearn
 
@@ -788,11 +802,6 @@ def newsClick(Id):
             uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == current_user.id).first()
             uk.priority += 0.1
             db.session.commit()
-
-@app.route('/search_tag', methods=['GET', 'POST'])
-def search_tag():
-    if request.method == 'POST':
-        search_to_json(request.form.get('search'))
 
 
 if __name__ == '__main__':
