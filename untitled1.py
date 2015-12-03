@@ -772,7 +772,7 @@ def newsClick(Id):
             db.session.commit()
         else:
             uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == current_user.id).first()
-            uk += 0.1
+            uk.priority += 0.1
             db.session.commit()
 
 @app.route('/search_tag', methods=['GET', 'POST'])
