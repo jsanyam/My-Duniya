@@ -43,9 +43,9 @@ def get_json_tweets():
 
                     json_response[hash]=list
 
-                buzz = json.dumps(json_response)
+                # buzz = json.dumps(json_response)
                 trend = Trend.query.filter_by(id=1).first()
-                trend.buzz = buzz
+                trend.buzz = json_response
                 db.session.commit()
 
 
