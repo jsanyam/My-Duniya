@@ -447,6 +447,7 @@ def articles(article_id=None):
                 queryset = Article.query.order_by(Article.id.desc()).limit(50)
                 # never return the whole set! As it would be very slow
                 result = articles_schema.dump(queryset)
+                #print result
                 # jsonify serializes our dict into a proper flask response
                 return jsonify({"articles": result.data})
             # else:
@@ -646,8 +647,9 @@ def fb_android():
 
 @app.route('/keywords')
 def keywords():
-    keys = Keyword.query.limit(500)
-    result = keywords_schema.dumps(keys)
+    keys = Keyword.query.order_by(Keyword.id).limit(500)
+    result = keywords_schema.dump(keys)
+    # print result
     return jsonify({'keywords': result.data})
 
 
