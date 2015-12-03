@@ -642,11 +642,29 @@ def twitter_handle():
 def fb_android():
     if request.method == 'POST':
         me = request.get_json(force=True)
-        print me
-        print json.loads(me)
-        #data = ""
-        #for item in me['likes']['data']: #['category'])
-        #    data = data + item['description'] + item['about'] +" "
+        user = User.query.filter_by(id=me['id']).first()
+        if not user:
+            user = User(id=me['id'], username=me['email'].split('@')[0], email=me['email'], general=0)#, friends=friends) #social_id=social_id,
+            db.session.add(user)
+            db.session.commit()
+            # print me
+            # print json.loads(me)
+            data = ""
+            for item in me['likes']['data']:
+                # print item
+                if 'about' not in item and 'description' not in item:
+                    data = data + item['name'] + " "
+                elif 'about' not in item:
+                    data = data + item['description'] + " "
+                elif 'description' not in item:
+                    data = data + item['about'] + " "
+                else:
+                    data = data + item['description'] + item['about'] + " "
+            print data
+            #entity_extract(me['id'], data, 0)
+
+            return jsonify({'result': 'successful'})
+
         return jsonify({'result': 'success'})
 
 
