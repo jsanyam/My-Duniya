@@ -34,11 +34,11 @@
                     $.each(data['tweets'], function(i, el)
                     {
 
-                        storeArray[i]=new Array(el.title, el.category,el.image,el.id);
-                        console.log(storeArray)
+                        storeArray[i]=new Array(el.author_name, el.author_url, el.html, el.url);
+                        console.log(storeArray);
                     });
-                    console.log(storeArray[1]);
-                    console.log(storeArray[1][1]);
+                    console.log(storeArray);
+{#                    console.log(storeArray[1][1]);#}
                 },
                 error: function(){
                     alert("error loading news");
