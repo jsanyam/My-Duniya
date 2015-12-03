@@ -41,8 +41,8 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5172415" vertical-offset="11509" max-vertical-offset="13991">
-              <caret line="683" column="19" selection-start-line="683" selection-start-column="13" selection-end-line="683" selection-end-column="19" />
+            <state vertical-scroll-proportion="-5.9310346" vertical-offset="5336" max-vertical-offset="13991">
+              <caret line="324" column="31" selection-start-line="324" selection-start-column="31" selection-end-line="324" selection-end-column="31" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
@@ -53,7 +53,7 @@
       <file leaf-file-name="tweet.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tweet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6851852" vertical-offset="271" max-vertical-offset="1173">
+            <state vertical-scroll-proportion="0.5771605" vertical-offset="306" max-vertical-offset="1190">
               <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
               <folding />
             </state>
@@ -1129,8 +1129,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5172415" vertical-offset="11509" max-vertical-offset="13991">
-          <caret line="683" column="19" selection-start-line="683" selection-start-column="13" selection-end-line="683" selection-end-column="19" />
+        <state vertical-scroll-proportion="-5.9310346" vertical-offset="5336" max-vertical-offset="13991">
+          <caret line="324" column="31" selection-start-line="324" selection-start-column="31" selection-end-line="324" selection-end-column="31" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
@@ -1139,7 +1139,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/tweet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6851852" vertical-offset="271" max-vertical-offset="1173">
+        <state vertical-scroll-proportion="0.5771605" vertical-offset="306" max-vertical-offset="1190">
           <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding />
         </state>
