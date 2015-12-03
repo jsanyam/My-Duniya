@@ -63,33 +63,26 @@ class FacebookSignIn(OAuthSignIn):
         )
         me = oauth_session.get(
             'me?fields=id, name, email, likes.limit(100){name, about, description}').json()    # birthday, picture, hometown, , education
-        print (me)
 
-        #print (me['likes']['paging']['next'])
-        # req = urllib2.Request(''+me['likes']['paging']['next'])
-        # response = urllib2.urlopen(req)
-        # the_page = response.read()
-        # print the_page
-        #id = me['id']
-        #email = me['email']
         data = ""
         for item in me['likes']['data']: #['category'])
-            data = data + item['description'] + item['about'] +" "
-        #we = oauth_session.get(me['likes']['paging']['next'])
-        #print (we)
+            # print item
+            if 'about' not in item and 'description' not in item:
+                data = data + item['name'] + " "
+            elif 'about' not in item:
+                data = data + item['description'] + " "
+            elif 'description' not in item:
+                data = data + item['about'] + " "
+            else:
+                data = data + item['description'] + item['about'] + " "
+
         return (
             #'facebook$' +
-            me['id'], # me['id'],
-            # me.get('email').split('@')[0],  # Facebook does not provide
-            # username, so the email's user
-            # is used instead
-            #me.get('email')
+            me['id'],
+            # Facebook does not provide username, so the email's username is used instead
             me['email'].split('@')[0],
             me['email'],
             data
-            #me['email'].split('@')[0],
-            #me['email'],
-            # me['friends'].name
         )
 
 
