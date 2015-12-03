@@ -691,7 +691,7 @@ def recommended():
         iter += 1
         if iter == 1:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(5)
-            if len(nk) == 0:
+            if not nk:
                 iter -= 1
                 continue
             list = []
@@ -700,7 +700,7 @@ def recommended():
             dict["key1"] = list
         elif iter == 2:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(4)
-            if len(nk) == 0:
+            if not nk:
                 print "hey"
                 iter -= 1
                 continue
@@ -710,7 +710,7 @@ def recommended():
             dict["key2"] = list
         elif iter == 3:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(3)
-            if len(nk) == 0:
+            if not nk:
                 iter -= 1
                 continue
             list = []
@@ -719,7 +719,7 @@ def recommended():
             dict["key3"] = list
         else:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(2)
-            if len(nk) == 0:
+            if not nk:
                 iter -= 1
                 continue
             list = []
