@@ -31,12 +31,13 @@
                 success:function(data, textStatus, xhr) {
                     console.log(data);
 
-                    $.each(data['tag'], function(i, el)
+                    $.each(data, function(i, el)
                     {
 
                         storeArray[i]=new Array(el.title, el.category,el.image,el.id);
-
+                        console.log(storeArray)
                     });
+                    console.log(storeArray[1]);
                     console.log(storeArray[1][1]);
                 },
                 error: function(){
