@@ -36,7 +36,7 @@ $(document).ready(function(){
             type:'GET',
             url:'/keywords',
             success:function(data, textStatus, xhr){
-                 $.each(data['keywords'], function(i, el)
+                 $.each(data['keywords'][0], function(i, el)
                     {
 
                         storeArray[i]=new Array(el.id,el.key_name);
