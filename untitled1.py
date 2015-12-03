@@ -701,6 +701,7 @@ def recommended():
         elif iter == 2:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).limit(4)
             if nk is None:
+                print "hey"
                 iter -= 1
                 continue
             list = []
