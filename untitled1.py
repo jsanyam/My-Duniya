@@ -763,7 +763,6 @@ def entity_extract(Id, text, news):
             #     db.session.commit()
 
 
-
 def newsClick(Id):
     nk = NewsKeyword.query.filter_by(news_id=Id).all()
     for row in nk:
@@ -772,7 +771,7 @@ def newsClick(Id):
             db.session.add(uk)
             db.session.commit()
         else:
-            uk = db.session.query(UserKeyword).filter(UserKeyword.key_name == row.key_id, UserKeyword.user_id == current_user.id).first()
+            uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == current_user.id).first()
             uk += 0.1
             db.session.commit()
 
