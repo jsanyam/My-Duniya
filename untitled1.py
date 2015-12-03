@@ -336,13 +336,13 @@ def oauth_callback(provider):
     return redirect(url_for('personal'))
 
 
-
 @app.route('/contact')
 def contacts():
     if current_user.is_authenticated:
         return render_template("duniyacontactout.html")
     else:
         return render_template("duniyacontact.html")
+
 
 #@login_required
 @app.route("/news", methods=["GET"])
@@ -355,6 +355,7 @@ def news():
 # def tag():
 #     return render_template("index.html")
 
+
 #template opening on clicking tiles
 @app.route("/tagnews/<category>")
 def tag(category):
@@ -362,6 +363,8 @@ def tag(category):
         return render_template("lifestyleout.html")
     else:
         return render_template("lifestyle.html")
+
+
 #waste
 @app.route("/tags")
 def tags():
@@ -369,6 +372,7 @@ def tags():
         return render_template("usertagout.html")
     else:
         return render_template("usertag.html")
+
 
 #sentiment analysis returns json
 @app.route("/senti/<category>")
@@ -463,15 +467,18 @@ def articles(article_id=None):
     #     return jsonify({'name': val1, 'desc': val2})
     #     #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
+
 #REST implementation to return news category wise
 @app.route('/<category>', methods=["GET"])
 def tagger(category):
     if request.method == 'GET':
         tag = Article.query.filter(Article.category == category).order_by(Article.id.desc()).limit(50)
+        # print tag.category
         if tag is None:
                     return jsonify({"msgs": ["the tag you're looking for could not be found"]}), 404
         result = articles_schema.dump(tag)
         return jsonify({'tag': result.data})
+
 
 #news with id
 @app.route('/full_news/<id>')
@@ -662,7 +669,7 @@ def fb_android():
                 else:
                     data = data + item['description'] + item['about'] + " "
             # print data
-            #entity_extract(me['id'], data, 0)
+            entity_extract(me['id'], data, 0)
 
             return jsonify({'result': 'successful'})
         print "no"
@@ -679,16 +686,50 @@ def keywords():
 
 @app.route('/recommended_news')
 def recommended():
-    nk_ids = []
-    keys = UserKeyword.query.filter_by(user_id=current_user.id).order_by(UserKeyword.priority.desc()).all()
+    # nk_ids = []
+    dict = {}
+    iter = 0
+    keys = UserKeyword.query.filter_by(user_id=current_user.id).order_by(UserKeyword.priority.desc()).limit(25)
     for key in keys:
-        if len(nk_ids) == 50:
-            break
-        nk = NewsKeyword.query.filter_by(key_id=key.id).first()
-        if nk is None:
-            continue
-        nk_ids.append(nk.news_id)
-    return jsonify({'news': nk_ids})
+        iter += 1
+        if iter == 1:
+            nk = NewsKeyword.query.filter_by(key_id=key.id).order_by(NewsKeyword.news_id.desc()).limit(5)
+            if nk is None:
+                iter -= 1
+                continue
+            list = []
+            for data in nk:
+                list.append(data.news_id)
+            dict["key1"] = list
+        elif iter == 2:
+            nk = NewsKeyword.query.filter_by(key_id=key.id).limit(4)
+            if nk is None:
+                iter -= 1
+                continue
+            list = []
+            for data in nk:
+                list.append(data.news_id)
+            dict["key2"] = list
+        elif iter == 3:
+            nk = NewsKeyword.query.filter_by(key_id=key.id).limit(3)
+            if nk is None:
+                iter -= 1
+                continue
+            list = []
+            for data in nk:
+                list.append(data.news_id)
+            dict["key3"] = list
+        else:
+            nk = NewsKeyword.query.filter_by(key_id=key.id).limit(2)
+            if nk is None:
+                continue
+            list = []
+            for data in nk:
+                list.append(data.news_id)
+            dict["key"+iter] = list
+    # nk_ids.append("key1")
+    return jsonify({'news': dict})
+
 
 @app.route('/preference')
 def preference():

@@ -29,4 +29,4 @@ def search_to_json(search):
     return json.dumps(list)
 
 
-#print search_to_json("shah rukh khan")
+print search_to_json("shah rukh khan")
