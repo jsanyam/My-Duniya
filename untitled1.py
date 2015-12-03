@@ -696,7 +696,9 @@ def recommended():
                 continue
             list = []
             for data in nk:
-                list.append(data.news_id)
+                result = Article.query.filter_by(id=data.news_id).first()
+                news = article_schema.dump(result)
+                list.append(news.data)
             dict["key1"] = list
         elif iter == 2:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(4)
@@ -706,7 +708,9 @@ def recommended():
                 continue
             list = []
             for data in nk:
-                list.append(data.news_id)
+                result = Article.query.filter_by(id=data.news_id).first()
+                news = article_schema.dump(result)
+                list.append(news.data)
             dict["key2"] = list
         elif iter == 3:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(3)
@@ -715,7 +719,9 @@ def recommended():
                 continue
             list = []
             for data in nk:
-                list.append(data.news_id)
+                result = Article.query.filter_by(id=data.news_id).first()
+                news = article_schema.dump(result)
+                list.append(news.data)
             dict["key3"] = list
         else:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(2)
@@ -724,7 +730,9 @@ def recommended():
                 continue
             list = []
             for data in nk:
-                list.append(data.news_id)
+                result = Article.query.filter_by(id=data.news_id).first()
+                news = article_schema.dump(result)
+                list.append(news.data)
             dict["key"+str(iter)] = list
     # nk_ids.append("key1")
     return jsonify({'news': dict})
