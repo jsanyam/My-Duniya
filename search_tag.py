@@ -25,8 +25,9 @@ def search_to_json(search):
         print story
 
         list.append({"title":title,"image":image,"description":description,"story":story})
-        print "/n/n"
-    return json.dumps(list)
+        # print "/n/n"
+    return list
+    # return json.dumps(list)
 
 
-print search_to_json("shah rukh khan")
+#print search_to_json("shah rukh khan")

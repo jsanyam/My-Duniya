@@ -43,6 +43,7 @@ from string import punctuation
 from wtforms import StringField, PasswordField
 from flask_wtf import Form
 from wtforms.validators import DataRequired, Regexp, ValidationError, Email, Length
+from search_tag import search_to_json
 from twitter import get_keywords_twitter
 
 
@@ -726,7 +727,7 @@ def recommended():
             list = []
             for data in nk:
                 list.append(data.news_id)
-            dict["key"+iter] = list
+            dict["key"+str(iter)] = list
     # nk_ids.append("key1")
     return jsonify({'news': dict})
 
@@ -764,6 +765,12 @@ def entity_extract(Id, text, news):
             #     uk = UserKeyword.query.filter_by(key_id=key.id).first()
             #     uk.priority += 1
             #     db.session.commit()
+
+
+@app.route('/search_tag', methods=['GET', 'POST'])
+def search_tag():
+    if request.method == 'POST':
+        search_to_json(request.form.get('search'))
 
 
 if __name__ == '__main__':
