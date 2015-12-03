@@ -643,6 +643,7 @@ def fb_android():
             data = data + item['description'] + item['about'] +" "
         return jsonify({'result': 'success'})
 
+
 @app.route('/keywords')
 def keywords():
     keys = Keyword.query.limit(500)
@@ -650,12 +651,19 @@ def keywords():
     return jsonify({'keywords': result.data})
 
 
-@app.before_first_request
-def init_request():
-    db.create_all()
+@app.route('/recommended_news')
+def recommended():
+    nk_ids = []
+    keys = UserKeyword.query.filter_by(user_id=current_user.id).order_by(UserKeyword.priority.desc()).all()
+    for key in keys:
+        if len(nk_ids) == 50:
+            break
+        nk = NewsKeyword.query.filter_by(key_id=key.id).first()
+        if nk is None:
+            continue
+        nk_ids.append(nk.news_id)
+    return jsonify({'news': nk_ids})
 
-db.create_all()
-#db.drop_all()
 
 if __name__ == '__main__':
     # we define the debug environment only if running through command

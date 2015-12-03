@@ -6,7 +6,7 @@ def get_json_tweets():
             import datetime
             import tweepy
             import json
-            import ttp
+            from ttp import ttp
             import operator
             consumer_key = 'orVBG7irMKWuPZVE3EjzVMHmF'
             consumer_secret = 'iuujp0hKDAYNkK60C7FjxnAA7l5cn4z34lNyGiX686l2BvVtOA'
