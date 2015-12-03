@@ -25,6 +25,38 @@ body{
 
 }	
 
+
+
+#btn{
+
+	color:white;
+	border:none;
+    padding: 2px 2px;
+    text-align:center;
+    text-decoration:none;
+    display: inline-block;
+    font-size:14px;
+    margin: 5px 5px;
+    cursor: pointer;
+    width: 100px;
+    background-color:#2888d2;
+	//height: 80px;
+}
+
+#type{
+
+	//position: relative;
+	//right:258px;
+	width: 250px;
+	line-height: 35px;
+	//top:6px;
+	float: left;
+	padding:2px 2px;
+	margin: 5px 10px;
+}
+
+
+
 .nav1{
 
 	background-color:#0099ff;
@@ -134,11 +166,7 @@ ul{
     width: 40%;
 }
 
-#form1{
 
-	float: left;
-	margin-top: 20px;
-}
 
 #twt{
 	line-height: 25px;
@@ -148,9 +176,8 @@ ul{
 #btn
 {
 	width: 70px;
-	height: 31px;
+	height: 39px;
 	margin-left: 31px;
-
 }
 
 .cp-sidebar-content a:hover {
@@ -175,6 +202,28 @@ ul{
     background-color: transparent;
 
 }
+#type2{
+
+    float:left;
+    display: inline-block;
+    line-height:36px;
+    margin: 0px 15px;
+}
+
+#btn2{
+
+    float:left;
+    color:#fff;
+     background-color:#2888d2;
+}
+
+.searchtag{
+
+
+    height:80px ;
+    margin-top: 20px;
+    margin-left: 122px;
+}
 
 
 .head{
@@ -182,6 +231,7 @@ ul{
 	height:100px;
 	//background-color: red;
 	overflow: hidden;
+    margin-top: 20px;
 }
 
 

@@ -161,6 +161,10 @@
                         console.log(el.title);
                         storeArraynews[i]=new Array(el.title, el.description,el.image,el.pubdate,el.id, el.category);
                     });
+                    console.log(storeArraynews[1][5])
+                     var x = storeArraynews[1][5];
+                     var x = x.split("-").join(" ");
+                     $("#heading").append("<div>" + x + "</div>");-
                     //console.log("pahuche")
                     $("#newstitle").append("<div>" + storeArraynews[0][5] + "</div>");
                     for(j=frmn;j<tlln;j++){
@@ -194,10 +198,6 @@
 
 
                     }
-                    console.log(storeArraynews[1][5])
-                     var x = storeArraynews[1][5];
-                     var x = x.split("-").join(" ");
-                     $("#heading").append("<div>" + x + "</div>");
 
 
                     loading=false;

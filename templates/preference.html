@@ -28,6 +28,37 @@ $(document).ready(function(){
   
 });
 
+
+    $(document).ready(function(){
+
+        $.ajax({
+            type:'GET',
+            url:'/keywords',
+            success:function(data, textStatus, xhr){
+                 $.each(data['keyword'], function(i, el)
+                    {
+
+                        storeArray[i]=new Array(el.id,el.key_name);
+
+                    });
+
+
+                    for(i=1;i<100;i++)
+                    {
+                        $(".side-bar").append('<a href=" "' + " >" + storeArray[0][i-1] + "</a>");
+                    }
+
+
+            },
+            error: function(){
+                    alert("error loading keywords");
+                }
+
+
+        });
+
+    });
+
 </script>
 
 <link rel="stylesheet" href="../static/css/preference.css">
@@ -46,7 +77,7 @@ $(document).ready(function(){
 		</ul>
 		<ul id="right">
 			<li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-			<li><i class="fa fa-male-in fa-fw"></i>Welcome</li>
+			<li><a><i class="fa fa-male-in fa-fw"></i>Welcome</a></li>
 		</ul>
 
 	</div>
@@ -83,74 +114,19 @@ $(document).ready(function(){
 <div class="widget tags-widget">
 		<div class="head">
 			<h3 class="side-title">Choose Your Tags</h3>
-			<form id="form1">
-			<input type="text" placeholder="Enter Twitter Username" id="twt">
-			<input type="submit" value="DONE" id="btn">
-			</form>
+            <input type="text" placeholder="Enter Twitter Username" id="type">
+			<a href="#" class="button" id="btn">DONE</a>
+
+
 		</div>
 
 
-				<div class="cp-sidebar-content">
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
-							<a>Lifestyle</a> 
-							<a>Business</a> 
-							<a>Audio</a>
-							<a>Sports</a>
-							<a>Photography</a>
-							<a>Fashion</a>
-							<a>Technology</a>
-							<a>Reviews</a>
-							<a>Politics</a>
-							<a>Video</a>
+				<div class="searchtag">
+                     <input type="text" placeholder="Enter tag name" id="type2">
+			            <a href="#" id="btn2">SEARCH</a>
+                    </div>
+
+                <div class="cp-sidebar-content">
 
 
 				</div>

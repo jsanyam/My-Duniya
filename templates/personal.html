@@ -1,392 +1,22 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
 <title>Welcome to MyDuniya</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../static/css/owl.theme.css">
 <link rel="stylesheet" href="../static/css/owl.carousel.css">
 <script src="../static/js/jquery-1.9.1.min.js"></script>
+<script src="../static/js/main8.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 <script src="../static/js/owl.carousel.js"></script>
-<script>
 
-
-
-
-	$(document).ready(function() {
-
-
-		  storeArray=new Array();
-       	  var frm=0;
-          var tll=3;
-
-
-     $.ajax({
-                type:'GET',
-                url:"/top-news",
-                success:function(data, textStatus, xhr) {
-                    console.log(data);
-
-                    $.each(data['tag'], function(i, el)
-                    {
-
-                        storeArray[i]=new Array(el.title, el.category,el.image,el.id);
-                        
-                    });
-
-                    	for(i=1;i<7;i++)
-                    	{
-                    		$(".content" + i + " " + "h1").text(storeArray[i-1][0]);
-
-                    	}
-                    
-                    	
-                    	for(i=1;i<7;i++)
-                    	{
-                    		$(".content" + i + " " + "h2").text(storeArray[i-1][1]);
-
-                    	}
-
-
-
-                    	for(i=1;i<7;i++)
-                    	{
-                            console.log("imagine")
-                    		$(".content" + i + " " + "img").attr("src",storeArray[i-1][2]);
-
-                    	}
-
-
-                        for(i=1;i<7;i++)
-                    	{
-                    		$("#a" + i).attr('href','/full_news/'+storeArray[i-1][3]);
-
-                    	}
-
-
-                    	for(i=1;i<7;i++)
-                    	{
-                    		$(".content" + i + " " + ".b1").attr('href','/tagnews/'+storeArray[i-1][1]);
-
-                    	}
-
-                    	
-
-
-                   /* 	for(i=1;i<9;i++)
-                    	{
-                    	 if(!storeArray[i-1][2] || storeArray[i-1][2]=="http://timesofindia.indiatimes.com/photo/7787613.cms")
-                    	 {
-                            $(".content" + i + " " + "img").attr('src','../static/img/header.png');
-                         }
-
-                         else
-                         {
-                    		$(".content" + i + " " +"img").attr("src",storeArray[i-1][2]);
-                   	/* 		$(".content2 img").attr("src",storeArray[1][2]);
-                    		$(".content3 img").attr("src",storeArray[2][2]);
-                    		$(".content4 img").attr("src",storeArray[3][2]);
-                    		$(".content5 img").attr("src",storeArray[4][2]);
-                    		$(".content6 img").attr("src",storeArray[5][2]);
-                    		$(".content7 img").attr("src",storeArray[6][2]);
-                    		$(".content8 img").attr("src",storeArray[7][2]);
-                    		$(".content9 img").attr("src",storeArray[8][2]);
-                    		$(".content10 img").attr("src",storeArray[9][2]);
-                    		
-                    	}
-
-
-                    }
-
-                    */		
-                 //   for(i=frm;i<tll;i++){
-                    //    console.log(storeArray[i][0]);
-                      //  console.log(storeArray[i][1]);
-                   //    $("#result").append("<div>" + storeArray[i][0] + "</div>");
-                    //    $("#result").append("<div>" + storeArray[i][1] + "</div><br><br>");
-                   // }
-                    
-                },
-                error: function(){
-                    alert("error loading news");
-                }
-            });
-
-
-
-     
-       $("#owl-example").owlCarousel({
- 
-      autoPlay:3000, 
-    //  navigation : true,
-    //  navigationText : ["prev","next"],
-          items:2,
-      itemsDesktop:[980,2],
-      //itemsDesktopSmall : [979,2]
-      itemsDesktopSmall :[950,1],
-
-      itemsTablet:[478,1],
- 
-  });
-
-
-});
-
-
-
-
-</script>
-
-
-<script type="text/javascript">
+<style type="text/css">
 	
-	/**
- * Created by SANCHIT on 11/19/2015.
- */
-        var loading=true;
-        storeArrayworld= new Array();
-        storeArrayrecent= new Array();
-        storeArrayindia= new Array();
-
-        function loadrecent(){
-            console.log("yahaan pahuche2?")
-            var $article = $("#articles");
-            var $name = $("#name");
-            var $desc = $("#desc");
-
-            $.ajax({
-                type: 'GET',
-                //url:"{{ url_for('.articles') }}",
-                url:"/top-news",
-                success: function(data, textStatus, xhr) {
-                    console.log(data);
-
-                    $.each(data['tag'], function(i, el){
-                        storeArrayrecent[i]=new Array(el.title,el.image,el.pubdate,el.id,el.category);
-                    });
-
-                    for(j=1;j<5;j++)
-                    {
-                        //console.log(storeArray[i][0])
-                        //console.log(storeArray[i][1])
-                        /*$("<div />", { "class":"newsblock", id:"news"+j })
-                         .append($("<div />", {  class:"n-img",id:"n-img"+j }))
-                         .append($("<div />", {  class:"n-title",id:"n-title"+j }))
-                         .append($("<div />", {  class:"n-pub",id:"n-pub"+j }))
-                         .append($("<div />", {  class:"n-fullstory",id:"n-fullstory" }))
-                         .appendTo("#newsdiv");
-                         */
-
-                        // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        console.log("yahaan pahuche3?")
-                        console.log(storeArrayrecent[j][2])
-                        console.log(storeArrayrecent[j][1])
-                        console.log(storeArrayrecent[j][0])
-                        $("#f-d" + j).append("<div>" + storeArrayrecent[j+4][2] + "</div>");
-                        $("#f-t" + j).append("<div>" + storeArrayrecent[j+4][0] + "</div>");
-                        $("#f-i" + j).attr('src',storeArrayrecent[j+4][1]);
-                        $(".f-a" + j).attr('href','/full_news/'+storeArrayrecent[j+4][3]);
-                        
-                        if(!storeArrayrecent[j-1][1] || storeArrayrecent[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms")
-                        {
-                            $("#f-i" + j).attr('src','../static/img/header.png');
-                        }
-
-
-
-                    }
-
-                    loading=false;
-                    $(".loading").remove();
-                },
-                error: function(){
-                    alert("error loading news");
-                }
-            });
-        }
-        function loadindia(){
-            var $article = $("#articles");
-            var $name = $("#name");
-            var $desc = $("#desc");
-
-            $.ajax({
-                type: 'GET',
-                //url:"{{ url_for('.articles') }}",
-                url:"/india",
-                success: function(data, textStatus, xhr) {
-                    console.log(data);
-
-                    $.each(data['tag'], function(i, el){
-                        storeArrayindia[i]=new Array(el.title,el.image,el.pubdate,el.description,el.id);
-                    });
-
-                    for(j=1;j<5;j++){
-                        //console.log(storeArray[i][0])
-                        //console.log(storeArray[i][1])
-                        /*$("<div />", { "class":"newsblock", id:"news"+j })
-                         .append($("<div />", {  class:"n-img",id:"n-img"+j }))
-                         .append($("<div />", {  class:"n-title",id:"n-title"+j }))
-                         .append($("<div />", {  class:"n-pub",id:"n-pub"+j }))
-                         .append($("<div />", {  class:"n-fullstory",id:"n-fullstory" }))
-                         .appendTo("#newsdiv");
-                         */
-
-                        // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        $("#i-d" + j).append("<div>" + storeArrayindia[j-1][2] + "</div>");
-                        $("#i-t" + j).append("<div>" + storeArrayindia[j-1][0] + "</div>");
-                        $("#i-b" + j).append("<div>" + storeArrayindia[j-1][3] + "</div>");
-                        $("#i-i" + j).attr('src',storeArrayindia[j-1][1]);
-                        $(".i-a" + j).attr('href','/full_news/'+storeArrayindia[j-1][4]);
-                        if(!storeArrayindia[j-1][1] || storeArrayindia[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms"){
-                            $("#i-i" + j).attr('src','../static/img/header.png');
-                        }
-
-
-                    }
-                    loading=false;
-                    $(".loading").remove();
-                },
-                error: function(){
-                    alert("error loading news");
-                }
-            });
-        }
-        function loadworld(){
-            var $article = $("#articles");
-            var $name = $("#name");
-            var $desc = $("#desc");
-
-            $.ajax({
-                type: 'GET',
-                //url:"{{ url_for('.articles') }}",
-                url:"/world",
-                success: function(data, textStatus, xhr) {
-                    console.log(data);
-
-                    $.each(data['tag'], function(i, el){
-                        storeArrayworld[i]=new Array(el.title,el.image,el.pubdate,el.description,el.id);
-                    });
-
-                    for(j=1;j<8;j++){
-                        //console.log(storeArray[i][0])
-                        //console.log(storeArray[i][1])
-                        /*$("<div />", { "class":"newsblock", id:"news"+j })
-                         .append($("<div />", {  class:"n-img",id:"n-img"+j }))
-                         .append($("<div />", {  class:"n-title",id:"n-title"+j }))
-                         .append($("<div />", {  class:"n-pub",id:"n-pub"+j }))
-                         .append($("<div />", {  class:"n-fullstory",id:"n-fullstory" }))
-                         .appendTo("#newsdiv");
-                         */
-
-                        // $("#newsdiv").append("<div>",{ "class":"wrapper", id:"product"+i } "<div>" + storeArraynews[i][0] + "</div><div>"
-                        if(j==1){
-                            $("#w-d" + j).append("<div>" + storeArrayworld[j-1][2] + "</div>");
-                            $("#w-b" + j).append("<div>" + storeArrayworld[j-1][3] + "</div>");
-                            $("#w-t" + j).append("<div>" + storeArrayworld[j-1][0] + "</div>");
-                            $("#w-i" + j).attr('src',storeArrayworld[j-1][1]);
-                            $(".w-a" + j).attr('href','/full_news/'+storeArrayworld[j-1][4]);
-                            if(!storeArrayworld[j-1][1] || storeArrayworld[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms") {
-                                $("#w-i" + j).attr('src', '../static/img/header.png');
-                            }
-                        }
-                        else{
-                            $("#w-d" + j).append("<div>" + storeArrayworld[j-1][2] + "</div>");
-                            $("#w-t" + j).append("<div>" + storeArrayworld[j-1][0] + "</div>");
-                            $("#w-i" + j).attr('src',storeArrayworld[j-1][1]);
-                            $(".w-a" + j).attr('href','/full_news/'+storeArrayworld[j-1][4]);
-                            if(!storeArrayworld[j-1][1] || storeArrayworld[j-1][1]=="http://timesofindia.indiatimes.com/photo/7787613.cms") {
-                                $("#w-i" + j).attr('src', '../static/img/header.png');
-                            }
-                        }
-
-
-                    }
-                    loading=false;
-                    $(".loading").remove();
-                },
-                error: function(){
-                    alert("error loading news");
-                }
-            });
-        }
-
-        $(function(){
-            //loadslider();
-            console.log("yahaan pahuche?")
-
-            loadrecent();
-            loadworld();
-            loadindia();
-           // document.getElementById("content").style.visibility = "hidden";
-            //$(".p-tags").click(function() {
-              //   document.getElementById("newstag").style.visibility = "block";
-
-//            });
-            /*
-            $("#live_buzz").scroll(function(){
-                var curScroll = $(this)[0].scrollTop;
-                var maxScroll = $(this)[0].scrollHeight- $(this).height();
-
-                console.log(curScroll);
-                console.log(maxScroll);
-                console.log(loading);
-                //console.log("yahaan pahuche2");
-                if((curScroll >= maxScroll - 400) && loading == false){
-                    loading = true;
-                    frm=tll;
-                    tll += 3;
-                    //$("#live_buzz").append("<div class='.loading'>loading</div>");
-                    $(this)[0].scrollTop = $(this)[0].scrollHeight- $(this).height();
-                    //load();
-                }
-            });
-
-            //loadnews();
-            //loadfullnews();
-            console.log("yahaan pahuche?")
-            $("#newstag").scroll(function(){
-                var curScroll = $(this)[0].scrollTop;
-                var maxScroll = $(this)[0].scrollHeight- $(this).height();
-
-                console.log(curScroll);
-                console.log(maxScroll);
-                console.log(loading);
-                console.log("yahaan pahuche5");
-                if((curScroll >= maxScroll - 400) && loading == false){
-                    loading = true;
-                    frmn=tlln;
-                    tlln += 9;
-                    //$("#live_buzz").append("<div class='.loading'>loading</div>");
-                    $(this)[0].scrollTop = $(this)[0].scrollHeight- $(this).height();
-                    loadnews();
-                }
-            });*/
-
-
-        });
-
-</script>
-
-<style>
-
-
-
-    #owl-example .item{
-      margin:0px;
-      height:450px; 
-    }
-    #owl-example .item img{
-      display: block;
-      width: 100%;
-      max-height:100%;
-      min-height: 100%;
-    }
-
-
 
 body{
 
@@ -398,124 +28,8 @@ body{
 
     }
 
-    h3{
-    	margin: 0px;
-    	padding: 0px;
-    }
 
-
-    h2{
-    	margin: 0px;
-    	padding: 0px;
-    }
-
-    h1{
-	margin: 0px;
-	padding: 0px;
-
-}	
-
-.nav1{
-
-	background-color:#0099ff;
-	height:auto;
-	overflow: hidden;
-	max-width: 100%;
-}
-
-
-
-ul{
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
-
-}
-
-.nav1 ul li {
-
-	//padding-top:1%;
-	padding-left:1%;
-}
-.nav1 #left{
-
-	padding-left:6%;
-}
-
-.nav1 #right{
-
-	padding-right:8%;
-}
-
-.nav1  #left li{
-
-	float:left;
-
-}
-
-.nav1 #right li{
-
-	float:right;
-}
-
-.nav1 ul li a{
-	text-decoration: none;
-	color: white;
-	//font-weight:400;
-	line-height:50px;
-}	
-
-
-.header{
-
-	
-	overflow:hidden;
-	max-width:100%;
-	height: auto;
-}
-
-.header img{
-
-	width:20%;
-	border-radius:5px;
-	margin: 1% 7%;
-}	
-
-
-
-
-.nav2{
-	height:auto;
-	max-width: 100%;
-	background-color: rgba(255,255,255);
-	overflow:hidden;
-}
-
-
-.nav2 ul li{
-	float:left;
-	width:9%;	
-    }
-
-
-.nav2 ul li a{
-
-	text-decoration:none;
-	color:#222222;
-	line-height:50px; 
-	display: block;
-	font-size: 14px;
-	//padding: 10% 1%;
-	text-align:center;
-	border-left:1px solid rgba(0,0,0,0.2);
-	border-top: 1px solid rgba(0,0,0,0.2);
-	border-bottom: 1px soid rgba(0,0,0,0.2);
-} 
-
-
-
-
-.content1 h2 {
+    .content1 h2 {
     position: absolute;
     background-color: #F33;
     top: 68%;
@@ -652,7 +166,7 @@ ul{
 
 .content5 h2 {
     position: absolute;
-    background-color:gray;
+    background-color:#f52;
     top: 68%;
     width:130px;
     margin: 0% 4%;
@@ -682,7 +196,7 @@ ul{
 	padding-top:4%;
 }
 
-.content6 h2 {
+	.content6 h2 {
     position: absolute;
     background-color:#f52;
     top: 68%;
@@ -714,371 +228,168 @@ ul{
 	padding-top:4%;
 }
 
-.content7 h2 {
-    position: absolute;
-    background-color:#f52;
-    top: 68%;
-    width:130px;
-    margin: 0% 4%;
-    text-align:center;
-    z-index: 100;
-    height: 5%;
-    padding: 6px 13px;
-    font-family: "Roboto",sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    border-radius: 2px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    #owl-example .item{
+      margin:0px;
+      height:450px; 
+    }
+    #owl-example .item img{
+      display: block;
+      width: 100%;
+      height: 450px;
+    }
+
+    h3{
+    	margin: 0px;
+    	padding: 0px;
+    }
+
+
+    h2{
+    	margin: 0px;
+    	padding: 0px;
+    }
+
+    h1{
+	margin: 0px;
+	padding: 0px;
+
+}	
+
+.nav1{
+
+	background-color:#0099ff;
+	height:auto;
+	overflow: hidden;
+	max-width: 100%;
+}
+
+
+
+ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+
+}
+
+.nav1 ul li {
+
+	//padding-top:1%;
+	padding-left:1%;
+}
+.nav1 #left{
+
+	padding-left:6%;
+}
+
+.nav1 #right{
+
+	padding-right:8%;
+}
+
+.nav1  #left li{
+
+	float:left;
+
+}
+
+.nav1 #right li{
+
+	float:right;
+}
+
+.nav1 ul li a{
+	text-decoration: none;
+	color: white;
+	//font-weight:400;
+	line-height:50px;
+}	
+
+
+.header{
+
+	
+	overflow:hidden;
+	max-width:100%;
+	height: auto;
+}
+
+.header img{
+
+	width:20%;
+	border-radius:5px;
+	margin: 1% 7%;
+}	
+
+
+
+
+.nav2{
+	height:auto;
+	max-width: 100%;
+	background-color: rgba(255,255,255);
+	overflow:hidden;
+}
+
+
+.nav2 ul li{
+	float:left;
+	width:9%;	
+    }
+
+
+.nav2 ul li a{
+
+	text-decoration:none;
+	color:#222222;
+	line-height:50px; 
+	display: block;
+	font-size: 14px;
+	//padding: 10% 1%;
+	text-align:center;
+	border-left:1px solid rgba(0,0,0,0.2);
+	border-top: 1px solid rgba(0,0,0,0.2);
+	border-bottom: 1px soid rgba(0,0,0,0.2);
+} 
+
+.banner{
+
+	width: 100%;
+	background-image:url("../static/topbannerbg1.jpg");
+	height: 65px;
+	text-align: center;
+	color: white;
+	//line-height: 50px;
+	display: table;
+}
+
+.banner h1{
     text-transform: uppercase;
-    color: #FFF;
-}
-
-.content7 h1{
-
-	position: absolute;
-	top:71.5%;
-	padding-left:5%;
-	background-color: rgba(0,0,0,0.7);
-	color:white;
-	width:90%;
-	padding-right:5%; 
-	bottom:0px;
-	padding-top:4%;
-
-}
-
-.content8 h2 {
-    position: absolute;
-    background-color:#f52;
-    top: 68%;
-    width:130px;
-    margin: 0% 4%;
-    text-align:center;
-    z-index: 100;
-    height: 5%;
-    padding: 6px 13px;
-    font-family: "Roboto",sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    border-radius: 2px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-.content8 h1{
-
-	position: absolute;
-	top:71.5%;
-	padding-left:5%;
-	background-color: rgba(0,0,0,0.7);
-	color:white;
-	width:90%;
-	padding-right:5%; 
-	bottom:0px;
-	padding-top:4%;
-}
-
-.content9 h2 {
-    position: absolute;
-    background-color:#f52;
-    top: 68%;
-    width:130px;
-    margin: 0% 4%;
-    text-align:center;
-    z-index: 100;
-    height: 5%;
-    padding: 6px 13px;
-    font-family: "Roboto",sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    border-radius: 2px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-.content9 h1{
-
-	position: absolute;
-	top:71.5%;
-	padding-left:5%;
-	background-color: rgba(0,0,0,0.7);
-	color:white;
-	width:90%;
-	padding-right:5%; 
-	bottom:0px;
-	padding-top:4%;
-}
-
-.content10 h2 {
-    position: absolute;
-    background-color:#f52;
-    top: 68%;
-    width:130px;
-    margin: 0% 4%;
-    text-align:center;
-    z-index: 100;
-    height: 5%;
-    padding: 6px 13px;
-    font-family: "Roboto",sans-serif;
-    font-weight: 900;
-    font-size: 14px;
-    border-radius: 2px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
-    color: #FFF;
-}
-
-.content10 h1{
-
-	position: absolute;
-	top:71.5%;
-	padding-left:5%;
-	background-color: rgba(0,0,0,0.7);
-	color:white;
-	width:90%;
-	padding-right:5%; 
-	bottom:0px;
-	padding-top:4%;
+	margin:20px auto;
 }
 
 
+.news{
+
+	//background-color: green;
+	width:62%;
+	float: left;
+	height:auto;
+	margin-left:3%;
+	margin-right: 0px;
+}
 
 
+.aside{
+
+	//background-color: red;
+	width: 35%;
+	float: right;
+	height:auto;
+}
 
 
-#main-content{
-			width: 100%;
-			height:auto;
-			float: left;
-			padding: 50px 0px;
-			box-sizing: border-box;
-			display: block;
-		    font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			font-family: Roboto, sans-serif;
-		}
-		#container{
-			width: 1140px;
-			padding-right: 15px;
-			padding-left: 15px;
-			margin-right: auto;
-			margin-left: auto;
-			box-sizing: border-box;
-			display: block;
-		    font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			font-family: Roboto, sans-serif;
-		}
-		.row{
-			margin-right: -15px;
-			margin-left: -15px;
-			box-sizing: border-box;
-			display: block;
-		    font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			font-family: Roboto, sans-serif;
-		}
-		.col-md-8{
-			width: 780px;
-			float:left;
-			position: relative;
-			min-height: 1px;
-			padding-right: 15px;
-			padding-left: 15px;
-			box-sizing: border-box;
-			display: block;
-		    font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			font-family: Roboto, sans-serif;
-		}
-		.cp-news-grid-style{
-			width: 100%;
-			height:auto;
-			float: left;
-			clear: both;
-			display: block;
-			font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			box-sizing: border-box;
-		}
-		.section-title{
-			width: 100%;
-			float: left;
-			clear: both;
-			margin-bottom: 25px;
-			box-sizing: border-box;
-			display: block;
-			font-size: 14px;
-			line-height: 1.42857;
-			color: rgb(51, 51, 51);
-			font-family: Roboto, sans-serif;
-		}
-		.blue-border h2{
-			font: 700 18px/40px Roboto, sans-serif;
-			margin: 0px 10px 0px 0px;
-			float: left;
-			border-left: 5px solid rgb(50, 170, 225);
-			border-right: 1px solid rgb(50, 170, 225);
-			padding: 0px 10px;
-			text-transform: uppercase;
-		}
-		.orange-border h2{
-			font: 700 18px/40px Roboto, sans-serif;
-			margin: 0px 10px 0px 0px;
-			float: left;
-			border-left: 5px solid rgb(255, 87, 34);
-			border-right: 1px solid rgb(255, 87, 34);
-			padding: 0px 10px;
-			text-transform: uppercase;
-		}
-		.pink-border h2{
-			font: 700 18px/40px Roboto, sans-serif;
-			margin: 0px 10px 0px 0px;
-			float: left;
-			border-left: 5px solid rgb(233, 30, 99);
-			border-right: 1px solid rgb(233, 30, 99);
-			padding: 0px 10px;
-			text-transform: uppercase;
-		}
-		.section-title small{
-			font: 400 14px/40px Roboto, sans-serif;
-			color: rgb(136, 136, 136);
-		}
-		.row{
-			margin-right: -15px;
-			margin-left: -15px;
-		}
-		.grid{
-			width: 100%;
-			float: left;
-			clear: both;
-			margin: 0px;
-			padding: 0px;
-		}
-		.grid li{
-			list-style: none;
-			text-align: -webkit-match-parent;
-			display: list-item;
-		}
-		.col-md-6{
-			width: 360px;
-			float: left;
-			position: relative;
-			min-height: 1px;
-			padding-right: 15px;
-			padding-left: 15px;
-		}
-		.cp-news-post-excert{
-			border-radius: 3px;
-			height: 425px;
-			overflow: hidden;
-			box-shadow: rgba(0, 0, 0, 0.129412) 0px 2px 4px 0px;
-			margin-bottom: 30px;
-			position: relative;
-		}
-		.cp-thumb{
-			transition: all 0.3s ease-in-out;
-		    background: rgb(0, 0, 0);
-			width: 100%;
-			float: left;
-			position: relative;
-			border-radius: 2px;
-			overflow: hidden;
-			clear: both;
-		}
-		.cp-thumb img{
-			transition: all 0.3s ease-in-out;
-			width: 100%;
-			height: auto;
-			vertical-align: middle;
-			border: 0px;
-			border-image-source: initial;
-			border-image-slice: initial;
-			border-image-width: initial;
-			border-image-outset: initial;
-			border-image-repeat: initial;
-		}
-		.cp-post-content{
-			padding: 0px 20px 20px;
-			width: 100%;
-			float: left;
-			position: relative;
-			clear: both;
-		}
-		.cp-post-content h3{
-			margin: -6px 0px 0px;
-			color: rgb(34, 34, 34);
-			font: 500 20px/26px Roboto, sans-serif;
-			text-transform: uppercase;
-			padding: 0px;
-			-webkit-margin-before: 1em;
-			-webkit-margin-after: 1em;
-			-webkit-margin-start: 0px;
-			-webkit-margin-end: 0px;
-			text-align: -webkit-match-parent;
-		}
-		.cp-post-content h3 a{
-			transition: all 0.3s ease-in-out;
-			text-decoration: none;
-			color: rgb(34, 34, 34);
-			background-color: transparent;
-			cursor: auto;
-			font-weight: bold;
-		}
-		.cp-post-tools{
-			margin: 10px 0px 0px;
-			padding: 0px;
-			width: 100%;
-			clear: both;
-			-webkit-margin-before: 0px;
-			-webkit-margin-after: 0px;
-			list-style-type: circle;
-			-webkit-margin-start: 0px;
-			-webkit-margin-end: 0px;
-			-webkit-padding-start: 40px;
-		}
-		.cp-post-tools li{
-			display: inline-block;
-			margin-right: 14px;
-			color: rgb(136, 136, 136);
-			font-size: 14px;
-			line-height: 24px;
-		}
-		.mh20{
-			margin-top: 20px;
-		}
-		.col-md-12{
-			width: 100%;
-			float: left;
-			position: relative;
-			min-height: 1px;
-			padding-right: 15px;
-			padding-left: 15px;
-		}
-		.cp-fullwidth-news-post-excert{
-			width: 100%;
-			float: left;
-			border-bottom: 1px solid rgb(204, 204, 204);
-			margin-bottom: 20px;
-			position: relative;
-			clear: both;
-		}
-		.cp-fullwidth-news-post-excert p{
-			margin: 10px 0px 18px;
-			color: rgb(68, 68, 68);
-			-webkit-margin-before: 1em;
-			-webkit-margin-after: 1em;
-			-webkit-margin-start: 0px;
-			-webkit-margin-end: 0px;
-		}
-		.small-grid{
+.small-grid{
 			width: 100%;
 			float: left;
 			clear: both;
@@ -1088,7 +399,7 @@ ul{
 			-webkit-margin-before: 1em;
 			-webkit-margin-after: 1em;
 			-webkit-margin-start: 0px;
-			-webkit-margin-end: 0px;
+			-webkit-margin-end+: 0px;
 			margin: 0px;
 		}
 		.small-post{
@@ -1227,58 +538,117 @@ ul{
             text-transform: uppercase;
         }
 
-        .load-more {
-            width: 100%;
-            float: left;
-            margin-top: 20px;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .waves-effect {
-            position: relative;
-            cursor: pointer;
+        #type{
+             color: #337ab7;
             display: inline-block;
-            overflow: hidden;
-            -webkit-user-select: none;
-            background-color: #32aae1;
+            border: 1px solid #cccccc;
+            font: 500 13px/40px 'Roboto',sans-serif;
+            border-radius: 2px;
+            padding: 0 10px;
+            margin: 0 1px 5px 0;
+            text-decoration: none;
+            background-color: transparent;
+            text-transform: uppercase;
+            width: 100%;
         }
 
-.loadmore, .load {
-    width: 157px;
-    height: 41px;
-    text-align: center;
-    border-radius: 2px;
-    color: #FFF;
-    font: 400 15px/40px 'Roboto',sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,.23);
-    display: inline-block;
-}
+        #btn{
 
-@media screen and (max-width : 840px){
-	
-	li {
-		margin-bottom: 1px;
-	}
+            color: white;
+            display: inline-block;
+            border: none;
+            font: 500 13px/40px 'Roboto',sans-serif;
+            border-radius: 2px;
+            padding: 0 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            margin-left: 40%;
+            text-decoration: none;
+            background-color:#337ab7;
+            text-transform: uppercase;
+            text-align:center;
 
+        }
 
-	.nav2 ul li, .nav2 li a {
-		width: 100%;
-	}
+            #newsdiv{
+                width:80%;
+                height:auto;
+                margin: 30px auto 10px;
+                display:table-cell;
+    			vertical-align:top;
+    			padding-right:0px; 
+       }
 
-}
+            .newsblock{
+                width:45%;
+                height:auto;
+                border:none;
+                box-sizing:border-box;
+                box-shadow: 0 2px 4px rgba(0,0,0,.23);
+                margin:10px;
+				float:left;
+                display:table-cell;
+    			vertical-align:top;
+            }
+            .n-title{
+                width: 100%;
+                margin: 10px auto;
+                heigth: auto;
 
+                
+			}
+            .n-pub{
+                width: 100%;
+                margin: 10px auto;
+                heigth: auto;
+                color: rgb(136, 136, 136);
+                text-align: right;
+            }
+            .n-img{
+                height:250px;
+                width:100%;
+                background-image: url('../img/backgroung.png');
+                background-size: 100% 100%;
+            }
+            .n-fullstory{
+                height:auto;
+                font-size:20px;
+            }
+
+            .n-btn{
+                margin: 0;
+                padding: 0;
+
+            }
+
+            .n-a{
+                width: 100%;
+                margin: 10px auto;
+                heigth: auto;
+                text-decoration: none;
+                color:#222;
+                font-weight: 700;
+                text-align: left;
+
+                font: 500 20px/26px 'Roboto',sans-serif;
+                text-transform: uppercase;
+            }
+            .mh{
+                margin-left: 10px;
+                margin-right: 10px;
+            }
 
 </style>
+
+
+
+
+
 </head>
 
 
 
 <body>
-
 
 	<div class="nav1">
 
@@ -1288,22 +658,17 @@ ul{
 			<li><a href="../contact">Contact</a></li>
 		</ul>
 		<ul id="right">
-    		<li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-			<li><i class="fa fa-male-in fa-fw"></i>Welcome</li>
-	    </ul>
+			<li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+			<li><a><i class="fa fa-male-in fa-fw"></i>Welcome</a></li>
+		</ul>
 
 	</div>
 
 
     <div class="header">
-
-            <img src="../static/header.png" alt="logo">
-
-    <!--	<div id="heading">
-                <h1>MyDuniya</h1>
-        </div>
-        -->
+			<img src="../static/header.png" alt="logo">
     </div>
+
 
 
     <div class="nav2">
@@ -1323,7 +688,12 @@ ul{
     </div>
 
 
-    <div id="owl-example" class="owl-carousel">
+    <div class="banner">
+        <h1 id="heading"> </h1>
+    </div>
+
+
+ <div id="owl-example" class="owl-carousel">
       
 				<div class="item">
 						<div class="content1">	
@@ -1378,388 +748,28 @@ ul{
 						</div>
 
 				</div>
-			<!--	<div class="item">
-						<div class="content7">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
+</div>
 
-				</div>
 
-				<div class="item">
-						<div class="content8">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
 
-				</div>
-
-				<div class="item">
-						<div class="content9">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
-
-				</div>
-
-				<div class="item">
-						<div class="content10">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
-
-				</div>
-		
-				<div class="item">
-						<div class="content4">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
-
-				</div>
-
-				<div class="item">
-						<div class="content4">	
-							<img src="../static/fsimg4.jpg"/>
-							<h2>photography</h2>
-							<h1>Attractive Photography in openly</h1>
-						</div>
-
-				</div>
-		-->
+    <div class="clear">
     </div>
 
+    <div class="news">
+        <div id="newsdiv">
 
+        </div>
+    </div>
 
-        <div id="main-content">
-		<div id="container">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="cp-news-grid-style">
-								<div class="section-title blue-border">
-									<h2 id="title-1">recent</h2>
-									<small> </small>
-								</div>
-								<div class="row">
-									<ul class="grid">
-										<li class="col-md-6 col-sm-6">
-											<div class="cp-news-post-excert">
-												<div class="cp-thumb">
-													<a class="f-a1"href="">
-													    <img id="f-i1" src={{ url_for('static', filename = "" ) }} alt="" />
-												    </a>
-												</div>
-												<div class="cp-post-content">
-													<h3>
-														<a class="f-a1" id="f-t1" href=""> </a>
-													</h3>
-													<ul class="cp-post-tools">
-														<li id="f-d1"> </li>
-													</ul>
-												</div>
-											</div>
-										</li>
-										<li class="col-md-6 col-sm-6">
-											<div class="cp-news-post-excert">
-												<div class="cp-thumb">
-													<a class="f-a2" href="">
-													    <img id="f-i2" src={{ url_for('static', filename = "" ) }} alt="" />
-												    </a>
-												</div>
-												<div class="cp-post-content">
-													<h3>
-														<a class="f-a2" id="f-t2" href=""> </a>
-													</h3>
-													<ul class="cp-post-tools">
-														<li id="f-d2"> </li>
-													</ul>
-												</div>
-											</div>
-										</li>
-										<li class="col-md-6 col-sm-6">
-											<div class="cp-news-post-excert">
-												<div class="cp-thumb">
-												    <a class="f-a3" href="">
-													    <img id="f-i3" src={{ url_for('static', filename = "" ) }} alt="" />
-												    </a>
-												</div>
-												<div class="cp-post-content">
-													<h3>
-														<a class="f-a3" id="f-t3" href=""> </a>
-													</h3>
-													<ul class="cp-post-tools">
-														<li id="f-d3"> </li>
-													</ul>
-												</div>
-											</div>
-										</li>
-										<li class="col-md-6 col-sm-6">
-											<div class="cp-news-post-excert">
-												<div class="cp-thumb">
-												    <a class="f-a4" href="">
-													    <img id="f-i4" src={{ url_for('static', filename = "" ) }} alt="" />
-												    </a>
-												</div>
-												<div class="cp-post-content">
-													<h3>
-														<a class="f-a4" id="f-t4" href=""> </a>
-													</h3>
-													<ul class="cp-post-tools">
-														<li id="f-d4"> </li>
-													</ul>
-												</div>
-											</div>
-										</li>
-									</ul>
+    <div class="aside">
 
-									<div class="load-more">
-										<a href="/tagnews/top-news" class="loadmore waves-effect waves-button">Load More <i class=" fa fa-plus-circle fa-fw"></i></a>
-									</div>
-								</div>
-						</div>
-						<div class="cp-news-grid-style mh20">
-							<div class="section-title orange-border">
-									<h2 id="title-2">world</h2>
-									<small> </small>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="cp-fullwidth-news-post-excert">
-										<div class="cp-thumb">
-										    <a class="w-a1" href="">
-											    <img id="w-i1" src={{ url_for('static', filename = "" ) }} alt="" />
-										    </a>
-										</div>
-										<div class="cp-post-content">
-											<h3>
-												<a class="w-a1" id="w-t1"href=""> </a>
-											</h3>
-											<ul class="cp-post-tools">
-												<li id="w-d1"> </li>
-											</ul>
-											<p id="w-b1"> </p>
-										</div>
-									</div>
-								</div>
-								<ul class="small-grid">
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-                                                <a class="w-a2" href=" ">
-                                                    <img id="w-i2" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a2" id="w-t2" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d2"> </li>
-												</ul>
-
-											</div>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-                                                <a class="w-a3" href=" ">
-                                                    <img id="w-i3" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a3" id="w-t3" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d3"> </li>
-												</ul>
-											</div>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-												<a class="w-a4" href=" ">
-                                                    <img id="w-i4" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a4" id="w-t4" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d4"> </li>
-												</ul>
-											</div>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-												<a class="w-a5" href=" ">
-                                                    <img id="w-i5" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a5" id="w-t5" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d5"> </li>
-												</ul>
-											</div>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-												<a class="w-a6" href=" ">
-                                                    <img id="w-i6" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a6" id="w-t6" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d6"> </li>
-												</ul>
-											</div>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="small-post">
-											<div class="cp-thumb">
-												<a class="w-a7" href=" ">
-                                                    <img id="w-i7" src={{ url_for('static', filename = "" ) }} alt="" />
-                                                </a>
-											</div>
-											<div class="cp-post-content">
-												<h3>
-													<a class="w-a7" id="w-t7" href=" "> </a>
-												</h3>
-												<ul class="cp-post-tools">
-													<li id="w-d7"> </li>
-												</ul>
-
-											</div>
-
-										</div>
-									</li>
-								</ul>
-
-								<div class="load-more">
-										<a href="/tagnews/world" class="loadmore waves-effect waves-button">Load More <i class=" fa fa-plus-circle fa-fw"></i></a>
-									</div>
-							</div>
-						</div>
-						<div class="cp-news-grid-style mh20">
-							<div class="section-title pink-border">
-									<h2 id="title-2">india</h2>
-									<small> </small>
-							</div>
-							<div class="cp-news-list">
-								<ul class="row">
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-thumb">
-										    <a class="i-a1" href="">
-    											<img id="i-i1" src={{ url_for('static', filename = "" ) }} alt="" />
-										    </a>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-post-content">
-											<h3>
-												<a class="i-a1" id="i-t1" href=""> </a>
-											</h3>
-											<ul class="cp-post-tools">
-												<li id="i-d1"> </li>
-											</ul>
-											<p id="i-b1"> </p>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="cp-news-list">
-								<ul class="row">
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-thumb">
-										    <a class="i-a2" href="">
-    											<img id="i-i2" src={{ url_for('static', filename = "" ) }} alt="" />
-										    </a>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-post-content">
-											<h3>
-												<a class="i-a2" id="i-t2" href=""> </a>
-											</h3>
-											<ul class="cp-post-tools">
-												<li id="i-d2"> </li>
-											</ul>
-											<p id="i-b2"> </p>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="cp-news-list">
-								<ul class="row">
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-thumb">
-										    <a class="i-a3" href="">
-    											<img id="i-i3" src={{ url_for('static', filename = "" ) }} alt="" />
-										    </a>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-post-content">
-											<h3>
-												<a class="i-a3" id="i-t3" href=""> </a>
-											</h3>
-											<ul class="cp-post-tools">
-												<li id="i-d3"> </li>
-											</ul>
-											<p id="i-b3"> </p>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="cp-news-list">
-								<ul class="row">
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-thumb">
-										    <a class="i-a4" href="">
-    											<img id="i-i4" src={{ url_for('static', filename = "" ) }} alt="" />
-										    </a>
-										</div>
-									</li>
-									<li class="col-md-6 col-sm-6">
-										<div class="cp-post-content">
-											<h3>
-												<a class="i-a4" id="i-t4" href=""> </a>
-											</h3>
-											<ul class="cp-post-tools">
-												<li id="i-d4"> </li>
-											</ul>
-											<p id="i-b4"> </p>
-										</div>
-									</li>
-								</ul>
-
-								<div class="load-more">
-										<a href="/tagnews/india" class="loadmore waves-effect waves-button">Load More <i class=" fa fa-plus-circle fa-fw"></i></a>
-									</div>
-							</div>
-						</div>
-					</div>
-				    <div class="col-md-4">
-				        <div class="widget">
+			<div class="col-md-4">
+                <div class="searchwidget">
+                    <h3 class="side-title">SEARCH YOUR TAGS</h3>
+                    <input type="text" placeholder="Type Your Tag" id="type">
+                    <a href="#" class="button" id="btn">SEARCH</a>
+                </div>
+			    <div class="widget">
                             <h3 class="side-title">CATEGORIES</h3>
                             <div class="cp-side-widget">
                                 <a href="/tagnews/top-news">top news</a>
@@ -1794,7 +804,7 @@ ul{
                                 <a href="/tagnews/entertainment">entertainment</a>
                             </div>
                         </div>
-                        <div class="tweet">
+				        <div class="tweet">
 				            <h2 class="buzztitle">#LiveBuzz</h2>
                                 <div class="buzz">
                                     <h3 id="b-title">#BiharPolls</h3>
@@ -1924,10 +934,11 @@ ul{
                         </div>
                         -->
                     </div>
-				</div>
-		</div>
-	</div>
-</body>
 
+</div>
+
+
+
+</body>
 
 </html>

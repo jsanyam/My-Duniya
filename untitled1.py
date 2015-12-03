@@ -664,6 +664,9 @@ def recommended():
         nk_ids.append(nk.news_id)
     return jsonify({'news': nk_ids})
 
+@app.route('/preference')
+def preference():
+    return render_template("preference.html")
 
 if __name__ == '__main__':
     # we define the debug environment only if running through command
