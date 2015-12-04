@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main12.js" afterPath="$PROJECT_DIR$/static/js/main12.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +41,8 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28228784" vertical-offset="12512" max-vertical-offset="14943">
-              <caret line="745" column="24" selection-start-line="745" selection-start-column="24" selection-end-line="745" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.45756456" vertical-offset="12434" max-vertical-offset="14943">
+              <caret line="746" column="31" selection-start-line="746" selection-start-column="31" selection-end-line="746" selection-end-column="31" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
@@ -117,8 +117,8 @@
         <option value="$PROJECT_DIR$/templates/lifestyleout.html" />
         <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/templates/preferencetry.html" />
-        <option value="$PROJECT_DIR$/untitled1.py" />
         <option value="$PROJECT_DIR$/static/js/main12.js" />
+        <option value="$PROJECT_DIR$/untitled1.py" />
       </list>
     </option>
   </component>
@@ -1031,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28228784" vertical-offset="12512" max-vertical-offset="14943">
-          <caret line="745" column="24" selection-start-line="745" selection-start-column="24" selection-end-line="745" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.45756456" vertical-offset="12434" max-vertical-offset="14943">
+          <caret line="746" column="31" selection-start-line="746" selection-start-column="31" selection-end-line="746" selection-end-column="31" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
