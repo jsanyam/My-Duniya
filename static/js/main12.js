@@ -34,20 +34,17 @@ $(document).ready(function() {
                         //console.log(value[0]);
                     }
 
-                    for (j= 0; j<value.length; j++)
-                    {
-                        //var z=1;
-                        console.log(value[0]);
-                    for(k=1; k<value[j].length; k++)
+                    for (j= 0; j<6; j++)
                     {
 
-                            $(".content" + k + " " + "h1").text(value[j][k-1]['title']);
-                            $(".content" + k + " " + "h2").text(value[j][k-1]['category']);
-                            $(".content" + k + " " + "img").attr('src',value[j][k-1]['image']);
-                            $(".content" + k + " " + ".b1").attr('href','/tagnews/'+value[j][k-1]['category']);
-                            $("#a" + k).attr('href','/fullnews/'+value[j][k-1]['id']);
+
+                            $(".content" + k + " " + "h1").text(value[j][0]['title']);
+                            $(".content" + k + " " + "h2").text(value[j][0]['category']);
+                            $(".content" + k + " " + "img").attr('src',value[j][0]['image']);
+                            $(".content" + k + " " + ".b1").attr('href','/tagnews/'+value[j][0]['category']);
+                            $("#a" + k).attr('href','/fullnews/'+value[j][0]['id']);
                             console.log(value[j][k-1]['title']);
-                    }
+
                     }
 
 
