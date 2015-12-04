@@ -758,8 +758,10 @@ def tweet():
 def android_receive():
     if request.method == 'POST':
         array = request.get_json(force=True)
-        uid = User.query.filter_by(email=array['email']).first().id
-        for keyword in array['key']:
+        arr = json.loads(array)
+        print arr
+        uid = User.query.filter_by(email=arr['email']).first().id
+        for keyword in arr['key']:
             k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
                 uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)

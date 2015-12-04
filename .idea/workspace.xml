@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main12.js" afterPath="$PROJECT_DIR$/static/js/main12.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal.html" afterPath="$PROJECT_DIR$/templates/personal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -42,11 +42,21 @@
       <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27859777" vertical-offset="12735" max-vertical-offset="14841">
-              <caret line="758" column="32" selection-start-line="758" selection-start-column="32" selection-end-line="758" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.40405905" vertical-offset="12735" max-vertical-offset="14875">
+              <caret line="762" column="5" selection-start-line="762" selection-start-column="5" selection-end-line="762" selection-end-column="5" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="personal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/personal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.981818" vertical-offset="10075" max-vertical-offset="16915">
+              <caret line="612" column="12" selection-start-line="612" selection-start-column="12" selection-end-line="612" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,10 +167,10 @@
         <option value="$PROJECT_DIR$/templates/tweet.html" />
         <option value="$PROJECT_DIR$/static/js/main10.js" />
         <option value="$PROJECT_DIR$/templates/duniya.html" />
-        <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/templates/lifestyleout.html" />
         <option value="$PROJECT_DIR$/templates/fullnewsout.html" />
         <option value="$PROJECT_DIR$/static/js/main12.js" />
+        <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/untitled1.py" />
       </list>
     </option>
@@ -982,14 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93410856" vertical-offset="12098" max-vertical-offset="16932">
-          <caret line="740" column="12" selection-start-line="740" selection-start-column="12" selection-end-line="740" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/duniya.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4864341" vertical-offset="6685" max-vertical-offset="33337">
@@ -1048,10 +1050,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.981818" vertical-offset="10075" max-vertical-offset="16915">
+          <caret line="612" column="12" selection-start-line="612" selection-start-column="12" selection-end-line="612" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27859777" vertical-offset="12735" max-vertical-offset="14841">
-          <caret line="758" column="32" selection-start-line="758" selection-start-column="32" selection-end-line="758" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.40405905" vertical-offset="12735" max-vertical-offset="14875">
+          <caret line="762" column="5" selection-start-line="762" selection-start-column="5" selection-end-line="762" selection-end-column="5" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
