@@ -68,10 +68,6 @@ $(document).ready(function() {
                         storeArray[i++] = data['news'][prop];
                         //console.log(value[0]);
                     }
-                    console.log(storeArray[1][5])
-                     var x = storeArray[1][5];
-                     var x = x.split("-").join(" ");
-                     $("#heading").append("<div>" + x + "</div>");
 
                     //console.log("pahuche")
 
@@ -99,7 +95,7 @@ $(document).ready(function() {
                         $("#n-title" + z).attr('href','/full_news/'+storeArray[k][j]['id']);
 
                            console.log("kuch aaya");
-                           
+                            console.log(storeArray[k][j]['id'])
                         var y=storeArray[j+6][2];
                             z++;
 
