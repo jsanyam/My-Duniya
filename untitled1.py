@@ -758,7 +758,7 @@ def tweet():
 def android_receive():
     if request.method == 'POST':
         array = request.get_json(force=True)
-        arr = json.loads(array)
+        arr = json.dumps(array)
         print arr
         uid = User.query.filter_by(email=arr['email']).first().id
         for keyword in arr['key']:
