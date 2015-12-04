@@ -758,12 +758,14 @@ def android_receive():
     if request.method == 'POST':
         array = request.get_json(force=True)
         print array['email']
-        print array['key'].split(',')[0]
-        #arr = json.dumps(array)
-        #print arr['email']
-        #print arr['key']
+        arr = array['key'][1:-1]
+        list = arr.split(',')
+        # arr = json.dumps(array)
+        # print arr['email']
+        # print arr['key']
+        print list
         uid = (User.query.filter_by(email=array['email']).first()).id
-        # for keyword in arr['key']:
+        # for keyword in list:
         #     k = Keyword.query.filter_by(key_name=keyword).first()
         #     if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
         #         uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)
@@ -773,7 +775,7 @@ def android_receive():
         #         uk = UserKeyword.query.filter_by(key_id=k.id, user_key=uid).first()
         #         uk.priority += 0.5
         #         db.session.commit()
-        #
+
         return jsonify({'result': 'success'})
 
 
