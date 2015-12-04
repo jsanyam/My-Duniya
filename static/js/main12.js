@@ -34,6 +34,7 @@
                             $(".content" + k + " " + "img").attr('src',value[j][k-1]['image']);
                             $(".content" + k + " " + ".b1").attr('href','/tagnews/'+value[j][k-1]['category']);
                             $("#a" + k).attr('href','/fullnews/'+value[j][k-1]['category']);
+                        console.log(value[j][k-1]['title'])
                     }
                     }
 
