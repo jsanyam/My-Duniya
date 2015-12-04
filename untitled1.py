@@ -786,13 +786,13 @@ def receive_keywords():
 
         for keyword in fnlist:
             k = Keyword.query.filter_by(key_name=keyword).first()
-            if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
-                uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
+            if not UserKeyword.query.filter_by(key_id=k.key_id, user_id=current_user.id).count():
+                uk = UserKeyword(user_id=current_user.id, key_id=k.key_id, priority=0.5)
                 db.session.add(uk)
                 db.session.commit()
 
             else:
-                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk = UserKeyword.query.filter_by(key_id=k.key_id).first()
                 uk.priority += 0.5
                 db.session.commit()
 
