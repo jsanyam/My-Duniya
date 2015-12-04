@@ -746,7 +746,7 @@ def tweet():
    # return render_template('pref.html')
 
 
-@app.route('\android_receive', methods=['GET', 'POST'])
+@app.route('/android_receive', methods=['GET', 'POST'])
 def android_receive():
     if request.method == 'POST':
         # typo = request.form.get('save')
@@ -836,6 +836,14 @@ def newsClick(Id):
             uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == current_user.id).first()
             uk.priority += 0.1
             db.session.commit()
+
+
+@app.before_first_request
+def init_request():
+    db.create_all()
+
+db.create_all()
+#db.drop_all()
 
 
 if __name__ == '__main__':
