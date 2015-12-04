@@ -682,6 +682,7 @@ def recommended():
     else:
         id = current_user.id
     dict = {}
+    lists = []
     iter = 0
     keys = UserKeyword.query.filter_by(user_id=id).order_by(UserKeyword.priority.desc()).limit(50)
     for key in keys:
@@ -695,7 +696,9 @@ def recommended():
             for data in nk:
                 result = Article.query.filter_by(id=data.news_id).first()
                 news = article_schema.dump(result)
-                list.append(news.data)
+                if news.data not in lists:
+                    list.append(news.data)
+                    lists.append(news.data)
             dict["key1"] = list
         elif iter == 2:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(4)
@@ -707,7 +710,9 @@ def recommended():
             for data in nk:
                 result = Article.query.filter_by(id=data.news_id).first()
                 news = article_schema.dump(result)
-                list.append(news.data)
+                if news.data not in lists:
+                    list.append(news.data)
+                    lists.append(news.data)
             dict["key2"] = list
         elif iter == 3:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(3)
@@ -718,7 +723,9 @@ def recommended():
             for data in nk:
                 result = Article.query.filter_by(id=data.news_id).first()
                 news = article_schema.dump(result)
-                list.append(news.data)
+                if news.data not in lists:
+                    list.append(news.data)
+                    lists.append(news.data)
             dict["key3"] = list
         else:
             nk = NewsKeyword.query.filter_by(key_id=key.key_id).order_by(NewsKeyword.news_id.desc()).limit(2)
@@ -729,7 +736,9 @@ def recommended():
             for data in nk:
                 result = Article.query.filter_by(id=data.news_id).first()
                 news = article_schema.dump(result)
-                list.append(news.data)
+                if news.data not in lists:
+                    list.append(news.data)
+                    lists.append(news.data)
             dict["key"+str(iter)] = list
     return jsonify({'news': dict})
 
@@ -772,7 +781,7 @@ def android_receive():
                 db.session.add(uk)
                 db.session.commit()
             else:
-                uk = UserKeyword.query.filter_by(key_id=k.id, user_key=uid).first()
+                uk = UserKeyword.query.filter_by(key_id=k.id, user_id=uid).first()
                 uk.priority += 0.5
                 db.session.commit()
 
