@@ -757,9 +757,11 @@ def tweet():
 def android_receive():
     if request.method == 'POST':
         array = request.get_json(force=True)
-        print array
+        print array['email']
+        print array['key']
         arr = json.dumps(array)
-        print arr
+        print arr['email']
+        print arr['key']
         # uid = User.query.filter_by(email=arr[2]).first().id
         # for keyword in arr['key']:
         #     k = Keyword.query.filter_by(key_name=keyword).first()
@@ -778,8 +780,6 @@ def android_receive():
 @app.route('/receive_keywords', methods=['GET', 'POST'])
 def receive_keywords():
     if request.method == 'POST':
-        # typo = request.form.get('save')
-        # type = request.form.get('desc')
         user = User.query.filter_by(id=current_user.id).first()
         user.general += 1
         db.session.commit()
@@ -789,11 +789,7 @@ def receive_keywords():
         fnlist = []
         for l in list:
             fnlist.append(l[1:-1])
-        # print typo
-        # print type
-
         for keyword in fnlist:
-            #keyword = keyword.decode('utf-8')
             k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
                 uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
@@ -806,7 +802,6 @@ def receive_keywords():
                 db.session.commit()
 
         return render_template('personal.html')
-        #return jsonify({'result': 'success'})
 
 
 def entity_extract(Id, text, news):
