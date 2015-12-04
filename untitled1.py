@@ -742,9 +742,9 @@ def preference():
 
 @app.route('/search_tag', methods=['GET', 'POST'])
 def search_tag():
-    #if request.method == 'POST':
-    data = search_to_json('srk')#request.form.get('search'))
-    return jsonify({'searched': data})
+    if request.method == 'POST':
+        data = search_to_json(request.form.get('search'))
+        return jsonify({'searched': data})
 
 
 @app.route('/tweet')
