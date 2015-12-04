@@ -19,10 +19,10 @@ def search_to_json(search):
         title=bsObj.find("meta",attrs={"property":"og:title"})["content"]
         story=bsObj.find("span",attrs={"style":"text-align:left;"}).get_text()
         description=bsObj.find("meta",attrs={"name":"description"})["content"]
-        print title
-        print image
-        print description
-        print story
+        # print title
+        # print image
+        # print description
+        # print story
 
         list.append({"title": title, "image": image, "description": description, "story": story})
         # print "/n/n"

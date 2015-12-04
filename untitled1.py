@@ -5,7 +5,6 @@ from flask import Flask, jsonify, request, render_template, Session, session
 from flask.ext.sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
-
 from flask import g, flash, redirect, url_for
 from flask.ext.login import LoginManager, login_user, logout_user, login_required, current_user
 from flask.ext.bcrypt import check_password_hash
@@ -14,7 +13,6 @@ from flask.ext.bcrypt import generate_password_hash
 # from pip.utils import logging
 from oauth import OAuthSignIn
 import logging
-
 
 from flask.ext.login import UserMixin
 
@@ -27,8 +25,6 @@ import sys
 # from sqlalchemy.exc import IntegrityError
 # from psycopg2._psycopg import IntegrityError
 from sqlalchemy import ForeignKey
-
-import tweepy
 
 import urllib
 import json
@@ -55,8 +51,6 @@ app.config['OAUTH_CREDENTIALS'] = {
 }
 
 db = SQLAlchemy(app)
-#print os.environ['DATABASE_URL']
-json_response = {}
 
 
 login_manager = LoginManager()
@@ -72,6 +66,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100))
     password = db.Column(db.String(100))
     general = db.Column(db.Integer, default=1)
+
 
 class Article(db.Model):
     __tablename__ = 'articles'
@@ -91,6 +86,7 @@ class Article(db.Model):
     def __repr__(self):
         return u"%s" % self.title
 
+
 class Keyword(db.Model):
     __tablename__ = 'keywords'
 
@@ -102,6 +98,7 @@ class Keyword(db.Model):
 
     def __repr__(self):
         return u"%s" % self.key_name
+
 
 class UserKeyword(db.Model):
     __tablename__ = 'user_key'
@@ -117,6 +114,7 @@ class UserKeyword(db.Model):
 
     def __repr__(self):
         return u"%f" % self.priority
+
 
 class NewsKeyword(db.Model):
     __tablename__ = 'news_key'
@@ -227,6 +225,24 @@ def register():
     return render_template('duniyaregister.html', form=form)
 
 
+@app.route('/login', methods=("GET", "POST"))
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data, general=1)   #db.session.query(User).filter(User.email==form.email.data, User.general!=0)
+        if user.count() == 0:
+            flash("You haven't registered with us yet or registered with facebook")
+        else:
+            if check_password_hash(user.one().password, form.password.data):
+                login_user(user.one())
+                flash("You been logged in", "success")
+
+                return redirect(url_for('personal'))
+            else:
+                flash("Your email or password doesn't match", "error")
+    return render_template('duniyalogin.html', form=form)
+
+
 @app.route('/register_android', methods=('GET', 'POST'))
 def register_android():
     if request.method == "POST":
@@ -247,9 +263,7 @@ def register_android():
 @app.route('/login_android', methods=('GET', 'POST'))
 def login_android():
     if request.method == "POST":
-        #email = "" + request.form.get('email')
-        #pwd = "" + request.form.get('password')
-        user = User.query.filter_by(email=request.form.get('email'), general=1)
+        user = User.query.filter_by(email=request.form.get('email'), general=1) # db.session.query(User).filter(User.email==request.form.get('email), User.general!=0)
         if user.count() == 0:
             return jsonify({'validation': "You haven't registered with us yet or registered with facebook"})
         else:
@@ -257,52 +271,41 @@ def login_android():
                 return jsonify({'validation': "You have successfully logged in"})
             else:
                 return jsonify({'validation': "Your email or password doesn't match"})
-        #print email
-        #return jsonify({'validation': "true"})
 
-
-
-# change this
-@app.route('/')
-def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('personal'))
-    else:
-        return redirect(url_for('news'))
-        # return redirect(url_for('register'))
-
-@app.route("/personal")
-def personal():
-    if current_user.is_authenticated:
-        return render_template("personal.html")
-        # else:
-        #     return render_template("preference.html")
-
-@app.route('/login', methods=("GET", "POST"))
-def login():
-    print "page opened"
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data, general=1)
-        if user.count() == 0:
-            flash("You haven't registered with us yet or registered with facebook")
-        else:
-            if check_password_hash(user.one().password, form.password.data):
-                login_user(user.one())
-                flash("You been logged in", "success")
-
-                return redirect(url_for('personal'))
-            else:
-                flash("Your email or password doesn't match", "error")
-    return render_template('duniyalogin.html', form=form)
 
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash("You've been logged out","success")
-    #return 'logout successful'
     return redirect(url_for('news'))
+
+
+@app.route('/fb_android', methods=['GET', 'POST'])
+def fb_android():
+    if request.method == 'POST':
+        me = request.get_json(force=True)
+        user = User.query.filter_by(id=me['id']).first()
+        if not user:
+            user = User(id=me['id'], username=me['email'].split('@')[0], email=me['email'], general=0)#, friends=friends) #social_id=social_id,
+            db.session.add(user)
+            db.session.commit()
+            data = ""
+            for item in me['likes']['data']:
+                # print item
+                if 'about' not in item and 'description' not in item:
+                    data = data + item['name'] + " "
+                elif 'about' not in item:
+                    data = data + item['description'] + " "
+                elif 'description' not in item:
+                    data = data + item['about'] + " "
+                else:
+                    data = data + item['description'] + item['about'] + " "
+            entity_extract(me['id'], data, 0)
+
+            return jsonify({'result': 'successful'})
+
+        return jsonify({'result': 'success'})
 
 
 @app.route('/authorize/<provider>')
@@ -332,6 +335,24 @@ def oauth_callback(provider):
     return redirect(url_for('personal'))
 
 
+# change this
+@app.route('/')
+def index():
+    if current_user.is_authenticated:
+        return redirect(url_for('personal'))
+    else:
+        return redirect(url_for('news'))
+        # return redirect(url_for('register'))
+
+
+@app.route("/personal")
+def personal():
+    if current_user.is_authenticated:  # and (current_user.general == 0 or current_user.general == 2):
+        return render_template("personal.html")
+    #else:
+    #    return render_template("preference.html")  # pref.html
+
+
 @app.route('/contact')
 def contacts():
     if current_user.is_authenticated:
@@ -340,19 +361,15 @@ def contacts():
         return render_template("duniyacontact.html")
 
 
-#@login_required
 @app.route("/news", methods=["GET"])
 def news():
     if current_user.is_authenticated:
         return render_template("duniyaout.html")
     else:
         return render_template("duniya.html")
-# @app.route("/tagnews/")
-# def tag():
-#     return render_template("index.html")
 
 
-#template opening on clicking tiles
+# template opening on clicking tiles
 @app.route("/tagnews/<category>")
 def tag(category):
     if current_user.is_authenticated:
@@ -361,7 +378,6 @@ def tag(category):
         return render_template("lifestyle.html")
 
 
-#waste
 @app.route("/tags")
 def tags():
     if current_user.is_authenticated:
@@ -421,50 +437,34 @@ def senti(category):
                     else:
                         print 'neutral'
                         array[i] = 'neutral'
-        #lst.append(array)
 
     return jsonify({'sentiment': array})
 
-#REST implementing to return whole news or id wise news in json
+# REST implementing to return whole news or id wise news in json
 @app.route("/news.json/", methods=["GET", "POST"])
 @app.route("/news.json/<article_id>", methods=["GET"])
 def articles(article_id=None):
     if request.method == "GET":
         if article_id:
-
-            #if request.is_xhr:
-                article = Article.query.get(article_id)
-                if article is None:
-                    return jsonify({"msgs": ["the article you're looking for could not be found"]}), 404
-                result = article_schema.dump(article)
-                return jsonify({'article': result})
-            # else:
-            #     # if article is None:
-            #     # abort(404)
-            #
-            # return render_template('articles.html')
+            article = Article.query.get(article_id)
+            if article is None:
+                return jsonify({"msgs": ["the article you're looking for could not be found"]}), 404
+            result = article_schema.dump(article)
+            return jsonify({'article': result})
         else:
-                #if request.is_xhr:
                 queryset = Article.query.order_by(Article.id.desc()).limit(50)
                 # never return the whole set! As it would be very slow
                 result = articles_schema.dump(queryset)
-                #print result
                 # jsonify serializes our dict into a proper flask response
                 return jsonify({"articles": result.data})
-            # else:
-            #     return jsonify({"msgs:": ["no data"]}), 404
-            #     return render_template('articles.html')
 
     # elif request.method == "POST":# and request.is_xhr:
     #     #val1 = (request.get_json(force=True))
     #     #val1 = request.args.get('Name', 0, str)
-    #     val1 = "" + request.form.get('Name')
-    #     val2 = "" + request.form.get('Desc')
-    #     return jsonify({'name': val1, 'desc': val2})
     #     #return json.dumps({'status': 'OK', 'name': val1, 'desc': val1})
 
 
-#REST implementation to return news category wise
+# REST implementation to return news category wise
 @app.route('/<category>', methods=["GET"])
 def tagger(category):
     if request.method == 'GET':
@@ -476,7 +476,7 @@ def tagger(category):
         return jsonify({'tag': result.data})
 
 
-#news with id
+# news with id
 @app.route('/full_news/<id>')
 def full_news(id):
     if current_user.is_authenticated:
@@ -505,9 +505,8 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
     response_data = response.read()
     dict_result = json.loads(response_data)
     #print(json.dumps(json_result))
-    result_list = dict_result['d']['results']#[0]['Title']
-    #print result_list
-    return jsonify({'data':result_list})
+    result_list = dict_result['d']['results']
+    return jsonify({'data': result_list})
     #return response_data  #not a good view
 
 
@@ -583,21 +582,16 @@ def upload():
                     if not db.session.query(Article).filter(Article.title == save_title).count():
                         article_a = Article(title=save_title, full_story=save_full_story, image=save_image, category=save_category,
                         description=save_description, pubdate=save_date)
-                        # print "Hello"
                         db.session.add(article_a)
                         db.session.commit()
                         print article_a.id
 
-                except Exception as e:#psycopg2.IntegrityError:  # as ie:
-                    # print ie
+                except Exception as e:#psycopg2.IntegrityError:
                     print"Caught"
                     db.session.rollback()
-                    # break
-                    # continue
 
             except Exception as e:
                 print e
-                # continue
 
     return jsonify({"database": ["Updated Database version"]})
 
@@ -608,11 +602,15 @@ def trend_search():
     db.session.add(trend)
     db.session.commit()
 
+@app.route('/get_tweet')
+def trendin():
+    d={"hello":[1, 2, 3]}
+    #return json.dumps(d)
+    return jsonify({'d': d})
 
 @app.route('/get_tweets')
 def trending():
     trend = Trend.query.filter_by(id=1).first()
-    print trend.buzz
     d = json.loads(trend.buzz)
     return jsonify({'tweets': d})
 
@@ -642,42 +640,10 @@ def twitter_handle():
         return jsonify({'result': 'updated'})
 
 
-@app.route('/fb_android', methods=['GET', 'POST'])
-def fb_android():
-    if request.method == 'POST':
-        me = request.get_json(force=True)
-        user = User.query.filter_by(id=me['id']).first()
-        if not user:
-            user = User(id=me['id'], username=me['email'].split('@')[0], email=me['email'], general=0)#, friends=friends) #social_id=social_id,
-            db.session.add(user)
-            db.session.commit()
-            # print me
-            # print json.loads(me)
-            print "yes"
-            data = ""
-            for item in me['likes']['data']:
-                # print item
-                if 'about' not in item and 'description' not in item:
-                    data = data + item['name'] + " "
-                elif 'about' not in item:
-                    data = data + item['description'] + " "
-                elif 'description' not in item:
-                    data = data + item['about'] + " "
-                else:
-                    data = data + item['description'] + item['about'] + " "
-            # print data
-            entity_extract(me['id'], data, 0)
-
-            return jsonify({'result': 'successful'})
-        print "no"
-        return jsonify({'result': 'success'})
-
-
 @app.route('/keywords')
 def keywords():
-    keys = Keyword.query.order_by(Keyword.id).limit(500)
+    keys = Keyword.query.order_by(Keyword.id).limit(1000)
     result = keywords_schema.dump(keys)
-    # print result
     return jsonify({'keywords': result.data})
 
 
@@ -738,26 +704,49 @@ def recommended():
                 news = article_schema.dump(result)
                 list.append(news.data)
             dict["key"+str(iter)] = list
-    # nk_ids.append("key1")
     return jsonify({'news': dict})
 
-
+# farji
 @app.route('/preference')
 def preference():
     return render_template("preference.html")
 
-
 @app.route('/search_tag', methods=['GET', 'POST'])
 def search_tag():
-    #if request.method == 'POST':
-    list =[]
-    list = search_to_json('srk')#request.form.get('search'))
-    return jsonify({'searched', list})
+    if request.method == 'POST':
+        list =[]
+        list = search_to_json(request.form.get('search'))
+        return jsonify({'searched': list})
 
 
 @app.route('/tweet')
 def tweet():
     return render_template('tweet.html')
+   # return render_template('pref.html')
+
+
+@app.route('/receive_keywords', methods=['GET', 'POST'])
+def receive_keywords():
+    if request.method == 'POST':
+        typo = request.form.get('save')
+        type = request.form.get('desc')
+        array = request.form.get('json_str')    # list of keywords
+        print typo
+        print type
+        print array[0]
+        for keyword in array:
+            k = Keyword.query.filter_by(name=keyword).first()
+            if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
+                uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
+                db.session.add(uk)
+                db.session.commit()
+
+            else:
+                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk.priority += 0.5
+                db.session.commit()
+
+        return jsonify({'hello': 'hey'})
 
 
 def entity_extract(Id, text, news):

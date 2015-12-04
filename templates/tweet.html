@@ -31,19 +31,24 @@
                 success:function(data, textStatus, xhr) {
                     console.log(data);
 
-                    $.each(data['tweets'], function(i, el)
+                    for (var prop in data['tweets'])
                     {
-
-                        storeArray[i]=new Array(el[i].author_name, el[i].author_url, el[i].html, el[i].url);
-                        console.log(storeArray);
-                    });
-                    console.log(storeArray);
+                        var value = data['tweets'][prop];
+                        console.log(value);
+                    }
+{#                    $.each(data['tweets'], function(i, el)#}
+{#                    {#}
+{##}
+{#                        storeArray[i]=new Array(el.author_name, el.author_url, el.html, el.url);#}
+{#                        console.log(storeArray);#}
+{#                    });#}
+{#                    console.log(storeArray);#}
 {#                    console.log(storeArray[1][1]);#}
-                },
-                error: function(){
-                    alert("error loading news");
-                }
-            });
+{#                },#}
+{#                error: function(){#}
+{#                    alert("error loading news");#}
+{#                }#}
+{#            });#}
 
 
 });
