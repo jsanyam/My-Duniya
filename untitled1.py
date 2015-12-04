@@ -502,7 +502,7 @@ def on_click():
                 uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == uid).first()
                 uk.priority += 0.1
                 db.session.commit()
-
+        return jsonify({'result': 'success'})
 
 # BING search API
 @app.route('/<search_type>/<query>')
