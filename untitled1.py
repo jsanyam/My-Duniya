@@ -776,7 +776,10 @@ def receive_keywords():
         # typo = request.form.get('save')
         # type = request.form.get('desc')
         array = request.form.get('json_str')    # list of keywords
-        print array
+        str= array[1:-1]
+        list=str.split(',')
+        for l in list:
+            print l[1:-1]
         # print typo
         # print type
 
