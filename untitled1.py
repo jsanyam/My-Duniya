@@ -785,7 +785,7 @@ def receive_keywords():
         # print type
 
         for keyword in fnlist:
-            keyword = str(keyword)
+            keyword = keyword.decode('utf-8')
             k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
                 uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
