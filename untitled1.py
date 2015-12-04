@@ -779,7 +779,8 @@ def receive_keywords():
     if request.method == 'POST':
         # typo = request.form.get('save')
         # type = request.form.get('desc')
-        current_user.general += 1
+        current_user.general = 2
+        db.session.commit()
         array = request.form.get('json_str')    # list of keywords
         str = array[1:-1]
         list = str.split(',')
