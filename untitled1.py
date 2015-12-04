@@ -776,26 +776,25 @@ def receive_keywords():
         # typo = request.form.get('save')
         # type = request.form.get('desc')
         array = request.form.get('json_str')    # list of keywords
-        str= array[1:-1]
-        list=str.split(',')
+        str = array[1:-1]
+        list = str.split(',')
+        fnlist = []
         for l in list:
-            print l[1:-1]
+            fnlist.append(l[1:-1])
         # print typo
         # print type
 
+        for keyword in array:
+            k = Keyword.query.filter_by(key_name=keyword).first()
+            if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
+                uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
+                db.session.add(uk)
+                db.session.commit()
 
-
-        # for keyword in array:
-        #     k = Keyword.query.filter_by(key_name=keyword).first()
-        #     if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
-        #         uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
-        #         db.session.add(uk)
-        #         db.session.commit()
-        #
-        #     else:
-        #         uk = UserKeyword.query.filter_by(key_id=k.id).first()
-        #         uk.priority += 0.5
-        #         db.session.commit()
+            else:
+                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk.priority += 0.5
+                db.session.commit()
 
         return jsonify({'result': 'success'})
 
