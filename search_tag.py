@@ -11,7 +11,11 @@ def search_to_json(search):
     bsObj=BeautifulSoup(html,"html.parser")
     resultset=bsObj.findAll("div",attrs={"class":"catnewsbox"})
     list=[]
+    i=0
     for result in resultset:
+        i=i+1
+        if(i==7):
+            break
         url=result.find("a")["href"]
         html= urlopen(url)
         bsObj=BeautifulSoup(html,"html.parser")
@@ -24,10 +28,5 @@ def search_to_json(search):
         # print description
         # print story
 
-        list.append({"title": title, "image": image, "description": description, "story": story})
-        # print "/n/n"
+        list.append({"title":title,"image":image,"description":description,"story":story})
     return list
-    # return json.dumps(list)
-
-
-#print search_to_json("shah rukh khan")
