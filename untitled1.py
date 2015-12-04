@@ -774,12 +774,14 @@ def android_receive():
 
         return jsonify({'result': 'success'})
 
+
 @app.route('/receive_keywords', methods=['GET', 'POST'])
 def receive_keywords():
     if request.method == 'POST':
         # typo = request.form.get('save')
         # type = request.form.get('desc')
-        current_user.general = 2
+        user = User.query.filter_by(id=current_user.id).first()
+        user.general += 1
         db.session.commit()
         array = request.form.get('json_str')    # list of keywords
         str = array[1:-1]
@@ -803,7 +805,8 @@ def receive_keywords():
                 uk.priority += 0.5
                 db.session.commit()
 
-        return jsonify({'result': 'success'})
+        return render_template(url_for('personal'))
+        #return jsonify({'result': 'success'})
 
 
 def entity_extract(Id, text, news):
