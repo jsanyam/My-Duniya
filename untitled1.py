@@ -757,21 +757,16 @@ def tweet():
 @app.route('/android_receive', methods=['GET', 'POST'])
 def android_receive():
     if request.method == 'POST':
-        # typo = request.form.get('save')
-        # type = request.form.get('desc')
-        array = request.get_json(force=True)    # list of keywords
-        # print typo
-        # print type
-        print array[0]
-        for keyword in array:
+        array = request.get_json(force=True)
+        uid = User.query.filter_by(email=array['email']).first().id
+        for keyword in array['key']:
             k = Keyword.query.filter_by(key_name=keyword).first()
-            if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
-                uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
+            if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
+                uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)
                 db.session.add(uk)
                 db.session.commit()
-
             else:
-                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk = UserKeyword.query.filter_by(key_id=k.id, user_key=uid).first()
                 uk.priority += 0.5
                 db.session.commit()
 
@@ -800,7 +795,7 @@ def receive_keywords():
                 db.session.commit()
 
             else:
-                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk = UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).first()
                 uk.priority += 0.5
                 db.session.commit()
 

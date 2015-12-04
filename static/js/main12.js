@@ -73,7 +73,7 @@ $(document).ready(function() {
                     ipp=ipp-6;
                     console.log(ipp)
                       for(k=0;k<storeArray.length;k++){
-                       for(j=0;j<storeArray[k].length;j++){
+                       for(j=1;j<storeArray[k].length;j++){
                         //console.log(tlln)
                         $("<div />", { "class":"newsblock", id:"news"+z })
                          .append($("<a />", {  class:"n-a",id:"n-img-a"+z }))
