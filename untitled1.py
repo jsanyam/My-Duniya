@@ -775,8 +775,8 @@ def receive_keywords():
     if request.method == 'POST':
         # typo = request.form.get('save')
         # type = request.form.get('desc')
-        array = request.form.get('json_str')    # list of keywords
-        array[0]
+        array = request.get_json()    # list of keywords
+        print array
         # print typo
         # print type
 
