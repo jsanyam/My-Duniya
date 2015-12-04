@@ -128,7 +128,11 @@
             loadfullnews();
 
 
-
+            $("#search").hover(function(){
+                $(".dropdown").show(250,"swing");
+                }, function(){
+                $(".dropdown").css("display", "none");
+            });
         });
 
 

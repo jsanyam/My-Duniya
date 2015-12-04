@@ -14,6 +14,7 @@
 <script src="../static/js/main8.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 <script src="../static/js/owl.carousel.js"></script>
+<script src="../static/js/main10.js"></script>
 
 <style type="text/css">
 	
@@ -23,7 +24,7 @@ body{
 	margin:0px;
 	padding:0px;
 	font-family: 'Roboto',sans-serif;
-	font-size: 13.5px;
+	font-size: 12.5px;
 	line-height: 1.4285;
 
     }
@@ -47,11 +48,6 @@ body{
     text-transform: uppercase;
     color: #FFF;
 }
-
-
-
-
-
 
 .content1 h1{
 
@@ -230,12 +226,13 @@ body{
 
     #owl-example .item{
       margin:0px;
-      height:450px; 
+      height:404px;
     }
+
     #owl-example .item img{
       display: block;
       width: 100%;
-      height: 450px;
+      height: 404px;
     }
 
     h3{
@@ -263,6 +260,24 @@ body{
 	max-width: 100%;
 }
 
+.nav1 ul li a:hover {
+    color: #000000;
+}
+
+.nav2 ul li a:hover {
+    background-color: #0098B8;
+    color: #FFF;
+}
+
+.active {
+    background-color: #0099ff;
+	color: white;
+}
+
+.active2{
+    color: #222222;
+    background-color: #ffffff;
+}
 
 
 ul{
@@ -274,7 +289,7 @@ ul{
 
 .nav1 ul li {
 
-	//padding-top:1%;
+	padding-right:1%;
 	padding-left:1%;
 }
 .nav1 #left{
@@ -302,7 +317,7 @@ ul{
 	text-decoration: none;
 	color: white;
 	//font-weight:400;
-	line-height:50px;
+	line-height:40px;
 }	
 
 
@@ -342,7 +357,7 @@ ul{
 
 	text-decoration:none;
 	color:#222222;
-	line-height:50px; 
+	line-height:40px;
 	display: block;
 	font-size: 14px;
 	//padding: 10% 1%;
@@ -509,7 +524,7 @@ ul{
             margin-bottom: 40px;
         }
         .widget{
-            width: 100%;
+            width: 150%;
             float: left;
             clear: both;
             margin: 0px;
@@ -523,7 +538,7 @@ ul{
             color: #222222;
         }
         .cp-side-widget{
-            width: 148.3333%;
+            width: 100%;
         }
         .cp-side-widget a{
             color: #337ab7;
@@ -549,7 +564,7 @@ ul{
 
             .newsblock{
                 width:45%;
-                height:auto;
+                height:375px;
                 border:none;
                 box-sizing:border-box;
                 box-shadow: 0 2px 4px rgba(0,0,0,.23);
@@ -557,6 +572,7 @@ ul{
 				float:left;
                 display:table-cell;
     			vertical-align:top;
+    			padding: 10px;
             }
             .n-title{
                 width: 100%;
@@ -595,16 +611,58 @@ ul{
                 heigth: auto;
                 text-decoration: none;
                 color:#222;
-                font-weight: 700;
                 text-align: left;
-
-                font: 500 20px/26px 'Roboto',sans-serif;
+                font: 500 18px/26px 'Roboto',sans-serif;
                 text-transform: uppercase;
             }
             .mh{
                 margin-left: 10px;
                 margin-right: 10px;
             }
+    .dropdown{
+
+	position: absolute;
+	z-index: 999;
+	width:auto;
+	height:auto;
+	right: 50px;
+	display:none;
+	//background-color: #2888d2;
+    background-color: #FFFFCC;
+}
+
+#type{
+
+	//position: relative;
+	//right:258px;
+	width: 250px;
+	line-height: 45px;
+	//top:6px;
+	float: left;
+	padding:2px 2px;
+	margin: 5px 10px;
+}
+
+.button {
+	float: left;
+    border:none;
+    color:white;
+    padding: 0px 2px;
+    text-align:center;
+    text-decoration:none;
+    display: inline-block;
+    font-size:14px;
+    margin: 5px 5px;
+    cursor: pointer;
+    width: 100px;
+    background-color: #2888d2;
+}
+
+#btn{
+
+	color:white;
+    line-height: 3.5;
+}
 
 </style>
 
@@ -622,7 +680,6 @@ ul{
 
 		<ul id="left">
 			<li id="home"><a href="../news">Home</a></li>
-			<li><a href="../news">News</a></li>
 			<li><a href="../contact">Contact</a></li>
 		</ul>
 		<ul id="right">
@@ -643,16 +700,24 @@ ul{
     <div class="nav2">
         <ul>
             <li><a href="../news">HOME</a></li>
-            <li><a href="/tagnews/music">MUSIC</a></li>
-            <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
-            <li><a href="/tagnews/sports">SPORTS</a></li>
-            <li><a href="/tagnews/tech-reviews">TECH REVIEWS</a></li>
-            <li><a href="/tagnews/education">EDUCATION</a></li>
-            <li><a href="/tagnews/travel">TRAVEL</a></li>
-            <li><a href="/tagnews/business">BUSINESS</a></li>
-            <li><a href="/tags">CATEGORIES</a></li>
+            <li><a id="aaa1" href="/tagnews/music">MUSIC</a></li>
+            <li><a id="aaa2" href="/tagnews/lifestyle">LIFESTYLE</a></li>
+            <li><a id="aaa3" href="/tagnews/sports">SPORTS</a></li>
+            <li><a id="aaa4" href="/tagnews/tech-reviews">TECH REVIEWS</a></li>
+            <li><a id="aaa5" href="/tagnews/education">EDUCATION</a></li>
+            <li><a id="aaa6" href="/tagnews/travel">TRAVEL</a></li>
+            <li><a id="aaa7" href="/tagnews/business">BUSINESS</a></li>
+            <li><a id="aaa8" href="/tags">CATEGORIES</a></li>
             <li><a href="../contact">CONTACT</a></li>
-            <li id="search"><a href="#">SEARCH</a></li>
+            <li id="search"><a href="#"><i class="fa fa-search fa-fw"></i></a>
+				<div class="dropdown">
+					<form id="myform" method="post" action="false" role="form">
+						<input type="text" placeholder="Type Your Text" id="type">
+						<input type="hidden" name="name" value="value" />
+						<a onclick="document.getElementById('myform').submit();" href=" " class="button" id="btn">SEARCH</a>
+					</form>
+				</div>
+			</li>
         </ul>
     </div>
 
@@ -770,67 +835,24 @@ ul{
                         </div>
 				        <div class="tweet">
 				            <h2 class="buzztitle">#LiveBuzz</h2>
-                                <div class="buzz">
-                                    <h3 id="b-title">#BiharPolls</h3>
-
+                                <div class="buzz" >
+                                    <h3 id="b-title" id="bbbb1"> </h3>
+                                </div>
+                            <div class="buzz mh20" id="bbbb2">
                                     <script>
 
-                                        oembed = {
-                                            "provider_url": "https:\/\/twitter.com",
-                                            "url": "https:\/\/twitter.com\/htTweets\/statuses\/652181798848327680",
-                                            "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\"><a href=\"https:\/\/twitter.com\/hashtag\/BiharPolls?src=hash\">#BiharPolls<\/a> | Two surveys give majority to RJD-JD(U)-Cong alliance <a href=\"http:\/\/t.co\/xNMZiKn4iL\">http:\/\/t.co\/xNMZiKn4iL<\/a> <a href=\"http:\/\/t.co\/TTpw5prLXq\">pic.twitter.com\/TTpw5prLXq<\/a><\/p>&mdash; Hindustan Times (@htTweets) <a href=\"https:\/\/twitter.com\/htTweets\/status\/652181798848327680\">October 8, 2015<\/a><\/blockquote>\n<script async src=\"\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>",
-                                            "author_name": "Hindustan Times",
-                                            "height": null,
-                                            "width": 550,
-                                            "version": "1.0",
-                                            "author_url": "https:\/\/twitter.com\/htTweets",
-                                            "provider_name": "Twitter",
-                                            "cache_age": "3153600000",
-                                            "type": "rich"
-                                        }
-                                        document.write(oembed.html)
-                                        oembed = {
-                                              "provider_url": "https:\/\/twitter.com",
-                                              "url": "https:\/\/twitter.com\/ambkcsingh\/statuses\/652146643110768640",
-                                              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\"><a href=\"https:\/\/twitter.com\/hashtag\/BiharPolls?src=hash\">#BiharPolls<\/a> Analysts ignoring polls r post Bhagwat reservation remarks but pre <a href=\"https:\/\/twitter.com\/hashtag\/BeefBan?src=hash\">#BeefBan<\/a>. Will latter rescue BJP or exacerbate its slippage.<\/p>&mdash; K. C. Singh (@ambkcsingh) <a href=\"https:\/\/twitter.com\/ambkcsingh\/status\/652146643110768640\">October 8, 2015<\/a><\/blockquote>\n<script async src=\"\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>",
-                                              "author_name": "K. C. Singh",
-                                              "height": null,
-                                              "width": 550,
-                                              "version": "1.0",
-                                              "author_url": "https:\/\/twitter.com\/ambkcsingh",
-                                              "provider_name": "Twitter",
-                                              "cache_age": "3153600000",
-                                              "type": "rich"
-                                        }
-                                        document.write(oembed.html)
-                                        oembed = {
-                                              "provider_url": "https:\/\/twitter.com",
-                                              "url": "https:\/\/twitter.com\/ravibhajni\/statuses\/652192873203392513",
-                                              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"hi\" dir=\"ltr\"><a href=\"https:\/\/twitter.com\/hashtag\/BiharPolls?src=hash\">#BiharPolls<\/a> <a href=\"https:\/\/twitter.com\/hashtag\/BiharElections?src=hash\">#BiharElections<\/a> \u0915\u094d\u092f\u093e \u0938\u0930\u094d\u0935\u0947 \u090f\u091c\u0947\u0902\u0938\u093f\u092f\u093e\u0902 \u0905\u092a\u0928\u0947 \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u094b\u0902 \u0938\u0947 \u0905\u092a\u0928\u0947 \u0906\u0902\u0915\u095c\u094b\u0902 \u0915\u094b \u0938\u093e\u092c\u093f\u0924 \u0915\u0930 \u092a\u093e\u090f\u0902\u0917\u0940? \u0915\u094d\u0930\u0949\u0938-\u0935\u0948\u0930\u0940\u092b\u093e\u0908 \u0939\u0941\u0906 \u0924\u094b \u092a\u094b\u0932 \u0916\u0941\u0932 \u091c\u093e\u090f\u0917\u0940!!!<\/p>&mdash; Ravindra Bhajni (@ravibhajni) <a href=\"https:\/\/twitter.com\/ravibhajni\/status\/652192873203392513\">October 8, 2015<\/a><\/blockquote>\n<script async src=\"\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>",
-                                              "author_name": "Ravindra Bhajni",
-                                              "height": null,
-                                              "width": 550,
-                                              "version": "1.0",
-                                              "author_url": "https:\/\/twitter.com\/ravibhajni",
-                                              "provider_name": "Twitter",
-                                              "cache_age": "3153600000",
-                                              "type": "rich"
-                                        }
-                                        document.write(oembed.html)
-                                        oembed = {
-                                              "provider_url": "https:\/\/twitter.com",
-                                              "url": "https:\/\/twitter.com\/PrabhuPriyParth\/statuses\/652186754103971840",
-                                              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Even if people of Bihar for Mahagatbandhan, Lalu, Nitish and Congress will never be able to work together. (1\/2) <a href=\"https:\/\/twitter.com\/hashtag\/BiharPolls?src=hash\">#BiharPolls<\/a> <a href=\"https:\/\/twitter.com\/hashtag\/BJP?src=hash\">#BJP<\/a><\/p>&mdash; Parth Patani (@PrabhuPriyParth) <a href=\"https:\/\/twitter.com\/PrabhuPriyParth\/status\/652186754103971840\">October 8, 2015<\/a><\/blockquote>\n<script async src=\"\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"><\/script>",
-                                              "author_name": "Parth Patani",
-                                              "height": null,
-                                              "width": 550,
-                                              "version": "1.0",
-                                              "author_url": "https:\/\/twitter.com\/PrabhuPriyParth",
-                                              "provider_name": "Twitter",
-                                              "cache_age": "3153600000",
-                                              "type": "rich"
-                                        }
-                                        document.write(oembed.html)
+
+
+                                        </script>
+                                </div>
+                                        <div class="buzz mh20" id="bbbb3">
+                                            <script>
+
+                                        </script>
+                                </div>
+                                        <div class="buzz mh20" id="bbbb4">
+                                            <script>
+
 
                                     </script>
 

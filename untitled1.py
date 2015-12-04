@@ -742,7 +742,7 @@ def search_tag():
 
 @app.route('/tweet')
 def tweet():
-    return render_template('personal.html')
+    return render_template('tweet.html')
    # return render_template('pref.html')
 
 

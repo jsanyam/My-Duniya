@@ -37,6 +37,14 @@ body{
 	padding: 0px;
 
 }	
+.nav1 ul li a:hover {
+    color: #000000;
+}
+
+.nav2 ul li a:hover {
+    background-color: #0098B8;
+    color: #FFF;
+}
 
 .nav1{
 
@@ -46,7 +54,15 @@ body{
 	max-width: 100%;
 }
 
+#active {
+    background-color: #0099ff;
+	color: white;
+}
 
+#active2{
+    color: #222222;
+    background-color: #ffffff;
+}
 
 ul{
 	list-style-type: none;
@@ -57,7 +73,7 @@ ul{
 
 .nav1 ul li {
 
-	//padding-top:1%;
+	padding-right:1%;
 	padding-left:1%;
 }
 .nav1 #left{
@@ -85,7 +101,7 @@ ul{
 	text-decoration: none;
 	color: white;
 	//font-weight:400;
-	line-height:50px;
+	line-height:40px;
 }	
 
 
@@ -125,7 +141,7 @@ ul{
 
 	text-decoration:none;
 	color:#222222;
-	line-height:50px; 
+	line-height:40px;
 	display: block;
 	font-size: 14px;
 	//padding: 10% 1%;
@@ -205,7 +221,50 @@ ul{
 	margin: 0 auto;
 }
 
+.dropdown{
 
+	position: absolute;
+	z-index: 999;
+	width:auto;
+	height:auto;
+	right: 50px;
+	display:none;
+	//background-color: #2888d2;
+    background-color: #FFFFCC;
+}
+
+#type{
+
+	//position: relative;
+	//right:258px;
+	width: 250px;
+	line-height: 45px;
+	//top:6px;
+	float: left;
+	padding:2px 2px;
+	margin: 5px 10px;
+}
+
+.button {
+	float: left;
+    border:none;
+    color:white;
+    padding: 0px 2px;
+    text-align:center;
+    text-decoration:none;
+    display: inline-block;
+    font-size:14px;
+    margin: 5px 5px;
+    cursor: pointer;
+    width: 100px;
+    background-color: #2888d2;
+}
+
+#btn{
+
+	color:white;
+    line-height: 3.5;
+}
 
 #bt{
 	width:30%;
@@ -223,7 +282,6 @@ ul{
 
 		<ul id="left">
 			<li id="home"><a href="../news">Home</a></li>
-			<li><a href="../news">News</a></li>
 			<li><a href="../contact">Contact</a></li>
 		</ul>
 		<ul id="right">
@@ -255,7 +313,15 @@ ul{
             <li><a href="/tagnews/business">BUSINESS</a></li>
             <li><a href="/tags">CATEGORIES</a></li>
             <li><a href="../contact">CONTACT</a></li>
-            <li id="search"><a href="#">SEARCH</a></li>
+            <li id="search"><a href="#"><i class="fa fa-search fa-fw"></i></a>
+				<div class="dropdown">
+					<form id="myform" method="post" action="false" role="form">
+						<input type="text" placeholder="Type Your Text" id="type">
+						<input type="hidden" name="name" value="value" />
+						<a onclick="document.getElementById('myform').submit();" href=" " class="button" id="btn">SEARCH</a>
+					</form>
+				</div>
+			</li>
         </ul>
     </div>
 

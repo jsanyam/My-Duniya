@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../static/css/owl.theme.css">
 <link rel="stylesheet" href="../static/css/owl.carousel.css">
 <script src="../static/js/jquery-1.9.1.min.js"></script>
+<script src="../static/js/main10.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -658,6 +659,11 @@
 			}
 
 			});
+            $("#search").hover(function(){
+                $(".dropdown").show(250,"swing");
+                }, function(){
+                $(".dropdown").css("display", "none");
+            });
 		});
 
 
@@ -940,6 +946,24 @@ body{
 }
 
 
+#active {
+    background-color: #0099ff;
+	color: white;
+}
+
+#active2{
+    color: #222222;
+    background-color: #ffffff;
+}
+
+.nav1 ul li a:hover {
+    color: #000000;
+}
+
+.nav2 ul li a:hover {
+    background-color: #0098B8;
+    color: #FFF;
+}
 
 ul{
 	list-style-type: none;
@@ -950,7 +974,7 @@ ul{
 
 .nav1 ul li {
 
-	//padding-top:1%;
+	padding-right:1%;
 	padding-left:1%;
 }
 .nav1 #left{
@@ -978,7 +1002,7 @@ ul{
 	text-decoration: none;
 	color: white;
 	//font-weight:400;
-	line-height:50px;
+	line-height:40px;
 }	
 
 
@@ -1018,7 +1042,7 @@ ul{
 
 	text-decoration:none;
 	color:#222222;
-	line-height:50px; 
+	line-height:40px;
 	display: block;
 	font-size: 14px;
 	//padding: 10% 1%;
@@ -1028,7 +1052,50 @@ ul{
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 } 
 
+.dropdown{
 
+	position: absolute;
+	z-index: 999;
+	width:auto;
+	height:auto;
+	right: 50px;
+	display:none;
+	//background-color: #2888d2;
+    background-color: #FFFFCC;
+}
+
+#type{
+
+	//position: relative;
+	//right:258px;
+	width: 250px;
+	line-height: 45px;
+	//top:6px;
+	float: left;
+	padding:2px 2px;
+	margin: 5px 10px;
+}
+
+.button {
+	float: left;
+    border:none;
+    color:white;
+    padding: 0px 2px;
+    text-align:center;
+    text-decoration:none;
+    display: inline-block;
+    font-size:14px;
+    margin: 5px 5px;
+    cursor: pointer;
+    width: 100px;
+    background-color: #2888d2;
+}
+
+#btn{
+
+	color:white;
+    line-height: 3.5;
+}
 
 
 </style>
@@ -1087,7 +1154,7 @@ sports
 		</ul>
 		<ul id="right">
 			<li><a href="../logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-			<li><i class="fa fa-male-in fa-fw"></i>Welcome</li>
+			<li><i class="fa fa-male-in fa-fw"></i><a>Welcome</a></li>
 		</ul>
 
 	</div>
@@ -1110,12 +1177,20 @@ sports
             <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
             <li><a href="/tagnews/sports">SPORTS</a></li>
             <li><a href="/tagnews/tech-reviews">TECH REVIEWS</a></li>
-            <li><a href="/tagnews/education">EsDUCATION</a></li>
+            <li><a href="/tagnews/education">EDUCATION</a></li>
             <li><a href="/tagnews/travel">TRAVEL</a></li>
             <li><a href="/tagnews/business">BUSINESS</a></li>
-            <li><a href="/tags">CATEGORIES</a></li>
+            <li><a id="active" href="/tags">CATEGORIES</a></li>
             <li><a href="../contact">CONTACT</a></li>
-            <li id="search"><a href="#">SEARCH</a></li>
+            <li id="search"><a href="#"><i class="fa fa-search fa-fw"></i></a>
+				<div class="dropdown">
+					<form id="myform" method="post" action="false" role="form">
+						<input type="text" placeholder="Type Your Text" id="type">
+						<input type="hidden" name="name" value="value" />
+						<a onclick="document.getElementById('myform').submit();" href=" " class="button" id="btn">SEARCH</a>
+					</form>
+				</div>
+			</li>
         </ul>
     </div>
 
@@ -1351,7 +1426,7 @@ sports
 
 									<li class="col-md-4" id="m21">
 										<div class="cp-thumb">
-											<img class="hg1" src="../static/img/india.jpg"/> 
+											<img class="hg1" src="http://allindiaroundup.com/wp-content/uploads/2015/01/India-Flag_1.jpg"/>
 										</div>
 										<div class="catname" style="width:80px;"><a id="ms21" class=" btn-pink waves-effect" href="/tagnews/india">India</a>
 										</div>

@@ -57,6 +57,86 @@
 
                     });
 
+                    if(storeArray[0][1]=="lifestyle"){
+                        $("#aaa2").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa2").css("color","white");
+                        $("#aaa2").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        });
+                    }
+                    else if(storeArray[0][1]=="music"){
+                        $("#aaa1").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa1").css("color","white");
+                        $("#aaa1").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(storeArray[0][1]=="sports"){
+                        $("#aaa3").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa3").css("color","white");
+                        $("#aaa3").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(storeArray[0][1]=="tech-reviews"){
+                        $("#aaa4").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa4").css("color","white");
+                        $("#aaa4").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(storeArray[0][1]=="education"){
+                        $("#aaa5").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa5").css("color","white");
+                        $("#aaa5").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(storeArray[0][1]=="travel"){
+                        $("#aaa6").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa6").css("color","white");
+                        $("#aaa6").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(storeArray[0][1]=="business"){
+                        $("#aaa7").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa7").css("color","white");
+                        $("#aaa7").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else{
+                        $("#aaa8").addClass("active");
+                        console.log(storeArray[0][1]);
+                        $("#aaa8").css("color","white");
+                        $("#aaa8").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
                     	for(i=1;i<7;i++)
                     	{
                     		$(".content" + i + " " + "h1").text(storeArray[i-1][0]);
@@ -149,8 +229,8 @@
                 }
             });
 
-
-
+            var ipp=0;
+            console.log(ipp)
             $.ajax({
                 type: 'GET',
                 //url:"{{ url_for('.articles') }}",
@@ -160,15 +240,20 @@
                     $.each(data['tag'], function(i, el){
                         console.log(el.title);
                         storeArraynews[i]=new Array(el.title, el.description,el.image,el.pubdate,el.id, el.category);
+                        console.log(ipp)
+                       ipp++;
                     });
                     console.log(storeArraynews[1][5])
                      var x = storeArraynews[1][5];
                      var x = x.split("-").join(" ");
-                     $("#heading").append("<div>" + x + "</div>");-
+                     $("#heading").append("<div>" + x + "</div>");
+
                     //console.log("pahuche")
+
                     $("#newstitle").append("<div>" + storeArraynews[0][5] + "</div>");
-                    for(j=frmn;j<tlln;j++){
-                       // console.log(frmn)
+                    ipp=ipp-6;
+                    console.log(ipp)
+                       for(j=0;j<ipp;j++){
                         //console.log(tlln)
                         $("<div />", { "class":"newsblock", id:"news"+j })
                          .append($("<a />", {  class:"n-a",id:"n-img-a"+j }))
@@ -199,7 +284,6 @@
 
                     }
 
-
                     loading=false;
                     $(".loading").remove();
                 },
@@ -221,7 +305,11 @@
 
             loadnews();
 
-
+             $("#search").hover(function(){
+                $(".dropdown").show(250,"swing");
+                }, function(){
+                $(".dropdown").css("display", "none");
+            });
             $("#newstag").scroll(function(){
                 var curScroll = $(this)[0].scrollTop;
                 var maxScroll = $(this)[0].scrollHeight- $(this).height();

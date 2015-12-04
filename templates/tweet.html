@@ -30,13 +30,22 @@
                 url:"/get_tweets",
                 success:function(data, textStatus, xhr) {
                     console.log(data);
-
+                    var i = 0;
                     for (var prop in data['tweets'])
                     {
-                        value[i] = data['tweets'][prop];
-                        console.log(value[0]);
+                        console.log(prop);
+                        value[i++] = data['tweets'][prop];
+                        //console.log(value[0]);
                     }
-                    console.log(value[0]['author_url']);
+                    for (j= 0; j<value.length; j++)
+                    {
+                    for(k=0; k<value[j].length; k++)
+                    {
+                        if(k== 0 || k==3 || (k>4 && k<8))
+                            console.log(value[j][k]['author_name']);
+                    }
+                    }
+                    //console.log(value[0][0]['author_name']);
 
 {#                    $.each(data['tweets'], function(i, el)#}
 {#                    {#}
