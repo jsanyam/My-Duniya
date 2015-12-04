@@ -487,7 +487,7 @@ def full_news(id):
         return render_template("fullnews.html")
 
 
-@app.route('on_click', methods=['GET', 'POST'])
+@app.route('/on_click', methods=['GET', 'POST'])
 def on_click():
     if request.method == 'POST':
         user = User.query.filter_by(email=request.form.get('email')).first()
