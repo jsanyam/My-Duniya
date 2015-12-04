@@ -765,16 +765,16 @@ def android_receive():
         # print arr['key']
         print list
         uid = (User.query.filter_by(email=array['email']).first()).id
-        # for keyword in list:
-        #     k = Keyword.query.filter_by(key_name=keyword).first()
-        #     if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
-        #         uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)
-        #         db.session.add(uk)
-        #         db.session.commit()
-        #     else:
-        #         uk = UserKeyword.query.filter_by(key_id=k.id, user_key=uid).first()
-        #         uk.priority += 0.5
-        #         db.session.commit()
+        for keyword in list:
+            k = Keyword.query.filter_by(key_name=keyword).first()
+            if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
+                uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)
+                db.session.add(uk)
+                db.session.commit()
+            else:
+                uk = UserKeyword.query.filter_by(key_id=k.id, user_key=uid).first()
+                uk.priority += 0.5
+                db.session.commit()
 
         return jsonify({'result': 'success'})
 
