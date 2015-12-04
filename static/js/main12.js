@@ -12,7 +12,7 @@
 
      $.ajax({
                 type:'GET',
-                url:"/get_tweets",
+                url:"/recommended_news",
                 success:function(data, textStatus, xhr) {
                     console.log(data);
                     var i = 0;
