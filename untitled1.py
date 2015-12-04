@@ -742,7 +742,7 @@ def search_tag():
 
 @app.route('/tweet')
 def tweet():
-    return render_template('tweet.html')
+    return render_template('personal.html')
    # return render_template('pref.html')
 
 
@@ -751,7 +751,7 @@ def android_receive():
     if request.method == 'POST':
         # typo = request.form.get('save')
         # type = request.form.get('desc')
-        array = request.form.get('json_str')    # list of keywords
+        array = request.get_json(force=True)    # list of keywords
         # print typo
         # print type
         print array[0]

@@ -61,13 +61,20 @@ $(document).ready(function(){
        //     var i;
             var store=new Array();
              {
-                $('.cp-sidebar-content a').click(function () {
 
-                    store.push($(this).text());
+                    $(document).on('click','.cp-sidebar-content a',function(){
+
+                            store.push($(this).text());
                     $(this).css("border-color","#32aae1");
+                    })
+
+                //$('.cp-sidebar-content a').click(function () {
+
+                  //  store.push($(this).text());
+                    //$(this).css("border-color","#32aae1");
                     //console.log(store);
 
-                })
+                //})
 
 
             }

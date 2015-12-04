@@ -11,9 +11,49 @@
 <link rel="stylesheet" href="../static/css/owl.theme.css">
 <link rel="stylesheet" href="../static/css/owl.carousel.css">
 <script src="../static/js/jquery-1.9.1.min.js"></script>
-<script src="../static/js/main8.js"></script>
+<script src="../static/js/main10.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 <script src="../static/js/owl.carousel.js"></script>
+
+
+   <script>
+       $(document).ready(function() {
+    // body...
+
+
+
+     $('#btn2').click(function() {
+                        //var user = $('#txtUsername').val();
+                        //var pass = $('#txtPassword').val();
+                var $type2=$("#type2");
+                        $('#handle').css("display","none");
+
+
+                        $.ajax({
+                            url: '/lele',
+                            data: {account:$type2.val()},
+                            type: 'POST',
+                            success: function(response) {
+                              console.log(response);
+                              // console.log("happy now");
+                              //  console.log( JSON.stringify(store) );
+
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                        });
+                    });
+
+
+
+
+
+});
+
+
+   </script>
+
 
 <style type="text/css">
 	
@@ -230,12 +270,12 @@ body{
 
     #owl-example .item{
       margin:0px;
-      height:450px; 
+      height:400px;
     }
     #owl-example .item img{
       display: block;
       width: 100%;
-      height: 450px;
+      height: 400px;
     }
 
     h3{
@@ -302,7 +342,7 @@ ul{
 	text-decoration: none;
 	color: white;
 	//font-weight:400;
-	line-height:50px;
+	line-height:40px;
 }	
 
 
@@ -342,7 +382,7 @@ ul{
 
 	text-decoration:none;
 	color:#222222;
-	line-height:50px; 
+	line-height:40px;
 	display: block;
 	font-size: 14px;
 	//padding: 10% 1%;
@@ -552,7 +592,39 @@ ul{
             width: 100%;
         }
 
+        #type2{
+             color: #337ab7;
+            display: inline-block;
+            border: 1px solid #cccccc;
+            font: 500 13px/40px 'Roboto',sans-serif;
+            border-radius: 2px;
+            padding: 0 10px;
+            margin: 0 1px 5px 0;
+            text-decoration: none;
+            background-color: transparent;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
         #btn{
+
+            color: white;
+            display: inline-block;
+            border: none;
+            font: 500 13px/40px 'Roboto',sans-serif;
+            border-radius: 2px;
+            padding: 0 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            margin-left: 40%;
+            text-decoration: none;
+            background-color:#337ab7;
+            text-transform: uppercase;
+            text-align:center;
+
+        }
+
+         #btn2{
 
             color: white;
             display: inline-block;
@@ -769,6 +841,16 @@ ul{
                     <input type="text" placeholder="Type Your Tag" id="type">
                     <a href="#" class="button" id="btn">SEARCH</a>
                 </div>
+
+                 <div class="searchwidget" id="handle">
+                    <h3 class="side-title">Submit Your handle</h3>
+
+                   <form id="myform" method="post" action="false" role="form">
+                       <input type="text" placeholder="Type Your Tag" id="type2">
+                         <input type="hidden" name="name" value="value" />
+                          <a onclick="document.getElementById('myform').submit();" href=" "  id="btn2">DONE</a>
+                          </form>
+                 </div>
 			    <div class="widget">
                             <h3 class="side-title">CATEGORIES</h3>
                             <div class="cp-side-widget">

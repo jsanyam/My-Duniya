@@ -20,7 +20,7 @@
    $(document).ready(function() {
 
 
-        storeArray=new Array();
+        var value=new Array();
              var frm=0;
           var tll=3;
 
@@ -33,9 +33,11 @@
 
                     for (var prop in data['tweets'])
                     {
-                        var value = data['tweets'][prop];
+                        value[i] = data['tweets'][prop];
                         console.log(value[0]);
                     }
+                    console.log(value[0]['author_url']);
+
 {#                    $.each(data['tweets'], function(i, el)#}
 {#                    {#}
 {##}
