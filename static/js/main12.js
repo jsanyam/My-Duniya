@@ -34,16 +34,16 @@ $(document).ready(function() {
                         //console.log(value[0]);
                     }
 
-                    for (j= 0; j<6; j++)
+                    for (j= 1; j<6; j++)
                     {
 
 
-                            $(".content" + k + " " + "h1").text(value[j][0]['title']);
-                            $(".content" + k + " " + "h2").text(value[j][0]['category']);
-                            $(".content" + k + " " + "img").attr('src',value[j][0]['image']);
-                            $(".content" + k + " " + ".b1").attr('href','/tagnews/'+value[j][0]['category']);
-                            $("#a" + k).attr('href','/fullnews/'+value[j][0]['id']);
-                            console.log(value[j][k-1]['title']);
+                            $(".content" + j + " " + "h1").text(value[j-1][0]['title']);
+                            $(".content" + j + " " + "h2").text(value[j-1][0]['category']);
+                            $(".content" + j + " " + "img").attr('src',value[j-1][0]['image']);
+                            $(".content" + j + " " + ".b1").attr('href','/tagnews/'+value[j-1][0]['category']);
+                            $("#a" + j).attr('href','/fullnews/'+value[j-1][0]['id']);
+                            console.log(value[j-1][0]['title']);
 
                     }
 
