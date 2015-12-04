@@ -42,7 +42,7 @@ $(document).ready(function() {
                             $(".content" + j + " " + "h2").text(value[j-1][0]['category']);
                             $(".content" + j + " " + "img").attr('src',value[j-1][0]['image']);
                             $(".content" + j + " " + ".b1").attr('href','/tagnews/'+value[j-1][0]['category']);
-                            $("#a" + j).attr('href','/fullnews/'+value[j-1][0]['id']);
+                            $("#a" + j).attr('href','/full_news/'+value[j-1][0]['id']);
                             console.log(value[j-1][0]['title']);
 
                     }
