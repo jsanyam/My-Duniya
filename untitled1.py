@@ -230,7 +230,7 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data, general=1)   #db.session.query(User).filter(User.email==form.email.data, User.general!=0)
+        user = db.session.query(User).filter(User.email==form.email.data, User.general!=0) # User.query.filter_by(email=form.email.data, general=1)   #
         if user.count() == 0:
             flash("You haven't registered with us yet or registered with facebook")
         else:
@@ -264,7 +264,7 @@ def register_android():
 @app.route('/login_android', methods=('GET', 'POST'))
 def login_android():
     if request.method == "POST":
-        user = User.query.filter_by(email=request.form.get('email'), general=1) # db.session.query(User).filter(User.email==request.form.get('email), User.general!=0)
+        user = db.session.query(User).filter(User.email==request.form.get('email'), User.general!=0)  # User.query.filter_by(email=request.form.get('email'), general=1)
         if user.count() == 0:
             return jsonify({'validation': "You haven't registered with us yet or registered with facebook"})
         else:
@@ -348,10 +348,10 @@ def index():
 
 @app.route("/personal")
 def personal():
-    if current_user.is_authenticated:  # and (current_user.general == 0 or current_user.general == 2):
+    if current_user.is_authenticated and (current_user.general == 0 or current_user.general == 2):
         return render_template("personal.html")
-    #else:
-    #    return render_template("preference.html")  # pref.html
+    else:
+        return render_template("preferencetry.html")  # pref.html
 
 
 @app.route('/contact')
@@ -760,7 +760,7 @@ def android_receive():
         array = request.get_json(force=True)
         arr = json.dumps(array)
         print arr
-        uid = User.query.filter_by(email=arr['email']).first().id
+        uid = User.query.filter_by(email=arr[2]).first().id
         for keyword in arr['key']:
             k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
@@ -779,6 +779,7 @@ def receive_keywords():
     if request.method == 'POST':
         # typo = request.form.get('save')
         # type = request.form.get('desc')
+        current_user.general += 1
         array = request.form.get('json_str')    # list of keywords
         str = array[1:-1]
         list = str.split(',')
