@@ -638,6 +638,12 @@ def trending():
 def twitter_handle():
     if request.method == 'POST':
         print request.form.get('account')
+        email = request.form.get('email')
+        if email:
+            u = User.query.filter_by(email=email).first()
+            uid = u.id
+        else:
+            uid = current_user.id
         keys = get_keywords_twitter(request.form.get('account'))
         for key in keys:
             if not db.session.query(Keyword).filter(Keyword.key_name == key).count():
@@ -647,13 +653,13 @@ def twitter_handle():
             else:
                 keyword = Keyword.query.filter_by(key_name=key).first()
 
-            if not UserKeyword.query.filter_by(key_id=keyword.id, user_id=current_user.id).count():  #may not be needed
-                uk = UserKeyword(user_id=current_user.id, key_id=keyword.id, priority=1)
+            if not UserKeyword.query.filter_by(key_id=keyword.id, user_id=uid).count():  #may not be needed
+                uk = UserKeyword(user_id=uid, key_id=keyword.id, priority=1)
                 db.session.add(uk)
                 db.session.commit()
 
             else:
-                uk = UserKeyword.query.filter_by(key_id=keyword.id, user_id=current_user.id).first()
+                uk = UserKeyword.query.filter_by(key_id=keyword.id, user_id=uid).first()
                 uk.priority += 1
                 db.session.commit()
 
