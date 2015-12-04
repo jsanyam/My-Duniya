@@ -743,9 +743,8 @@ def preference():
 @app.route('/search_tag', methods=['GET', 'POST'])
 def search_tag():
     if request.method == 'POST':
-        list =[]
-        list = search_to_json(request.form.get('search'))
-        return jsonify({'searched': list})
+        data = search_to_json(request.form.get('search'))
+        return jsonify({'searched': data})
 
 
 @app.route('/tweet')
@@ -805,7 +804,7 @@ def receive_keywords():
                 uk.priority += 0.5
                 db.session.commit()
 
-        return render_template(url_for('personal'))
+        return render_template('personal.html')
         #return jsonify({'result': 'success'})
 
 
