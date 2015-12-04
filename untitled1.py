@@ -205,6 +205,7 @@ def user_loader(user_id):
         return user.one()
     return None
 
+
 @app.route('/register', methods=('GET', 'POST'))
 def register():
 
@@ -485,7 +486,25 @@ def full_news(id):
     else:
         return render_template("fullnews.html")
 
-#BING search API
+
+@app.route('on_click', methods=['GET', 'POST'])
+def on_click():
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form.get('email')).first()
+        uid = user.id
+        nk = NewsKeyword.query.filter_by(news_id=request.form.get('newsid')).all()
+        for row in nk:
+            if not db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == uid).count():
+                uk = UserKeyword(key_id=row.key_id, user_id=uid, priority=0.1)
+                db.session.add(uk)
+                db.session.commit()
+            else:
+                uk = db.session.query(UserKeyword).filter(UserKeyword.key_id == row.key_id, UserKeyword.user_id == uid).first()
+                uk.priority += 0.1
+                db.session.commit()
+
+
+# BING search API
 @app.route('/<search_type>/<query>')
 def bing_search(query, search_type = 'Web'):#(query, search_type):
     #search_type: Web, Image, News, Video
@@ -510,7 +529,7 @@ def bing_search(query, search_type = 'Web'):#(query, search_type):
     #return response_data  #not a good view
 
 
-#URL to update database
+# URL to update database
 @app.route("/update-db/", methods=["GET", "POST"])
 def upload():
     toi_rss={'http://timesofindia.indiatimes.com/rssfeedstopstories.cms': 'Top stories',
@@ -706,10 +725,12 @@ def recommended():
             dict["key"+str(iter)] = list
     return jsonify({'news': dict})
 
+
 # farji
 @app.route('/preference')
 def preference():
-    return render_template("preference.html")
+    return render_template("preferencetry.html")
+
 
 @app.route('/search_tag', methods=['GET', 'POST'])
 def search_tag():
@@ -725,14 +746,14 @@ def tweet():
    # return render_template('pref.html')
 
 
-@app.route('/receive_keywords', methods=['GET', 'POST'])
-def receive_keywords():
+@app.route('\android_receive', methods=['GET', 'POST'])
+def android_receive():
     if request.method == 'POST':
-        typo = request.form.get('save')
-        type = request.form.get('desc')
+        # typo = request.form.get('save')
+        # type = request.form.get('desc')
         array = request.form.get('json_str')    # list of keywords
-        print typo
-        print type
+        # print typo
+        # print type
         print array[0]
         for keyword in array:
             k = Keyword.query.filter_by(name=keyword).first()
@@ -746,7 +767,31 @@ def receive_keywords():
                 uk.priority += 0.5
                 db.session.commit()
 
-        return jsonify({'hello': 'hey'})
+        return jsonify({'result': 'success'})
+
+
+@app.route('/receive_keywords', methods=['GET', 'POST'])
+def receive_keywords():
+    if request.method == 'POST':
+        # typo = request.form.get('save')
+        # type = request.form.get('desc')
+        array = request.form.get('json_str')    # list of keywords
+        # print typo
+        # print type
+        print array[0]
+        for keyword in array:
+            k = Keyword.query.filter_by(name=keyword).first()
+            if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
+                uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
+                db.session.add(uk)
+                db.session.commit()
+
+            else:
+                uk = UserKeyword.query.filter_by(key_id=k.id).first()
+                uk.priority += 0.5
+                db.session.commit()
+
+        return jsonify({'result': 'success'})
 
 
 def entity_extract(Id, text, news):

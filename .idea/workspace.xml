@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/preference.css" afterPath="$PROJECT_DIR$/static/css/preference.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tweet.html" afterPath="$PROJECT_DIR$/templates/tweet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +22,7 @@
     <SUITE FILE_PATH="coverage/untitled1$update_tli.coverage" NAME="update_tli Coverage Results" MODIFIED="1448782638324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled1$dict_test.coverage" NAME="dict_test Coverage Results" MODIFIED="1449166552513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled1$search_tag.coverage" NAME="search_tag Coverage Results" MODIFIED="1449166662817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/untitled1$untitled1.coverage" NAME="untitled1 Coverage Results" MODIFIED="1449182313823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/untitled1$untitled1.coverage" NAME="untitled1 Coverage Results" MODIFIED="1449209214473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/untitled1$update_ht.coverage" NAME="update_ht Coverage Results" MODIFIED="1448948674274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled1$update_yourStory.coverage" NAME="update_yourStory Coverage Results" MODIFIED="1448782704188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/untitled1$update_techcrunch.coverage" NAME="update_techcrunch Coverage Results" MODIFIED="1448782744039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -38,11 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/untitled1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.62069" vertical-offset="12189" max-vertical-offset="13804">
-              <caret line="730" column="39" selection-start-line="730" selection-start-column="39" selection-end-line="730" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.8896104" vertical-offset="8362" max-vertical-offset="14569">
+              <caret line="508" column="66" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
@@ -54,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/dict_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-              <caret line="11" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="22" />
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -62,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tweet.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tweet.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/tweet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89506173" vertical-offset="441" max-vertical-offset="1275">
-              <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1275">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,7 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/basee.html" />
         <option value="$PROJECT_DIR$/static/main.js" />
         <option value="$PROJECT_DIR$/forms.py" />
         <option value="$PROJECT_DIR$/templates/news.html" />
@@ -139,8 +140,9 @@
         <option value="$PROJECT_DIR$/templates/pref.html" />
         <option value="$PROJECT_DIR$/search_tag.py" />
         <option value="$PROJECT_DIR$/dict_test.py" />
-        <option value="$PROJECT_DIR$/untitled1.py" />
         <option value="$PROJECT_DIR$/templates/tweet.html" />
+        <option value="$PROJECT_DIR$/templates/preferencetry.html" />
+        <option value="$PROJECT_DIR$/untitled1.py" />
       </list>
     </option>
   </component>
@@ -191,6 +193,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,13 +659,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
@@ -900,14 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oauth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1564">
-          <caret line="83" column="24" selection-start-line="80" selection-start-column="12" selection-end-line="83" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queries.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="459">
@@ -1014,10 +1015,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/oauth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04857143" vertical-offset="850" max-vertical-offset="1564">
+          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/preferencetry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.052469134" vertical-offset="765" max-vertical-offset="4777">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tweet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dict_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <caret line="11" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="22" />
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -1026,19 +1051,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.62069" vertical-offset="12189" max-vertical-offset="13804">
-          <caret line="730" column="39" selection-start-line="730" selection-start-column="39" selection-end-line="730" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.8896104" vertical-offset="8362" max-vertical-offset="14569">
+          <caret line="508" column="66" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tweet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89506173" vertical-offset="441" max-vertical-offset="1275">
-          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>

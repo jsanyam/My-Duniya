@@ -37,6 +37,7 @@ body{
     display: inline-block;
     font-size:14px;
     margin: 5px 5px;
+	
     cursor: pointer;
     width: 100px;
     background-color:#2888d2;
@@ -53,6 +54,7 @@ body{
 	float: left;
 	padding:2px 2px;
 	margin: 5px 10px;
+	margin-left:135px;
 }
 
 
@@ -162,7 +164,6 @@ ul{
     padding-left: 10px;
     border-left: 5px solid #32aae1;
     color: #222222;
-    float: left;
     width: 40%;
 }
 
@@ -175,9 +176,9 @@ ul{
 
 #btn
 {
-	width: 70px;
+	width: 130px;
 	height: 39px;
-	margin-left: 31px;
+	margin-left:120px;
 }
 
 .cp-sidebar-content a:hover {
@@ -202,33 +203,11 @@ ul{
     background-color: transparent;
 
 }
-#type2{
-
-    float:left;
-    display: inline-block;
-    line-height:36px;
-    margin: 0px 15px;
-}
-
-#btn2{
-
-    float:left;
-    color:#fff;
-     background-color:#2888d2;
-}
-
-.searchtag{
-
-
-    height:80px ;
-    margin-top: 20px;
-    margin-left: 122px;
-}
 
 
 .head{
 
-	height:100px;
+	height:170px;
 	//background-color: red;
 	overflow: hidden;
     margin-top: 20px;
