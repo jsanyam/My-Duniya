@@ -637,6 +637,7 @@ def trending():
 @app.route('/twitter_handle', methods=['GET', 'POST'])
 def twitter_handle():
     if request.method == 'POST':
+        print request.form.get('account')
         keys = get_keywords_twitter(request.form.get('account'))
         for key in keys:
             if not db.session.query(Keyword).filter(Keyword.key_name == key).count():
