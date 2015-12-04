@@ -37,7 +37,19 @@ $(document).ready(function() {
                     for (j= 1; j<6; j++)
                     {
 
-
+							
+                            if(value[j-1][0]['category']=="The Logical Indian"){
+                                    $(".content" + j + " " + "h2").css("width","170px");
+                            }
+                            if(value[j-1][0]['category']=="fashion-and-trends"){
+                                    $(".content" + j + " " + "h2").css("width","180px");
+                            }
+                            if(value[j-1][0]['category']=="sex-and-relationships"){
+                                    $(".content" + j + " " + "h2").css("width","210px");
+                            }
+                            if(value[j-1][0]['category']=="art-and-culture"){
+                                    $(".content" + j + " " + "h2").css("width","160px");
+                            }
                             $(".content" + j + " " + "h1").text(value[j-1][0]['title']);
                             $(".content" + j + " " + "h2").text(value[j-1][0]['category']);
                             $(".content" + j + " " + "img").attr('src',value[j-1][0]['image']);

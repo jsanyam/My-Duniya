@@ -46,6 +46,29 @@
                     });
 
 
+     $('#btn').click(function() {
+                        //var user = $('#txtUsername').val();
+                        //var pass = $('#txtPassword').val();
+                var $type=$("#type");
+                       // $('#handle').css("display","none");
+
+
+                        $.ajax({
+                            url: '/search_tag',
+                            data: {search:$type.val()},
+                            type: 'POST',
+                            success: function(response) {
+                              console.log(response);
+                               console.log("happy now");
+                              //  console.log( JSON.stringify(store) );
+
+                            },
+                            error: function(error) {
+                                console.log(error);
+                            }
+                        });
+                    });
+
 
 
 
@@ -664,7 +687,7 @@ ul{
 
             .newsblock{
                 width:45%;
-                height:auto;
+                height:375px;
                 border:none;
                 box-sizing:border-box;
                 box-shadow: 0 2px 4px rgba(0,0,0,.23);
@@ -847,8 +870,13 @@ ul{
 			<div class="col-md-4">
                 <div class="searchwidget">
                     <h3 class="side-title">SEARCH YOUR TAGS</h3>
-                    <input type="text" placeholder="Type Your Tag" id="type">
-                    <a href="#" class="button" id="btn">SEARCH</a>
+                    
+
+                    <form id="myform" method="post" action="false" role="form">
+                       <input type="text" placeholder="Type your Tag" id="type">
+                         <input type="hidden" name="searchtag" value="value" />
+                          <a onclick="document.getElementById('myform').submit();" href=" "  id="btn" class="button">DONE</a>
+                          </form>
                 </div>
 
                  <div class="searchwidget" id="handle">

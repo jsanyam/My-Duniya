@@ -81,6 +81,86 @@
                         $("#fn-img").css('background-image', 'url(' + data['article'][0].image + ')');
                         $("#heading").append("<div>" + x + "</div>");
                     }
+					if(data['article'][0].category=="lifestyle"){
+                        $("#aaa2").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa2").css("color","white");
+                        $("#aaa2").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        });
+                    }
+                    else if(data['article'][0].category=="music"){
+                        $("#aaa1").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa1").css("color","white");
+                        $("#aaa1").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(data['article'][0].category=="sports"){
+                        $("#aaa3").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa3").css("color","white");
+                        $("#aaa3").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(data['article'][0].category=="tech-reviews"){
+                        $("#aaa4").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa4").css("color","white");
+                        $("#aaa4").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(data['article'][0].category=="education"){
+                        $("#aaa5").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa5").css("color","white");
+                        $("#aaa5").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(data['article'][0].category=="travel"){
+                        $("#aaa6").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa6").css("color","white");
+                        $("#aaa6").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else if(data['article'][0].category=="business"){
+                        $("#aaa7").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa7").css("color","white");
+                        $("#aaa7").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
+                    else{
+                        $("#aaa8").addClass("active");
+                        console.log(data['article'][0].category);
+                        $("#aaa8").css("color","white");
+                        $("#aaa8").hover(function(){
+                            $(this).css("background-color","#0099ff");
+                            }, function(){
+                            $(this).css("background-color", "#0099ff");
+                        })
+                    }
                 },
                 error: function(){
                     alert("error loading news");
