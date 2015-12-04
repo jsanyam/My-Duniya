@@ -772,9 +772,11 @@ def android_receive():
         # arr = json.dumps(array)
         # print arr['email']
         # print arr['key']
-        print list
+        fnlist = []
+        for l in list:
+            fnlist.append(l[1:-1])
         uid = (User.query.filter_by(email=array['email']).first()).id
-        for keyword in list:
+        for keyword in fnlist:
             k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=uid).count():
                 uk = UserKeyword(user_id=uid, key_id=k.id, priority=0.5)
