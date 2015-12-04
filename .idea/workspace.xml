@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniya.html" afterPath="$PROJECT_DIR$/templates/duniya.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main12.js" afterPath="$PROJECT_DIR$/static/js/main12.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal.html" afterPath="$PROJECT_DIR$/templates/personal.html" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,8 +55,8 @@
       <file leaf-file-name="main10.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main10.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="935">
-              <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -83,8 +85,8 @@
       <file leaf-file-name="duniya.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/duniya.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.730769" vertical-offset="1219" max-vertical-offset="33320">
-              <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+            <state vertical-scroll-proportion="-4.5636363" vertical-offset="6685" max-vertical-offset="33337">
+              <caret line="408" column="5" selection-start-line="400" selection-start-column="3" selection-end-line="408" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -100,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personal.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="personal.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/personal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="16813">
-              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.90909094" vertical-offset="1649" max-vertical-offset="16966">
+              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -120,13 +122,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main12.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main12.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main12.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76513314" vertical-offset="381" max-vertical-offset="918">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#1364#1405#0" expanded="false" />
+                <element signature="e#1652#1693#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,7 +190,6 @@
         <option value="$PROJECT_DIR$/dict_test.py" />
         <option value="$PROJECT_DIR$/templates/preferencetry.html" />
         <option value="$PROJECT_DIR$/templates/duniya11.html" />
-        <option value="$PROJECT_DIR$/templates/duniya.html" />
         <option value="$PROJECT_DIR$/templates/usertag.html" />
         <option value="$PROJECT_DIR$/templates/usertagout.html" />
         <option value="$PROJECT_DIR$/templates/duniyaout.html" />
@@ -199,8 +200,9 @@
         <option value="$PROJECT_DIR$/templates/tweet.html" />
         <option value="$PROJECT_DIR$/untitled1.py" />
         <option value="$PROJECT_DIR$/static/js/main10.js" />
-        <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/static/js/main12.js" />
+        <option value="$PROJECT_DIR$/templates/duniya.html" />
+        <option value="$PROJECT_DIR$/templates/personal.html" />
       </list>
     </option>
   </component>
@@ -1102,14 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main10.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="935">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/lifestyle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="15895">
@@ -1118,29 +1112,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/duniya.html">
+    <entry file="file://$PROJECT_DIR$/static/js/main10.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.730769" vertical-offset="1219" max-vertical-offset="33320">
-          <caret line="82" column="35" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="16813">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/main12.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76513314" vertical-offset="381" max-vertical-offset="918">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1190">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1364#1405#0" expanded="false" />
+            <element signature="e#1652#1693#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/duniya.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5636363" vertical-offset="6685" max-vertical-offset="33337">
+          <caret line="408" column="5" selection-start-line="400" selection-start-column="3" selection-end-line="408" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.90909094" vertical-offset="1649" max-vertical-offset="16966">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

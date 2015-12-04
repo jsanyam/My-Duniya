@@ -42,6 +42,22 @@
 
 }
 });
+
+
+          $("#owl-example").owlCarousel({
+
+      autoPlay:3000,
+    //  navigation : true,
+    //  navigationText : ["prev","next"],
+          items:2,
+      itemsDesktop:[980,2],
+      //itemsDesktopSmall : [979,2]
+      itemsDesktopSmall :[950,1],
+
+      itemsTablet:[478,1],
+
+  });
+
 });
 
 
