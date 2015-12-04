@@ -504,6 +504,7 @@ def on_click():
                 db.session.commit()
         return jsonify({'result': 'success'})
 
+
 # BING search API
 @app.route('/<search_type>/<query>')
 def bing_search(query, search_type = 'Web'):#(query, search_type):
