@@ -756,7 +756,7 @@ def android_receive():
         # print type
         print array[0]
         for keyword in array:
-            k = Keyword.query.filter_by(name=keyword).first()
+            k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
                 uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
                 db.session.add(uk)
@@ -778,9 +778,9 @@ def receive_keywords():
         array = request.form.get('json_str')    # list of keywords
         # print typo
         # print type
-        print array[0]
+        print array
         for keyword in array:
-            k = Keyword.query.filter_by(name=keyword).first()
+            k = Keyword.query.filter_by(key_name=keyword).first()
             if not UserKeyword.query.filter_by(key_id=k.id, user_id=current_user.id).count():
                 uk = UserKeyword(user_id=current_user.id, key_id=k.id, priority=0.5)
                 db.session.add(uk)
