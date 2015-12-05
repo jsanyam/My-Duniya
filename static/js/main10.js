@@ -36,6 +36,7 @@ $(document).ready(function() {
 	});
 	$("#xz").click(function(){
 		if(x==1){
+			x=5;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -67,9 +68,9 @@ $(document).ready(function() {
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
-			x=5;
         }
 		else{
+			x--;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -101,12 +102,12 @@ $(document).ready(function() {
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
-			x--;
         }
 
 	});
-	$("#xz").click(function(){
+	$("#yz").click(function(){
 		if(x==5){
+			x=1;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -139,9 +140,9 @@ $(document).ready(function() {
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
-			x=1;
         }
 		else{
+			x++;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -173,7 +174,6 @@ $(document).ready(function() {
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
-			x++;
         }
 
 	});
