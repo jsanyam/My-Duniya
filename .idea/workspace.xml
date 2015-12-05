@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dab3680e-de2b-4a08-be9e-1b1b49819c07" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/untitled1.py" afterPath="$PROJECT_DIR$/untitled1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniya.html" afterPath="$PROJECT_DIR$/templates/duniya.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/duniyaout.html" afterPath="$PROJECT_DIR$/templates/duniyaout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/fullnews.html" afterPath="$PROJECT_DIR$/templates/fullnews.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/fullnewsout.html" afterPath="$PROJECT_DIR$/templates/fullnewsout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/lifestyle.html" afterPath="$PROJECT_DIR$/templates/lifestyle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/lifestyleout.html" afterPath="$PROJECT_DIR$/templates/lifestyleout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/main10.js" afterPath="$PROJECT_DIR$/static/js/main10.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/personal.html" afterPath="$PROJECT_DIR$/templates/personal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/usertag.html" afterPath="$PROJECT_DIR$/templates/usertag.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/usertagout.html" afterPath="$PROJECT_DIR$/templates/usertagout.html" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,23 +47,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="untitled1.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/untitled1.py">
+      <file leaf-file-name="fullnewsout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/fullnewsout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3413284" vertical-offset="11766" max-vertical-offset="13685">
-              <caret line="703" column="0" selection-start-line="703" selection-start-column="0" selection-end-line="703" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.0" vertical-offset="4418" max-vertical-offset="14875">
+              <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usertagout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/usertagout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.1272728" vertical-offset="23696" max-vertical-offset="25398">
+              <caret line="1404" column="43" selection-start-line="1404" selection-start-column="43" selection-end-line="1404" selection-end-column="43" />
               <folding>
-                <element signature="e#15#24#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#li#5;n#ul#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#1;n#Doctype#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twitter_trends.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/twitter_trends.py">
+      <file leaf-file-name="usertag.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/usertag.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="602" max-vertical-offset="3230">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.709091" vertical-offset="19890" max-vertical-offset="25364">
+              <caret line="1182" column="38" selection-start-line="1182" selection-start-column="38" selection-end-line="1182" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#li#5;n#ul#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#1;n#Doctype#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="personal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/personal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5" vertical-offset="1173" max-vertical-offset="18003">
+              <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fullnews.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/fullnews.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.763637" vertical-offset="436" max-vertical-offset="15912">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="duniya.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/duniya.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.763637" vertical-offset="6998" max-vertical-offset="34051">
+              <caret line="440" column="0" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="duniyaout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/duniyaout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.327273" vertical-offset="6494" max-vertical-offset="34034">
+              <caret line="396" column="0" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lifestyle.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/lifestyle.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.0" vertical-offset="355" max-vertical-offset="16507">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lifestyleout.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/lifestyleout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.153846" vertical-offset="14348" max-vertical-offset="15895">
+              <caret line="858" column="32" selection-start-line="858" selection-start-column="32" selection-end-line="858" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main10.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/main10.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9417808" vertical-offset="844" max-vertical-offset="2125">
+              <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -103,22 +194,22 @@
         <option value="$PROJECT_DIR$/templates/pref.html" />
         <option value="$PROJECT_DIR$/dict_test.py" />
         <option value="$PROJECT_DIR$/templates/duniya11.html" />
-        <option value="$PROJECT_DIR$/templates/usertag.html" />
-        <option value="$PROJECT_DIR$/templates/usertagout.html" />
         <option value="$PROJECT_DIR$/templates/tweet.html" />
-        <option value="$PROJECT_DIR$/static/js/main10.js" />
-        <option value="$PROJECT_DIR$/templates/duniya.html" />
-        <option value="$PROJECT_DIR$/templates/duniyaout.html" />
-        <option value="$PROJECT_DIR$/templates/fullnews.html" />
-        <option value="$PROJECT_DIR$/templates/fullnewsout.html" />
-        <option value="$PROJECT_DIR$/templates/lifestyle.html" />
-        <option value="$PROJECT_DIR$/templates/lifestyleout.html" />
-        <option value="$PROJECT_DIR$/templates/personal.html" />
         <option value="$PROJECT_DIR$/templates/preferencetry.html" />
         <option value="$PROJECT_DIR$/static/js/main12.js" />
         <option value="$PROJECT_DIR$/search_tag.py" />
         <option value="$PROJECT_DIR$/update_toi.py" />
         <option value="$PROJECT_DIR$/untitled1.py" />
+        <option value="$PROJECT_DIR$/templates/fullnewsout.html" />
+        <option value="$PROJECT_DIR$/templates/usertagout.html" />
+        <option value="$PROJECT_DIR$/templates/usertag.html" />
+        <option value="$PROJECT_DIR$/templates/lifestyleout.html" />
+        <option value="$PROJECT_DIR$/templates/duniya.html" />
+        <option value="$PROJECT_DIR$/templates/lifestyle.html" />
+        <option value="$PROJECT_DIR$/templates/fullnews.html" />
+        <option value="$PROJECT_DIR$/templates/duniyaout.html" />
+        <option value="$PROJECT_DIR$/templates/personal.html" />
+        <option value="$PROJECT_DIR$/static/js/main10.js" />
       </list>
     </option>
   </component>
@@ -169,6 +260,52 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -790,26 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/usertagout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="25398">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/duniya11.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.346154" vertical-offset="31938" max-vertical-offset="33473">
           <caret line="1893" column="38" selection-start-line="1872" selection-start-column="32" selection-end-line="1893" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/usertag.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="25364">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -830,62 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main10.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/duniyaout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1272728" vertical-offset="18103" max-vertical-offset="33456">
-          <caret line="1075" column="13" selection-start-line="1075" selection-start-column="8" selection-end-line="1075" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/duniya.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8181818" vertical-offset="18120" max-vertical-offset="33337">
-          <caret line="1075" column="9" selection-start-line="1075" selection-start-column="9" selection-end-line="1078" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fullnews.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537" vertical-offset="1615" max-vertical-offset="14858">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fullnewsout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769" vertical-offset="9571" max-vertical-offset="14875">
-          <caret line="584" column="9" selection-start-line="584" selection-start-column="9" selection-end-line="584" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lifestyle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.153847" vertical-offset="9999" max-vertical-offset="15946">
-          <caret line="619" column="9" selection-start-line="619" selection-start-column="9" selection-end-line="619" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lifestyleout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846" vertical-offset="10727" max-vertical-offset="15861">
-          <caret line="645" column="9" selection-start-line="645" selection-start-column="9" selection-end-line="645" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/preferencetry.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.884615" vertical-offset="4287" max-vertical-offset="4913">
@@ -898,14 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43432575" vertical-offset="1418" max-vertical-offset="2057">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03046595" vertical-offset="7616" max-vertical-offset="16949">
-          <caret line="449" column="13" selection-start-line="449" selection-start-column="13" selection-end-line="449" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -994,11 +1051,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/untitled1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3413284" vertical-offset="11766" max-vertical-offset="13685">
-          <caret line="703" column="0" selection-start-line="703" selection-start-column="0" selection-end-line="703" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.068966" vertical-offset="10287" max-vertical-offset="13685">
+          <caret line="624" column="30" selection-start-line="624" selection-start-column="30" selection-end-line="624" selection-end-column="30" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fullnewsout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.0" vertical-offset="4418" max-vertical-offset="14875">
+          <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/usertagout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1272728" vertical-offset="23696" max-vertical-offset="25398">
+          <caret line="1404" column="43" selection-start-line="1404" selection-start-column="43" selection-end-line="1404" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#li#5;n#ul#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#1;n#Doctype#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/usertag.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.709091" vertical-offset="19890" max-vertical-offset="25364">
+          <caret line="1182" column="38" selection-start-line="1182" selection-start-column="38" selection-end-line="1182" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#li#5;n#ul#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#1;n#Doctype#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lifestyleout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846" vertical-offset="14348" max-vertical-offset="15895">
+          <caret line="858" column="32" selection-start-line="858" selection-start-column="32" selection-end-line="858" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lifestyle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.0" vertical-offset="355" max-vertical-offset="16507">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fullnews.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.763637" vertical-offset="436" max-vertical-offset="15912">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/duniyaout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.327273" vertical-offset="6494" max-vertical-offset="34034">
+          <caret line="396" column="0" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/duniya.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.763637" vertical-offset="6998" max-vertical-offset="34051">
+          <caret line="440" column="0" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5" vertical-offset="1173" max-vertical-offset="18003">
+          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/main10.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9417808" vertical-offset="844" max-vertical-offset="2125">
+          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

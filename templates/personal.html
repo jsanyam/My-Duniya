@@ -79,7 +79,38 @@
 
 
 <style type="text/css">
-	
+
+			.xyz{
+			font-size: 19px;
+			font-family: 'Freight Sans Bold', 'Helvetica Neue', 'Segoe UI', 'Malgun Gothic', Meiryo, 'Microsoft JhengHei', helvetica, arial, sans-serif !important;
+			font-weight: bold !important;
+			text-rendering: optimizelegibility;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			min-width: 100px;
+			padding: 7px 20px;
+			text-align: center;
+			line-height: 126%;
+			background: linear-gradient(#67ae55, #578843);
+			background-color: #69a74e;
+			box-shadow: inset 0 1px 1px #a4e388;
+			border-color: #3b6e22 #3b6e22 #2c5115;
+			border: 1px solid;
+			border-radius: 5px;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			letter-spacing: 1px;
+			position: relative;
+			text-shadow: 0 1px 2px rgba(0,0,0,.5);
+			margin: 0;
+			word-spacing: normal;
+			text-transform: none;
+			text-indent: 0px;
+			font: 13.3333px Arial;
+			zoom: 1;
+		}
+
 
 body{
 
@@ -90,6 +121,15 @@ body{
 	line-height: 1.4285;
 
     }
+#active {
+    background-color: #0099ff;
+	color: white;
+}
+
+#active2{
+    color: #222222;
+    background-color: #ffffff;
+}
 
 
     .content1 h2 {
@@ -759,7 +799,7 @@ ul{
 	<div class="nav1">
 
 		<ul id="left">
-			<li id="home"><a href="../personal">Home</a></li>
+			<li id="home"><a id="active2" href="../personal">Home</a></li>
 			<li><a href="../news">News</a></li>
 			<li><a href="../contact">Contact</a></li>
 		</ul>
@@ -779,7 +819,7 @@ ul{
 
     <div class="nav2">
         <ul>
-            <li><a href="../personal">HOME</a></li>
+            <li><a id="active" href="../personal">HOME</a></li>
             <li><a href="/tagnews/music">MUSIC</a></li>
             <li><a href="/tagnews/lifestyle">LIFESTYLE</a></li>
             <li><a href="/tagnews/sports">SPORTS</a></li>
@@ -867,17 +907,6 @@ ul{
 
     <div class="aside">
 
-			<div class="col-md-4">
-                <div class="searchwidget">
-                    <h3 class="side-title">SEARCH YOUR TAGS</h3>
-                    
-
-                    <form id="myform" method="post" action="false" role="form">
-                       <input type="text" placeholder="Type your Tag" id="type">
-                         <input type="hidden" name="searchtag" value="value" />
-                          <a onclick="document.getElementById('myform').submit();" href=" "  id="btn" class="button">DONE</a>
-                          </form>
-                </div>
 
                  <div class="searchwidget" id="handle">
                     <h3 class="side-title">Submit Your handle</h3>
@@ -947,7 +976,12 @@ ul{
                                     </script>
 
                                 </div>
+				        <button class="xyz" id="xz"> prev </button>
+                    	<button class="xyz" id="yz"> next </button>
+
 				        </div>
+
+
 				        <!--
                         <div class="popular-post">
                             <h3 class="side-title">Popular Posts</h3>
