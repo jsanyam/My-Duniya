@@ -13,7 +13,7 @@ $(document).ready(function() {
 			for (var prop in data['tweets']){
 				value[i++] = data['tweets'][prop];
 				if(i==x){
-					$("#bbb1").html(prop+"("+i+")");
+					$("#bbb1").html(prop+"("+x+")");
 				}
 			}    
 						//for (j= 0; j<value.length; j++)
@@ -23,12 +23,12 @@ $(document).ready(function() {
 			console.log(value[0]);
 			for(k=0; k<value[j].length; k++) {
 				if (k == 0 || k == 3) {
-					$("#bbbb" + z).html(value[j][k]['html']);
+					$("#bbbb" + z).html(value[x][k]['html']);
 					z++;
 					console.log(z)
 				}
 				else if (k > 4 && k < 8) {
-					$("#bbbb" + z).html(value[j][k]['html']);
+					$("#bbbb" + z).html(value[x][k]['html']);
 					console.log(z)
 				}
 			}
@@ -36,7 +36,6 @@ $(document).ready(function() {
 	});
 	$("#xz").click(function(){
 		if(x==1){
-			x=5;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -55,22 +54,22 @@ $(document).ready(function() {
 				var j=0;
 				var z=2;
 				console.log(value[0]);
-				for(k=0; k<value[j].length; k++) {
+				for(k=0; k<value[x].length; k++) {
 					if (k == 0 || k == 3) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						z++;
 						console.log(z)
 					}
 					else if (k > 4 && k < 8) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						console.log(z)
 					}
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
+			x=5;
         }
 		else{
-			x--;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -89,25 +88,25 @@ $(document).ready(function() {
 				var j=0;
 				var z=2;
 				console.log(value[0]);
-				for(k=0; k<value[j].length; k++) {
+				for(k=0; k<value[x].length; k++) {
 					if (k == 0 || k == 3) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						z++;
 						console.log(z)
 					}
 					else if (k > 4 && k < 8) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						console.log(z)
 					}
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
+			x--;
         }
 
 	});
 	$("#xz").click(function(){
 		if(x==5){
-			x=1;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -125,23 +124,24 @@ $(document).ready(function() {
 							//{
 				var j=0;
 				var z=2;
+                var k;
 				console.log(value[0]);
-				for(k=0; k<value[j].length; k++) {
+				for(k=0; k<value[x].length; k++) {
 					if (k == 0 || k == 3) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						z++;
 						console.log(z)
 					}
 					else if (k > 4 && k < 8) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						console.log(z)
 					}
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
+			x=1;
         }
 		else{
-			x++;
 			$("#bbb1").html(x);
 		    $.ajax({
 			type:'GET',
@@ -160,19 +160,20 @@ $(document).ready(function() {
 				var j=0;
 				var z=2;
 				console.log(value[0]);
-				for(k=0; k<value[j].length; k++) {
+				for(k=0; k<value[x].length; k++) {
 					if (k == 0 || k == 3) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						z++;
 						console.log(z)
 					}
 					else if (k > 4 && k < 8) {
-						$("#bbbb" + z).html(value[j][k]['html']);
+						$("#bbbb" + z).html(value[x][k]['html']);
 						console.log(z)
 					}
 				}
 			}//console.log(value[0][0]['author_name']);
 		});
+			x++;
         }
 
 	});
