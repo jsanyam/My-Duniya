@@ -8,20 +8,20 @@ def get_json_tweets():
             import json
             from ttp import ttp
             import operator
-            consumer_key = 'orVBG7irMKWuPZVE3EjzVMHmF'
-            consumer_secret = 'iuujp0hKDAYNkK60C7FjxnAA7l5cn4z34lNyGiX686l2BvVtOA'
-            access_token = '986776236-0S9XqKSH5mtXq9oRxwpy4IbSM6sVnDP63ifbUEKu'
-            access_token_secret = 'JkWIrlvCgpomr1hIcntKFMQ1OiAcxuOGuIw3xCDZmJcIq'
+            consumer_key = ''
+            consumer_secret = ''
+            access_token = ''
+            access_token_secret = ''
 
             handle={}
             trend_setter={}
 
 
             def trend_search(hash_list):
-                consumer_key = 'orVBG7irMKWuPZVE3EjzVMHmF'
-                consumer_secret = 'iuujp0hKDAYNkK60C7FjxnAA7l5cn4z34lNyGiX686l2BvVtOA'
-                access_token = '986776236-0S9XqKSH5mtXq9oRxwpy4IbSM6sVnDP63ifbUEKu'
-                access_token_secret = 'JkWIrlvCgpomr1hIcntKFMQ1OiAcxuOGuIw3xCDZmJcIq'
+                consumer_key = ''
+                consumer_secret = ''
+                access_token = ''
+                access_token_secret = ''
                 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
                 auth.set_access_token(access_token, access_token_secret)
                 api = tweepy.API(auth)
