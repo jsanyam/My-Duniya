@@ -6,3 +6,5 @@ flask
 *.db
 esoteric.sqlite
 .idea
+twitter.py
+twitter_trends.py
